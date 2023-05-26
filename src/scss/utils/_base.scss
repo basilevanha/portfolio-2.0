@@ -1,0 +1,25 @@
+body {
+  width: 100%;
+  height: auto;
+  @include font(regular);
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+}
+
+button {
+cursor: pointer;
+
+  &[disabled] {
+    cursor: default;
+  }
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+  background-color: $color-grey-light;
+}
