@@ -5,8 +5,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { fr } from './translations/fr';
 import { en } from './translations/en';
 
-const fallbackLng = ['fr'];
-const availableLanguages = ['en', 'nl', 'fr'];
+const fallbackLng = ['en'];
+const availableLanguages = ['en', 'fr'];
 
 i18n
   .use(Backend) // load translations using http (default public/assets/locals/en/translations)
