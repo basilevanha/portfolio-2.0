@@ -11,6 +11,7 @@
     "@types/node": "^16.18.32",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
+    "classnames": "^2.3.2",
     "eslint": "^8.41.0",
     "framer-motion": "^10.12.16",
     "i18next": "^22.5.0",
@@ -30,7 +31,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sprite": "svg-sprite-generate -d src/assets/icons -o public/sprite.svg"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +55,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.7",
     "@typescript-eslint/parser": "^5.59.7",
-    "eslint-plugin-react": "^7.32.2"
+    "eslint-plugin-react": "^7.32.2",
+    "svg-sprite-generator": "^0.0.7"
   }
 }
