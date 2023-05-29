@@ -1,25 +1,4 @@
-@import "../../assets/fonts/font-face";
 
-
-// Map fonts
-// -----------------------------------------------------------------------------
-$font-weights: (
-  thin : 200,
-  light : 300,
-  regular : 400,
-  medium : 600,
-  bold : 700,
-  extra-bold : 800,
-  black : 900,
-);
-
-@mixin font($weight: inherit) {
-    font-family: "rounded1c";
-    font-weight: map-get($font-weights, $weight);
-}
-
-// Typeset
-// -----------------------------------------------------------------------------
 
 p {
     @include font(thin);

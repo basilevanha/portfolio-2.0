@@ -1,3 +1,20 @@
+// Map fonts
+// -----------------------------------------------------------------------------
+$font-weights: (
+  thin : 200,
+  light : 300,
+  regular : 400,
+  medium : 600,
+  bold : 700,
+  extra-bold : 800,
+  black : 900,
+);
+
+@mixin font($weight: inherit) {
+    font-family: "rounded1c";
+    font-weight: map-get($font-weights, $weight);
+}
+
 // Hide element only visually, but have it available for screen readers:
 // http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 .u-visually-hidden {
