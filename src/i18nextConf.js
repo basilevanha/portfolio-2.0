@@ -2,6 +2,8 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { fr } from './translations/fr';
+import { en } from './translations/en';
 
 const fallbackLng = ['fr'];
 const availableLanguages = ['en', 'nl', 'fr'];
@@ -21,13 +23,8 @@ i18n
       escapeValue: false, // no need for react. it escapes by default
     },
     resources: {
-      fr: {
-        translation: {
-          greeting: {
-            hello: "Salut les gars"
-          }
-        }
-      }
+      fr,
+      en,
     }
   });
 
