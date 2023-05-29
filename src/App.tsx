@@ -1,6 +1,8 @@
+import React from 'react'
 import { useEffect } from 'react';
 import './App.scss';
 import { useTranslation } from 'react-i18next';
+import Icon from './components/atoms/Icon';
 
 function App() {
 
@@ -16,6 +18,7 @@ function App() {
   return (
     <div className="app">
       <h2>{t('greeting.hello')}</h2>
+      <Icon name='logo' />
     </div>
   );
 }
