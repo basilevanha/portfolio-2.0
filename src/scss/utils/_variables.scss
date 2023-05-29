@@ -1,10 +1,30 @@
+// Animations
+// -----------------------------------------------------------------------------
+$timing-short: .2s;
+$animation-colors-short: background-color $timing-short ease-in-out, color $timing-short ease-in-out, fill $timing-short ease-in-out;
+$animation-translations-short: margin $timing-short ease-in-out, border-radius $timing-short ease-in-out;
+
+
 // Colors
 // -----------------------------------------------------------------------------
-$color-black: #000000;
-$color-white: #FFFFFF;
+$color-light-mode-primary: #FFFFFF;
+$color-light-mode-secondary: #000000;
+$color-light-mode-tertiary: #8F00FF;
 
-$color-pink: #8F00FF;
+$color-light-mode-bg: #EAEAEA;
 
-$color-grey-light: #EAEAEA;
-$color-grey-dark: #272727;
-$color-grey-darker: #1E1E1E;
+$color-light-mode-grey-dark: #272727;
+$color-light-mode-grey-darker: #1E1E1E;
+
+
+
+
+$color-dark-mode-primary: #272727;
+$color-dark-mode-secondary: #FFFFFF;
+$color-dark-mode-tertiary: #8F00FF;
+
+$color-dark-mode-bg: #1E1E1E;
+$color-dark-mode-bg-blur: rgba(255, 255, 255, 0.7);
+
+$color-dark-mode-grey-dark: #272727;
+$color-dark-mode-grey-darker: #1E1E1E;

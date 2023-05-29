@@ -1,4 +1,4 @@
-.dark-mode-toggle {
+.language-toggle {
     // width: 80px;
     display: flex;
     position: relative;
@@ -9,21 +9,17 @@
     backdrop-filter: blur(20px);
     border-radius: 10px;
 
-    &__icon {
+    &__lng {
+        @include font("extra-bold");
+        font-size: 18px;
+        z-index: 1;
         display: flex;
         flex: 1;
         justify-content: center;
-        z-index: 1;
+        transition: $animation-colors-short;
 
-        .icon {
-            width: 30px;
-            height: auto;
-            fill: $color-light-mode-secondary;
-            transition: $animation-colors-short;
-        }
-
-        .icon-sun {
-            fill: $color-light-mode-tertiary;
+        &.fr {
+            color: $color-light-mode-tertiary
         }
     }
 
@@ -39,13 +35,15 @@
         transition: $animation-translations-short;
     }
     
-    &.dark-mode {
-        .icon-sun {
-            fill: $color-dark-mode-primary;
-        }
+    &.is-active {
+        .language-toggle__lng {
+            &.fr {
+                color: $color-light-mode-secondary;
+            }
 
-        .icon-moon {
-            fill: $color-dark-mode-tertiary;
+            &.en {
+                color: $color-light-mode-tertiary;
+            }
         }
 
         &::before {

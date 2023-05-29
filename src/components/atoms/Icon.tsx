@@ -1,12 +1,22 @@
 import React from 'react';
+import cn from 'classnames';
 
 const Icon = ({
-    name
+    name,
+    alt
 }: {
-    name: string
+    name: string,
+    alt: string,
 }) => {
     return (
-        <svg className={"icon-" + name} width="100" height="100" viewBox="0 0 100 100">
+        <svg
+            className={cn('icon', { [`icon-${name}`]: true })}
+            width="100"
+            height="100"
+            viewBox="0 0 100 100"
+            aria-labelledby={alt}
+            role="graphics-symbol"
+        >
             <use href={'sprite.svg#' + name} />
         </svg>
     )

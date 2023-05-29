@@ -19,7 +19,15 @@ cursor: pointer;
 }
 
 .app {
+  text-align: center;
   height: 100%;
   width: 100%;
-  background-color: $color-grey-light;
+  background-color: $color-light-mode-bg;
+  color: $color-light-mode-secondary;
+  transition: $animation-colors-short;
+
+  &.dark-mode {
+    background-color: $color-dark-mode-bg;
+    color: $color-dark-mode-secondary;
+  }
 }

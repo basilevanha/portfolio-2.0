@@ -1,9 +1,19 @@
-import React from 'react'
-import { useEffect, useState } from 'react';
-import './App.scss';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+// Import styles
+import './App.scss';
+
+// Import Components
+import DarkModeToggle from './components/molecules/DarkModeToggle';
+import LanguageToggle from './components/molecules/LanguageToggle';
+
+// Import utils
+import cn from 'classnames';
+
 function App() {
+
+  // Dark Mode
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
@@ -17,6 +27,8 @@ function App() {
     }
   }, []);
 
+
+  // Translations
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -32,11 +44,12 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <h2>{t('greeting')}</h2>
-      <button style={{ display: 'flex', backgroundColor: 'grey', border: '1px solid black', margin: 10, padding: 5 }} onClick={toggleLanguage}>Toggle language</button>
-      <button style={{ display: 'flex', backgroundColor: 'grey', border: '1px solid black', margin: 10, padding: 5 }} onClick={toggleDarkMode}>Toggle Dark Mode</button>
-      <h2>Dark mode {darkMode ? 'ON' : 'OFF'}</h2>
+    <div className={cn('app', { 'dark-mode': darkMode })}>
+      <nav className='navigation'>
+        <DarkModeToggle onClick={toggleDarkMode} isDarkMode={darkMode} />
+        <LanguageToggle onClick={toggleLanguage} isDarkMode={darkMode} />
+      </nav>
+      <h1>{t('greeting')}</h1>
     </div>
   );
 }
