@@ -5,8 +5,7 @@ import { useTranslation } from 'react-i18next';
 import './App.scss';
 
 // Import Components
-import DarkModeToggle from './components/molecules/DarkModeToggle';
-import LanguageToggle from './components/molecules/LanguageToggle';
+import Projects from './components/organisms/Projects';
 
 // Import utils
 import cn from 'classnames';
@@ -59,8 +58,11 @@ function App() {
             opacity: 1
           }}
         >
-      <h1>{t('greeting')}</h1>
+          <h1>{t('greeting')}</h1>
         </motion.div>
+
+        <Projects isDarkMode={isDarkMode} />
+
         <footer>FOOTER</footer>
 
       </div>
