@@ -1,20 +1,43 @@
 import React from 'react';
+import { t } from 'i18next';
 import cn from 'classnames';
 
+export interface IconProps {
+    // Name is equal to the svg id in "src/assets/icons"
+    name: 'adobe'
+    | 'arrow-down'
+    | 'arrow-left'
+    | 'arrow-right'
+    | 'arrow-up'
+    | 'css'
+    | 'emakina'
+    | 'external-link'
+    | 'figma'
+    | 'html'
+    | 'javascript'
+    | 'language'
+    | 'laniche'
+    | 'logo'
+    | 'proximus'
+    | 'react'
+    | 'storybook'
+    | 'versett'
+    | 'wordpress'
+    | 'sun'
+    | 'moon'
+    | 'send',
+}
+
 const Icon = ({
-    name,
-    alt
-}: {
-    name: string,
-    alt: string,
-}) => {
+    name
+}: IconProps) => {
     return (
         <svg
             className={cn('icon', { [`icon-${name}`]: true })}
             width="100"
             height="100"
             viewBox="0 0 100 100"
-            aria-labelledby={alt}
+            aria-labelledby={`${t(`icon.${name}`)}`}
             role="graphics-symbol"
         >
             <use href={'sprite.svg#' + name} />

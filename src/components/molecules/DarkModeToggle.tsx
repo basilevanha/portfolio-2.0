@@ -21,10 +21,10 @@ function DarkModeToggle({
             aria-pressed={isDarkMode}
         >
             <span className='dark-mode-toggle__icon'>
-                <Icon name="sun" alt={t("lightMode")} />
+                <Icon name="sun" />
             </span>
             <span className='dark-mode-toggle__icon'>
-                <Icon name="moon" alt={t('darkMode')} />
+                <Icon name="moon" />
             </span>
         </button>
     );
