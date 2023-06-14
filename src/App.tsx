@@ -10,11 +10,13 @@ import LanguageToggle from './components/molecules/LanguageToggle';
 
 // Import utils
 import cn from 'classnames';
+import { motion } from 'framer-motion';
+import Header from './components/organisms/Header';
 
 function App() {
 
-  // Dark Mode
-  const [darkMode, setDarkMode] = useState(false);
+  // Dark Mode set up
+  const [isDarkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode(darkMode => !darkMode);
@@ -28,7 +30,7 @@ function App() {
   }, []);
 
 
-  // Translations
+  // Translations set up
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -44,12 +46,24 @@ function App() {
   };
 
   return (
-    <div className={cn('app', { 'dark-mode': darkMode })}>
-      <nav className='navigation'>
-        <DarkModeToggle onClick={toggleDarkMode} isDarkMode={darkMode} />
-        <LanguageToggle onClick={toggleLanguage} isDarkMode={darkMode} />
-      </nav>
+    <div className={cn('app', { 'dark-mode': isDarkMode })}>
+      <div className="wrapper">
+        <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} toggleLanguage={toggleLanguage} />
+        <motion.div
+          initial={{
+            y: -100,
+            opacity: 0
+          }}
+          animate={{
+            y: 0,
+            opacity: 1
+          }}
+        >
       <h1>{t('greeting')}</h1>
+        </motion.div>
+        <footer>FOOTER</footer>
+
+      </div>
     </div>
   );
 }

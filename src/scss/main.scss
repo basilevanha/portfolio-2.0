@@ -9,17 +9,20 @@
 
 // Atoms
 // -----------------------------------------------------------------------------
+@import './atoms/button';
+@import './atoms/image';
 
 
 
 // Molecules
 // -----------------------------------------------------------------------------
-@import './molecules/button';
 @import './molecules/dark-mode-toggle';
 @import './molecules/language-toggle';
+@import './molecules/project-card';
 
 
 
 // Organisms
 // -----------------------------------------------------------------------------
-@import './organisms/navigation';
+@import './organisms/header';
+@import './organisms/projects';

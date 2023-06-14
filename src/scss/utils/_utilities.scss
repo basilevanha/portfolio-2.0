@@ -15,6 +15,24 @@ $font-weights: (
     font-weight: map-get($font-weights, $weight);
 }
 
+
+
+// Breakpointss
+// -----------------------------------------------------------------------------
+$mq-breakpoints: (
+  xxs : 320px,
+  xs : 450px,
+  s : 600px,
+  m : 768px,
+  l : 980px,
+  xl : 1280px,
+  xxl : 1440px,
+);
+
+@mixin mq($breakpoint: inherit) {
+    @media (min-width: map-get($mq-breakpoints, $breakpoint)) { @content; }
+}
+
 // Hide element only visually, but have it available for screen readers:
 // http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 .u-visually-hidden {

@@ -1,0 +1,78 @@
+.button {
+    @include font('extra-bold');
+    display: inline-flex;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 3px solid;
+    transition: $animation-colors-short, $animation-translations-short;
+
+    &:focus,
+    &:focus-visible {
+        outline: solid 3px;
+        outline-color: $color-light-mode-focus;
+        outline-offset: 0;
+        text-decoration: none;
+    }
+
+    &:hover {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        transform: scale(1.05);
+        outline: none;
+    }
+
+    &:active,
+    &.pressed {
+        transform: scale(.9);
+    }
+
+    .icon {
+        width: 30px;
+        height: auto;
+        margin-left: 10px;
+    }
+    
+    &.button--primary {
+        color: $color-light-mode-primary;
+        fill: $color-light-mode-primary;
+        background-color: $color-light-mode-tertiary;
+        border-color: $color-light-mode-tertiary;
+    }
+    
+    &.button--secondary {
+        color: $color-light-mode-tertiary;
+        fill: $color-light-mode-tertiary;
+        background-color: $color-transparent;
+        border-color: $color-light-mode-tertiary;
+    }
+
+    &.button--only-icon {
+        background-color: rgba($color-light-mode-primary, .7);
+        border-color: transparent;
+        padding: 0;
+        
+        &:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        &:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        .icon {
+            margin: 0;
+        }
+    }
+
+    &.dark-mode {
+        &.button--secondary {
+            color: $color-dark-mode-secondary;
+            fill: $color-dark-mode-secondary;
+            background-color: $color-transparent;
+            border-color: $color-dark-mode-secondary;
+        }
+    }
+}

@@ -1,12 +1,26 @@
 // Animations
 // -----------------------------------------------------------------------------
 $timing-short: .2s;
-$animation-colors-short: background-color $timing-short ease-in-out, color $timing-short ease-in-out, fill $timing-short ease-in-out;
-$animation-translations-short: margin $timing-short ease-in-out, border-radius $timing-short ease-in-out;
+$animation-colors-short:
+    background-color $timing-short ease-in-out,
+    color $timing-short ease-in-out,
+    fill $timing-short ease-in-out,
+    border-color $timing-short ease-in-out,
+    box-shadow $timing-short ease-in-out
+;
+$animation-translations-short:
+    margin $timing-short ease-in-out,
+    padding $timing-short ease-in-out,
+    border-radius $timing-short ease-in-out,
+    transform $timing-short ease-in-out
+;
 
 
 // Colors
 // -----------------------------------------------------------------------------
+$color-transparent: rgba(0, 0, 0, 0);
+
+
 $color-light-mode-primary: #FFFFFF;
 $color-light-mode-secondary: #000000;
 $color-light-mode-tertiary: #8F00FF;
@@ -16,7 +30,7 @@ $color-light-mode-bg: #EAEAEA;
 $color-light-mode-grey-dark: #272727;
 $color-light-mode-grey-darker: #1E1E1E;
 
-
+$color-light-mode-focus: #e2c012;
 
 
 $color-dark-mode-primary: #272727;

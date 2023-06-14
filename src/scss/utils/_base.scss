@@ -4,12 +4,6 @@ body {
   @include font(regular);
 }
 
-#root {
-  height: 100vh;
-  width: 100vw;
-  overflow: auto;
-}
-
 button {
 cursor: pointer;
 
@@ -19,9 +13,9 @@ cursor: pointer;
 }
 
 .app {
+  display: flex;
+  justify-content: center;
   text-align: center;
-  height: 100%;
-  width: 100%;
   background-color: $color-light-mode-bg;
   color: $color-light-mode-secondary;
   transition: $animation-colors-short;
@@ -29,5 +23,16 @@ cursor: pointer;
   &.dark-mode {
     background-color: $color-dark-mode-bg;
     color: $color-dark-mode-secondary;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  padding: 30px;
+  transition: $animation-translations-short;
+  
+ @include mq(l) {
+    max-width: 1440px;
+    padding: 40px 80px;
   }
 }
