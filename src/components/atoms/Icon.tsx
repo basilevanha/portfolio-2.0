@@ -2,9 +2,8 @@ import React from 'react';
 import { t } from 'i18next';
 import cn from 'classnames';
 
-export interface IconProps {
-    // Name is equal to the svg id in "src/assets/icons"
-    name: 'adobe'
+// Name is equal to the svg id in "src/assets/icons"
+export type IconName = 'adobe'
     | 'arrow-down'
     | 'arrow-left'
     | 'arrow-right'
@@ -25,7 +24,12 @@ export interface IconProps {
     | 'wordpress'
     | 'sun'
     | 'moon'
-    | 'send',
+    | 'send'
+    | 'play'
+    | 'pause';
+
+interface IconProps {
+    name: IconName
 }
 
 const Icon = ({

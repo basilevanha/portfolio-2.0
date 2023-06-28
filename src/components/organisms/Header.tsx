@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 
 // Import utils
-import { AnimatePresence, motion, useCycle } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { t } from "i18next";
+import cn from "classnames";
 
 // Import components
-import Icon from "../atoms/Icon";
+import Image from "../atoms/Image";
 import Button from "../atoms/Button";
 import DarkModeToggle from "../molecules/DarkModeToggle";
 import LanguageToggle from "../molecules/LanguageToggle";
+import MorphIcon from "../molecules/MorphIcon";
+
+// Import content
+import { subTitles } from '../../content/subTitles';
 
 // Import images
 import profilePicture from '../../assets/images/hero/basile-vannhaverbeke.png';
-import cofeePicture from '../../assets/images/hero/cofee.jpg';
-import designerPicture from '../../assets/images/hero/designer.jpg';
-import dronePicture from '../../assets/images/hero/drone.jpg';
-import outdoorCodingPicture from '../../assets/images/hero/perfectionnist.jpg';
-import classNames from "classnames";
 
 function Header({
     isDarkMode,
@@ -28,75 +28,63 @@ function Header({
     toggleLanguage: () => void,
 }) {
 
-    const [currentSubtitleIndex, setCurrentubtitleIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-    const [currentDirection, setCurrentDirection] = useState('up');
+    const [isDirectionForward, setIsDirectionForwards] = useState(true);
+    const [watchButtonClicked, setWatchButtonClicked] = useState(false);
+    const [isAnimationPaused, setIsAnimationPaused] = useState(false);
 
-    const subTitles = [
-        {
-            img: designerPicture,
-            txt: t(''),
-            svgPath: '',
-        },
-        {
-            img: cofeePicture,
-            txt: t(''),
-            svgPath: '',
-        },
-        {
-            img: dronePicture,
-            txt: t(''),
-            svgPath: '',
-        },
-        {
-            img: outdoorCodingPicture,
-            txt: t(''),
-            svgPath: '',
-        }
-    ]
+    const currentSubtitle = subTitles[currentIndex];
+
+    window.addEventListener('blur', () => {
+        setIsAnimationPaused(true);
+    });
+
+    window.addEventListener('focus', () => {
+        setIsAnimationPaused(false);
+    });
 
     useEffect(() => {
-        const timeout = setTimeout(cycleSubtitles, 5000);
+        if (isAnimationPaused) return;
+        const timeout = setTimeout(cycleSubtitles, 4000);
         return () => clearTimeout(timeout);
-    }, [currentSubtitleIndex]);
+    }, [currentIndex, isAnimationPaused]);
 
-    const cycleSubtitles = (direction: 'up' | 'down' = 'up') => {
-        toggleButtonState(true);
-        setCurrentDirection(direction);
-
-        const nextIndex = direction === 'up' ? currentSubtitleIndex + 1 : currentSubtitleIndex - 1;
-
-        if (nextIndex > subTitles.length - 1) {
-            setCurrentubtitleIndex(0);
-        } else if (nextIndex < 0) {
-            setCurrentubtitleIndex(subTitles.length - 1);
-        } else {
-            setCurrentubtitleIndex(nextIndex);
-        }
+    // First step when buttton is clicked : change the animation direction to avoid glitch
+    // Then switch the "button" state
+    const handleOnClick = (direction = true) => {
+        setIsDirectionForwards(direction);
+        setWatchButtonClicked(!watchButtonClicked);
     }
 
-    const toggleButtonState = (disabled: boolean) => {
-        console.log('button is disabled ? ', disabled);
-        setIsButtonDisabled(disabled);
+    // Watch "button" state to trigger animation
+    useEffect(() => {
+        cycleSubtitles();
+    }, [watchButtonClicked])
+
+    const cycleSubtitles = () => {
+        setIsButtonDisabled(true);
+        const nextIndex = (isDirectionForward ? currentIndex + 1 : currentIndex - 1);
+        nextIndex < 0 ? setCurrentIndex(subTitles.length - 1) : setCurrentIndex(nextIndex % subTitles.length);
     }
 
-    const currentSubtitle = subTitles[currentSubtitleIndex];
+    const imgAlt = t(`header.subtitles.${currentSubtitle.key}`);
 
     return (
         <header
-            className={classNames('header', { 'dark-mode': isDarkMode })}
+            className={cn('header', { 'dark-mode': isDarkMode })}
         >
             <div className="header__cover">
                 <AnimatePresence initial={false}>
                     <motion.img
-                        key={currentSubtitle.img}
-                        initial={{ x: '100%' }}
+                        key={currentSubtitle.key}
+                        initial={isDirectionForward ? { x: '100%' } : { x: '-100%' }}
                         animate={{ x: 0 }}
-                        exit={{ x: '-100%' }}
+                        exit={isDirectionForward ? { x: '-100%' } : { x: '100%' }}
                         transition={{ duration: 1, type: 'spring' }}
-                        onAnimationComplete={() => toggleButtonState(false)}
+                        onAnimationComplete={() => setIsButtonDisabled(false)}
                         src={currentSubtitle.img}
-                        alt=""
+                        alt={imgAlt}
                     />
                 </AnimatePresence>
                 <div className="header__cover__darkmode-toggle">
@@ -105,14 +93,41 @@ function Header({
                 <div className="header__cover__language-toggle">
                     <LanguageToggle onClick={toggleLanguage} isDarkMode={isDarkMode} />
                 </div>
-
                 <div className="header__cover__btns">
-                    <Button className={classNames(isButtonDisabled && currentDirection === 'down' && 'pressed')} appearance="only-icon" icon="arrow-left" isDarkMode={isDarkMode} disabled={isButtonDisabled} label={t('header.btn.prev')} onClick={() => cycleSubtitles('down')} />
-                    <Button className={classNames(isButtonDisabled && currentDirection === 'up' && 'pressed')} appearance="only-icon" icon="arrow-right" isDarkMode={isDarkMode} disabled={isButtonDisabled} label={t('header.btn.next')} onClick={() => cycleSubtitles('up')} />
+                    <Button className={cn(isButtonDisabled && !isDirectionForward && 'pressed')} appearance="only-icon" icon="arrow-left" isDarkMode={isDarkMode} disabled={isButtonDisabled} label={t('header.btn.prev')} onClick={() => handleOnClick(false)} />
+                    <Button appearance="only-icon" icon={isAnimationPaused ? 'play' : "pause"} isDarkMode={isDarkMode} label={t('header.btn.prev')} onClick={() => setIsAnimationPaused(!isAnimationPaused)} />
+                    <Button className={cn(isButtonDisabled && isDirectionForward && 'pressed')} appearance="only-icon" icon="arrow-right" isDarkMode={isDarkMode} disabled={isButtonDisabled} label={t('header.btn.next')} onClick={() => handleOnClick(true)} />
                 </div>
             </div>
 
-            <div className="header__content"></div>
+            <div className="header__content">
+                <div className="header__content__profile">
+                    <Image src={profilePicture} alt={t('header.name')} aspectRatio="1x1" className="header__content__profile_picture" />
+                    <div className="header__content__profile__icon">
+                        <MorphIcon currentIndex={currentIndex} />
+                    </div>
+                </div>
+                <div className="header__content__text">
+                    <h1>{t('header.name')}</h1>
+                    <p>
+                        <AnimatePresence>
+                            <motion.span
+                                key={currentSubtitle.key}
+                                initial={isDirectionForward ? { y: '100%' } : { y: '-100%' }}
+                                animate={{ y: 0 }}
+                                exit={isDirectionForward ? { y: '-100%' } : { y: '100%' }}
+                                transition={{ duration: 1, type: 'spring' }}
+                            >{t(`header.subtitles.${currentSubtitle.key}`)}</motion.span>
+                        </AnimatePresence>
+                    </p>
+                    <Button
+                        isDarkMode={isDarkMode}
+                        label={t('header.contact.label')}
+                        href="https://www.linkedin.com/in/basile-vanhaverbeke-946868150/"
+                        icon="send"
+                    />
+                </div>
+            </div>
         </header>
     );
 }

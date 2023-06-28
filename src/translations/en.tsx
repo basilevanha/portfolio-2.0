@@ -33,6 +33,19 @@ export const en = {
             'send': 'Send',
         },
 
+        header: {
+            name: 'Basile Vanhaverbeke',
+            contact: {
+                label: 'Contact me'
+            },
+            subtitles: {
+                available: 'Currently available 😉',
+                designer: "Designer",
+                outdoor: 'Developer',
+                drone: "Drone pilot",
+                cofee: "Cofee addict"
+            },
+        },
         projects: {
             trekin: {
                 title: "Trek-in",
