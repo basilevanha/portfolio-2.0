@@ -1,7 +1,11 @@
 h1 {
     @include font(extra-bold);
-    font-size: 40px;
+    font-size: 26px;
     line-height: calc(60/40);
+    
+    @include mq('m') {
+        font-size: 40px;
+    }
 }
 
 p {

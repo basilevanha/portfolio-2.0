@@ -14,6 +14,9 @@ $animation-translations-short:
     border-radius $timing-short ease-in-out,
     transform $timing-short ease-in-out
 ;
+$animation-size-short:
+    width $timing-short ease-in-out,
+;
 
 
 // Colors
@@ -42,3 +45,15 @@ $color-dark-mode-bg-blur: rgba(255, 255, 255, 0.7);
 
 $color-dark-mode-grey-dark: #272727;
 $color-dark-mode-grey-darker: #1E1E1E;
+
+// Spacings
+$site-gutter-mobile: 24px;
+$site-gutter-desktop: 40px;
+
+$spacing-xxs: 5px;
+$spacing-xs: 10px;
+$spacing-sm: 15px;
+$spacing-md: 20px;
+$spacing-lg: 30px;
+$spacing-xl: 40px;
+$spacing-xxl: 50px;

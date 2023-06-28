@@ -2,6 +2,15 @@ body {
   width: 100%;
   height: auto;
   @include font(regular);
+
+  background-color: $color-light-mode-bg;
+  color: $color-light-mode-secondary;
+  transition: $animation-colors-short;
+
+  &.dark-mode {
+    background-color: $color-dark-mode-bg;
+    color: $color-dark-mode-secondary;
+  }
 }
 
 button {
@@ -16,23 +25,13 @@ cursor: pointer;
   display: flex;
   justify-content: center;
   text-align: center;
-  background-color: $color-light-mode-bg;
-  color: $color-light-mode-secondary;
-  transition: $animation-colors-short;
-
-  &.dark-mode {
-    background-color: $color-dark-mode-bg;
-    color: $color-dark-mode-secondary;
-  }
 }
 
 .wrapper {
   width: 100%;
-  padding: 30px;
   transition: $animation-translations-short;
   
  @include mq(l) {
     max-width: 1440px;
-    padding: 40px 80px;
   }
 }

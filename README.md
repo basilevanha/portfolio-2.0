@@ -6,13 +6,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+### `yarn sprite`
+
+Will create a spritesheet with every .svg in [the icons folder](src/assets/icons/)
+<br>The output is in public directory : [sprite.svg](public/sprite.svg)
+<br>When you add an Icon, don't forget to update the typescript type in [the icon component](src/components/atoms/Icon.tsx)
 
 ### `npm test`
 
