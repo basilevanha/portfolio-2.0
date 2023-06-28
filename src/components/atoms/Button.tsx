@@ -1,16 +1,17 @@
 import cn from "classnames";
-import Icon, { IconProps } from "./Icon";
+import Icon, { IconName } from "./Icon";
 
 export interface ButtonProps {
     className?: string,
     isDarkMode: boolean,
     onClick?: () => void,
     href?: string,
-    icon?: IconProps["name"],
+    icon?: IconName,
     label: string,
     appearance?: 'primary' | 'secondary' | 'only-icon',
     disabled?: boolean,
-    onlyIcon?: boolean
+    onlyIcon?: boolean,
+    target?: '_blank' | '_self'
 }
 
 function Button({
@@ -21,7 +22,8 @@ function Button({
     icon,
     label,
     appearance = 'primary',
-    disabled = false
+    disabled = false,
+    target = '_self'
 
 }: ButtonProps) {
 
@@ -62,7 +64,7 @@ function Button({
             }
 
             {href &&
-                <a href={href} className={classNames}>
+                <a href={href} className={classNames} target={target}>
                     <Content />
                 </a>
             }

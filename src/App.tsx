@@ -1,3 +1,5 @@
+// Import utils
+import cn from 'classnames';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -5,12 +7,9 @@ import { useTranslation } from 'react-i18next';
 import './App.scss';
 
 // Import Components
-import Projects from './components/organisms/Projects';
-
-// Import utils
-import cn from 'classnames';
-import { motion } from 'framer-motion';
 import Header from './components/organisms/Header';
+import Infos from './components/organisms/Infos';
+import Projects from './components/organisms/Projects';
 
 function App() {
 
@@ -23,10 +22,13 @@ function App() {
 
   useEffect(() => {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      // dark mode
       setDarkMode(true);
     }
   }, []);
+
+  useEffect(() => {
+    isDarkMode ? document.querySelector('body')?.classList.add('dark-mode') : document.querySelector('body')?.classList.remove('dark-mode');
+  }, [isDarkMode])
 
 
   // Translations set up
@@ -48,18 +50,8 @@ function App() {
     <div className={cn('app', { 'dark-mode': isDarkMode })}>
       <div className="wrapper">
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} toggleLanguage={toggleLanguage} />
-        <motion.div
-          initial={{
-            y: -100,
-            opacity: 0
-          }}
-          animate={{
-            y: 0,
-            opacity: 1
-          }}
-        >
-          <h1>{t('greeting')}</h1>
-        </motion.div>
+
+        <Infos isDarkMode={isDarkMode} />
 
         <Projects isDarkMode={isDarkMode} />
 

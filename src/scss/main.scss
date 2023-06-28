@@ -20,6 +20,7 @@
 @import './molecules/dark-mode-toggle';
 @import './molecules/language-toggle';
 @import './molecules/project-card';
+@import './molecules/list-box';
 
 
 
@@ -27,3 +28,4 @@
 // -----------------------------------------------------------------------------
 @import './organisms/header';
 @import './organisms/projects';
+@import './organisms/infos';

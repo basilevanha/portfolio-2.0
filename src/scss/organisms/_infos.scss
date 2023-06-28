@@ -1,0 +1,12 @@
+.infos {
+    margin-top: 2px;
+    gap: 2px;
+    
+        display: flex;
+        flex-wrap: wrap;
+
+    @include mq('m') {
+        margin: $site-gutter-desktop;
+        gap: $site-gutter-desktop;
+    }
+}

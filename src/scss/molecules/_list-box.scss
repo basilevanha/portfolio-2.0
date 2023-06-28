@@ -1,0 +1,59 @@
+.list-box {
+    flex: 1;
+    padding: 30px 50px;
+    transition: $timing-short background-color ease-in-out;
+    background-color: $color-light-mode-primary;
+    
+    @include mq('m') {
+        border-radius: 10px;
+    }
+
+    &__title {
+        @include font('extra-bold');
+        font-size: 24px;
+        text-align: left;
+        margin-bottom: 30px;
+        white-space: nowrap;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item {
+        @include font('regular');
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+
+        + .list-box__item {
+            margin-top: 20px;
+        }
+
+        p {
+            white-space: nowrap;
+        }
+
+        .button {
+            width: 100%;
+            max-width: 350px;
+        }
+
+        &__icon {
+            .icon {
+                width: 30px;
+                height: 30px;
+                margin-right: 20px;
+            }
+        }
+    }
+
+    &.dark-mode {
+        background-color: $color-dark-mode-primary;
+
+        .list-box__item .icon {
+            fill: $color-dark-mode-secondary;
+        }
+    }
+}

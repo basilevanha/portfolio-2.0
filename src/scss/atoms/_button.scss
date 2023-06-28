@@ -1,12 +1,12 @@
 .button {
     @include font('extra-bold');
     display: inline-flex;
-    height: 40px;
+    height: $spacing-xl;
     align-items: center;
     justify-content: space-between;
     font-size: 18px;
-    padding: 5px 10px;
-    border-radius: 10px;
+    padding: $spacing-xxs $spacing-xs;
+    border-radius: $spacing-xs;
     border: 3px solid;
     transition: $animation-colors-short, $animation-translations-short;
 
@@ -30,11 +30,21 @@
     }
 
     .icon {
-        width: 30px;
+        width: $spacing-lg;
         height: auto;
-        margin-left: 10px;
+        margin-left: $spacing-xs;
     }
-    
+
+
+    &.button--primary,
+    &.button--secondary {
+        width: 100%;
+
+        @include mq('xs') {
+            width: auto;
+        }
+    }
+
     &.button--primary {
         color: $color-light-mode-primary;
         fill: $color-light-mode-primary;
@@ -50,9 +60,13 @@
     }
 
     &.button--only-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: rgba($color-light-mode-primary, .7);
         border-color: transparent;
         padding: 0;
+        border-radius: 0;
         
         &:first-child {
             border-radius: 10px 0 0 10px;
