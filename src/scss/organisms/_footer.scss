@@ -1,0 +1,25 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $site-gutter-mobile;
+    font-size: 13px;
+    white-space: nowrap;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @include mq('m') {
+        padding: $site-gutter-desktop;
+        font-size: 16px;
+    }
+
+    .icon {
+        width: 26px;
+        height: 26px;
+
+        @include mq('m') {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}

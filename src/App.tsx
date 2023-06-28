@@ -10,6 +10,7 @@ import './App.scss';
 import Header from './components/organisms/Header';
 import Infos from './components/organisms/Infos';
 import Projects from './components/organisms/Projects';
+import Footer from './components/organisms/Footer';
 
 function App() {
 
@@ -55,7 +56,7 @@ function App() {
 
         <Projects isDarkMode={isDarkMode} />
 
-        <footer>FOOTER</footer>
+        <Footer isDarkMode={isDarkMode} />
 
       </div>
     </div>
