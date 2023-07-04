@@ -9,12 +9,6 @@ import trekinShowcase from '../assets/projects/trekin/showcase.jpg';
 import lanicheCover from '../assets/projects/laniche/laniche-cover.png';
 import lanicheVideo from '../assets/projects/laniche/laniche-lampiris.mp4';
 
-
-import emakinaCover from '../assets/projects/emakina/emakina-cover.jpg';
-import betacoworkCover from '../assets/projects/betacowork/betacowork-cover.jpg';
-import pickxCover from '../assets/projects/pickx/pickx-cover.png';
-import scoutappCover from '../assets/projects/scoutapp/scoutapp-cover.png';
-
 type contentType = {
     key: string,
     type: 'text',
@@ -70,11 +64,6 @@ const projects: projectType[] = [
             {
                 key: 'prototype',
                 icon: 'external-link',
-                target: '_blank'
-            },
-            {
-                key: 'graphical',
-                icon: 'pdf',
                 target: '_blank'
             },
             {

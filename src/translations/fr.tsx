@@ -2,7 +2,6 @@ import cv from '../assets/pdf/resume.pdf';
 
 // Trek-in
 import trekinSpecification from '../assets/projects/trekin/trek-in-cahier-des-charges.pdf';
-import trekinGraphicalCharter from '../assets/projects/trekin/trek-in-charte-graphique.pdf'
 
 export const fr = {
     translation: {
@@ -131,10 +130,6 @@ export const fr = {
                         label: 'Cahier des charges',
                         href: trekinSpecification
                     },
-                    graphical: {
-                        label: 'Charte graphique',
-                        href: trekinGraphicalCharter
-                    }
                 }
             }
         },
