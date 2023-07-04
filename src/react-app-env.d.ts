@@ -23,4 +23,9 @@ declare module "*.pdf" {
     export default path;
 }
 
+declare module "*.mp4" {
+    const path: string;
+    export default path;
+}
+
 declare module "flubber";

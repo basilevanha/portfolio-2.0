@@ -19,6 +19,7 @@ You will also see any lint errors in the console.
 Will create a spritesheet with every .svg in [the icons folder](src/assets/icons/)
 <br>The output is in public directory : [sprite.svg](public/sprite.svg)
 <br>When you add an Icon, don't forget to update the typescript type in [the icon component](src/components/atoms/Icon.tsx)
+<br>And update the translations in [EN](src/translations/en.tsx) & [FR](src/translations/fr.tsx)
 
 ### `npm test`
 

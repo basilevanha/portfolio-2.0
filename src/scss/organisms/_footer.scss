@@ -7,6 +7,7 @@
     white-space: nowrap;
     flex-wrap: wrap;
     gap: 10px;
+    height: 100vh;
 
     @include mq('m') {
         padding: $site-gutter-desktop;
@@ -20,6 +21,12 @@
         @include mq('m') {
             width: 32px;
             height: 32px;
+        }
+    }
+
+    &.dark-mode {
+        .icon {
+            fill: $color-dark-mode-secondary;
         }
     }
 }

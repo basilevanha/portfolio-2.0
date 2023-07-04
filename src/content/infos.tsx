@@ -91,6 +91,7 @@ export const extLinks: ExtLinksProps = [
     },
     {
         key: 'github',
-        icon: 'external-link'
+        icon: 'external-link',
+        target: '_blank'
     },
 ];

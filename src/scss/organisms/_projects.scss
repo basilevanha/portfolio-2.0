@@ -1,10 +1,151 @@
 .projects {
     width: 100%;
+    margin: 2px auto 0;
+
+    @include mq('m') {
+        padding: 0 $site-gutter-desktop;
+    }
+
+    &__title {
+        width: 100%;
+        background-color: $color-light-mode-primary;
+        padding: $site-gutter-mobile $site-gutter-mobile 30px;
+        
+        @include mq('m') {
+            padding: $site-gutter-desktop $site-gutter-desktop 10px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        h2 {
+            @include font('extra-bold');
+            font-size: 24px;
+            text-align: left;
+            white-space: nowrap;
+        }
+    }
+
+    &__catalog {
+        width: 100%;
+        height: $catalog-height-mobile;
+        position: sticky;
+        top: 0;
+        background-color: $color-light-mode-primary;
+        z-index: 1;
+        display: flex;
+        gap: 3px;
+        padding: 4px;
+        
+        @include mq('m') {
+            gap: 20px;
+            padding: 20px $site-gutter-desktop;
+            height: $catalog-height-desktop;
+        }
+
+        &__thumbnail {
+            display: flex;
+            flex: 1;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+
+            @include mq('m') {
+                &:hover,
+                &:focus,
+                &:focus-visible {
+                    .projects__catalog__thumbnail__title {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 15%;
+                width: 100%;
+                backdrop-filter: blur(20px);
+                background-color: rgba($color-light-mode-primary, .3);
+                // transition: width $timing-short ease;
+                overflow: hidden;
+                z-index: 1;
+            }
+
+            .image {
+                height: 100%;
+                width: 100%;
+            }
+
+            .overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 15%;
+                backdrop-filter: blur(20px);
+                background-color: rgba($color-light-mode-tertiary, .7);
+                // transition: width $timing-short ease;
+                overflow: hidden;
+                z-index: 2;
+            }
+
+            &__title {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                backdrop-filter: blur(20px);
+                background-color: rgba($color-light-mode-primary, .3);
+                opacity: 0;
+                transition: opacity $timing-short ease-in-out;
+
+                p {
+                    @include font('bold');
+                    font-size: 20px;
+                    color: $color-light-mode-secondary;
+                    line-height: 1;
+                }
+            }
+
+            &:focus,
+            &:focus-visible {
+                outline: 4px solid $color-light-mode-tertiary;
+            }
+
+            &:active {
+                outline: none;
+            }
+        }
+
+    }
     
     &_content {
         display: flex;
         flex-direction: column;
         align-items: center;
         perspective: 2000px;
+        transition: opacity $timing-short ease-in-out;
+
+        &.fade-out {
+            opacity: 0;
+        }
+    }
+
+    &__card-wrapper {
+        width: 100%;
+    }
+
+    &.dark-mode {
+        .projects__title {
+            background-color: $color-dark-mode-primary;
+        }
+        .projects__catalog {
+            background-color: $color-dark-mode-primary;
+        }
     }
 }

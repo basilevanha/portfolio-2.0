@@ -26,7 +26,11 @@ export type IconName = 'adobe'
     | 'moon'
     | 'send'
     | 'play'
-    | 'pause';
+    | 'pause'
+    | 'framer'
+    | 'illustrator'
+    | 'invision'
+    | 'pdf';
 
 interface IconProps {
     name: IconName

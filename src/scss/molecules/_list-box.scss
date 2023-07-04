@@ -1,10 +1,11 @@
 .list-box {
     flex: 1;
-    padding: 30px 50px;
+    padding: $site-gutter-mobile;
     transition: $timing-short background-color ease-in-out;
     background-color: $color-light-mode-primary;
     
     @include mq('m') {
+        padding: $site-gutter-desktop;
         border-radius: 10px;
     }
 

@@ -1,28 +1,181 @@
-.project-card {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    margin: 10px auto;
+$catalog-height-desktop: 150px;
+$catalog-height-mobile: 70px;
 
-    h3 {
-        position: relative;
-        z-index: 2;
-        @include font(bold)
+.project-card {
+    width: 100%;
+    display: flex;
+
+    // .sticky-loader {
+    //     width: 20px;
+    //     background: rgb(2,0,36);
+    //     background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    // }
+    
+    &__wrapper {
+        position: sticky;
+        top: $catalog-height-mobile;
+        height: calc(100vh - $catalog-height-mobile - $site-gutter-mobile);
+        width: 100%;
+        overflow: hidden;
+        border-radius: 10px;
+        background-color: $color-light-mode-primary;
+        transition: border-radius $timing-short ease-in-out;
+
+        @include mq('m') {
+            top: $catalog-height-desktop;
+            height: calc(100vh - $catalog-height-desktop - $site-gutter-desktop);
+        }
+
+        &.is-sticky {
+            border-radius: 0 0 10px 10px;
+        }
     }
 
-    p {
+    &__img-wrapper {
         position: relative;
-        z-index: 2;
-        @include font(regular);
-        font-size: 18px;
+        width: 100%;
     }
 
     &__img {
-        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__img-overlay {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+
+        &__title {
+            @include font('extra-bold');
+            font-size: 40px;
+            color: $color-light-mode-primary;
+            text-shadow: 1px 1px 2px $color-light-mode-secondary;
+        }
+    }
+
+    &__content {
+        padding: $site-gutter-mobile;
+        
+        @include mq('m') {
+            display: flex;
+            padding: $site-gutter-desktop
+        }
+
+        .project-infos {
+            
+            @include mq('m') {
+                position: sticky;
+                height: 100%;
+                top: 0;
+                flex-shrink: 0;
+                margin-right: 40px;
+            }
+
+            h2 {
+                @include font('extra-bold');
+                font-size: 30px;
+                text-align: left;
+                text-transform: uppercase;
+            }
+
+            &__jobs {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                margin-top: 20px;
+
+                p {
+                    color: $color-light-mode-grey;
+                    line-height: 1.5;
+                    text-transform: uppercase;
+                }
+            }
+
+            &__tools {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                margin-top: 30px;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    margin: 5px 0;
+                    
+                    .icon {
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 10px;
+                    }
+                }
+
+            }
+
+            &__ressources {
+                display: flex;
+                flex-direction: column;
+                align-self: flex-end;
+                margin-top: 30px;
+
+                li {
+                    width: 100%;
+                    margin: 5px 0;
+
+                    .button {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .project-content {
+            margin-top: 30px;
+
+            &__text,
+            &__img,
+            &__video {
+                &:not(:first-child) {
+                    margin: 50px 0;
+                }
+            }
+
+            a {
+                text-decoration: underline;
+                color: $color-light-mode-link;
+
+                &:hover {
+                    color: $color-light-mode-link-hover;
+                }
+
+                &:focus,
+                &:focus-visible {
+                    color: $color-light-mode-link-focus;
+                    outline: 2px solid $color-light-mode-link-focus;
+                }
+
+                &:active {
+                    color: $color-light-mode-link-active;
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    &.dark-mode {
+        .project-card__wrapper {
+            background-color: $color-dark-mode-primary;
+        }
+
+        .project-card__content .project-infos__tools .icon {
+            fill: $color-dark-mode-secondary;
+        }
     }
 }

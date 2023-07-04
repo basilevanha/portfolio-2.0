@@ -7,7 +7,8 @@ function Image({
     alt,
     fit,
     aspectRatio,
-    className
+    className,
+    onLoad
 }: {
     className?: string,
     // Specify the image source
@@ -21,6 +22,7 @@ function Image({
     // Provide an aspect ratio
     aspectRatio?: '1x1' | '4x3' | '16x9'
     fit?: 'cover' | 'contain' | 'fill',
+    onLoad?: () => void
 }) {
     return (
         <div className={classNames('image', className, {
@@ -35,7 +37,7 @@ function Image({
             <picture>
                 <source srcSet={srcLg} media="min-width: 768px" />
                 <source srcSet={srcMd} media="min-width: 1440px" />
-                <img src={src} alt={alt} />
+                <img src={src} alt={alt} onLoad={onLoad} />
             </picture>
         </div>
     );
