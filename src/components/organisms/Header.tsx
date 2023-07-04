@@ -71,7 +71,11 @@ function Header({
     const sendMail = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault();
         const cryptedMailB64 = "YmFzaWxlLnZhbmhhQG91dGxvb2suZnI=";
-        const mailTo = 'mailto:' + atob(cryptedMailB64) + '?subject=' + t("mailto.subject") + '&body=' + t('mailto.body');
+
+        const formattedBody = t('mailto.body', { interpolation: { escapeValue: false } })
+        const encodedBody = encodeURIComponent(formattedBody);
+
+        const mailTo = 'mailto:' + atob(cryptedMailB64) + '?subject=' + t("mailto.subject") + '&body=' + encodedBody;
         document.location.href = mailTo;
     }
 

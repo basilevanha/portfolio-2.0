@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import express, { Request, Response } from 'express';
 
 // Import utils
-import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { projectType } from '../../content/projects';
 
 // Import Components
@@ -12,7 +11,6 @@ import { t } from 'i18next';
 import Video from '../atoms/Video';
 import Icon from '../atoms/Icon';
 import Button from '../atoms/Button';
-import { Trans } from 'react-i18next';
 
 
 export interface ProjectCardProps {
@@ -245,7 +243,7 @@ const ProjectCard = ({
                                     )
                                 } else if (content.type == 'video') {
                                     return (
-                                        <Video key={i} className='project-content__video' tkey={content.key} src={content.src} alt={''} project={project.key} />
+                                        <Video key={i} classNames='project-content__video' tkey={content.key} src={content.src} project={project.key} />
                                     )
                                 }
                             })}

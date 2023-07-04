@@ -1,17 +1,18 @@
-import classNames from "classnames";
+// Import utils
 import { t } from "i18next";
+import cn from "classnames";
+
+// Import assets
 import macbookLayout from '../../assets/images/macbook.png';
 
 function Video({
-    className,
+    classNames,
     src,
-    alt,
     project,
     tkey,
 }: {
-    className?: string,
+    classNames?: string,
     src: string,
-    alt: string,
     project: string,
     tkey: string
 }) {
@@ -21,7 +22,7 @@ function Video({
     const macbookLayoutAlt = t('macbook');
 
     return (
-        <div className="video">
+        <div className={cn('video', classNames)}>
             <img src={macbookLayout} alt={macbookLayoutAlt}></img>
             <video muted autoPlay loop>
                 <source src={src} type="video/webm" />

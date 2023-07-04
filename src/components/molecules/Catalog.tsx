@@ -5,6 +5,7 @@ import Image from '../atoms/Image';
 import projects from '../../content/projects';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { RefObject } from 'react';
+import cn from 'classnames';
 
 function Catalog({
     isDarkMode,
@@ -32,7 +33,7 @@ function Catalog({
     }
 
     return (
-        <div className="projects__catalog">
+        <div className={cn('projects__catalog', { 'dark-mode': isDarkMode })}>
             {projects.map((project, id: number) => {
                 const projectScrollProgress = useScroll({
                     target: projectsRefs.current[id],

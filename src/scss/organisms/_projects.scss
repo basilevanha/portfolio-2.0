@@ -51,7 +51,6 @@
 
             @include mq('m') {
                 &:hover,
-                &:focus,
                 &:focus-visible {
                     .projects__catalog__thumbnail__title {
                         opacity: 1;
@@ -112,12 +111,12 @@
                 }
             }
 
-            &:focus,
             &:focus-visible {
                 outline: 4px solid $color-light-mode-tertiary;
             }
 
-            &:active {
+            &:active,
+            &:hover {
                 outline: none;
             }
         }

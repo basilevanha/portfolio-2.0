@@ -1,9 +1,9 @@
-import React, { RefObject, createRef, useRef, useState } from 'react';
+import React, { createRef, useRef } from 'react';
 
 // Import utils
 import { t } from 'i18next';
 import cn from 'classnames';
-import { motion, useScroll, useMotionValueEvent, HTMLMotionProps } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 // Import components
 import ProjectCard from "../molecules/ProjectCard";

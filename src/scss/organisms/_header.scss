@@ -13,7 +13,9 @@ $image-overlap-desktop: 40px;
     @include mq('m') {
         border-radius: 10px;
         margin: $site-gutter-desktop;
-        min-height: calc(100vh - $site-gutter-desktop - $site-gutter-desktop - $site-gutter-desktop);
+        min-height: unset;
+        height: calc(100vh - $site-gutter-desktop - $site-gutter-desktop - $site-gutter-desktop);
+        max-height: calc(900px);
     }
 
     &__cover {

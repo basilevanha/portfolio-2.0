@@ -81,7 +81,7 @@ export const infos: InfosProps = [
 export const extLinks: ExtLinksProps = [
     {
         key: 'cv',
-        icon: 'external-link',
+        icon: 'pdf',
         target: '_blank'
     },
     {
