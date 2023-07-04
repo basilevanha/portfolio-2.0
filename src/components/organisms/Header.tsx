@@ -68,6 +68,13 @@ function Header({
         nextIndex < 0 ? setCurrentIndex(subTitles.length - 1) : setCurrentIndex(nextIndex % subTitles.length);
     }
 
+    const sendMail = (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault();
+        const cryptedMailB64 = "YmFzaWxlLnZhbmhhQG91dGxvb2suZnI=";
+        const mailTo = 'mailto:' + atob(cryptedMailB64) + '?subject=' + t("mailto.subject") + '&body=' + t('mailto.body');
+        document.location.href = mailTo;
+    }
+
     const imgAlt = t(`header.subtitles.${currentSubtitle.key}`);
 
     return (
@@ -123,8 +130,8 @@ function Header({
                     <Button
                         isDarkMode={isDarkMode}
                         label={t('header.contact.label')}
-                        href="https://www.linkedin.com/in/basile-vanhaverbeke-946868150/"
                         icon="send"
+                        onClick={(e) => sendMail(e)}
                     />
                 </div>
             </div>

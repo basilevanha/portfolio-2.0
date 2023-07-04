@@ -4,7 +4,7 @@ import Icon, { IconName } from "./Icon";
 export interface ButtonProps {
     className?: string,
     isDarkMode: boolean,
-    onClick?: () => void,
+    onClick?: (e: any) => void,
     href?: string,
     icon?: IconName,
     label: string,
@@ -57,13 +57,13 @@ function Button({
 
     return (
         <>
-            {onClick &&
+            {onClick && !href &&
                 <button disabled={disabled} className={classNames} aria-label={label} onClick={onClick}>
                     <Content />
                 </button>
             }
 
-            {href &&
+            {href && !onClick &&
                 <a href={href} className={classNames} target={target}>
                     <Content />
                 </a>

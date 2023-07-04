@@ -10,6 +10,10 @@ export const en = {
         darkModeToggle: 'Enable dark mode',
         languageToggle: 'Switch between french and english',
         macbook: 'Macbook layout',
+        mailto: {
+            subject: "✨ What is it about ? ✨",
+            body: "Is it an exciting proposal about a wonderful project we could collaborate on? 🤝 Tell me more and let's have a cofee together ☕️",
+        },
 
         icon: {
             'arrow-down': 'arrow to the bottom',

@@ -10,6 +10,10 @@ export const fr = {
         darkModeToggle: 'Activer le thème sombre',
         languageToggle: 'Basculer de français à anglais',
         macbook: "Chassis d'un macbook",
+        mailto: {
+            subject: "✨ De quoi sagit-il ? ✨",
+            body: "D'une proposition excitante à propos d'un super projet sur lequel nous pourrions collaborer? 🤝 Dites m'en plus et parlons en autour d'un café ☕️",
+        },
 
         icon: {
             'arrow-down': 'flèche vers le bas',
