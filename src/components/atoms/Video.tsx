@@ -2,8 +2,11 @@
 import { t } from "i18next";
 import cn from "classnames";
 
+import Image from "./Image";
+
 // Import assets
 import macbookLayout from '../../assets/images/macbook.png';
+import macbookLayoutLazy from '../../assets/images/macbook@lazy.jpg';
 
 function Video({
     classNames,
@@ -23,7 +26,7 @@ function Video({
 
     return (
         <div className={cn('video', classNames)}>
-            <img src={macbookLayout} alt={macbookLayoutAlt}></img>
+            <Image src={macbookLayout} alt={macbookLayoutAlt} lazySrc={macbookLayoutLazy} />
             <video muted autoPlay loop>
                 <source src={src} type="video/webm" />
                 <meta itemProp="name" content={name} />

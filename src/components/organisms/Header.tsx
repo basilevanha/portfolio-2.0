@@ -11,12 +11,14 @@ import Button from "../atoms/Button";
 import DarkModeToggle from "../molecules/DarkModeToggle";
 import LanguageToggle from "../molecules/LanguageToggle";
 import MorphIcon from "../molecules/MorphIcon";
+import Carousel from "../molecules/Carousel";
 
 // Import content
 import { subTitles } from '../../content/subTitles';
 
 // Import images
 import profilePicture from '../../assets/images/hero/basile-vannhaverbeke.png';
+import profilePictureLazy from '../../assets/images/hero/basile-vannhaverbeke@lazy.jpg';
 
 function Header({
     isDarkMode,
@@ -29,7 +31,6 @@ function Header({
 }) {
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const [isDirectionForward, setIsDirectionForwards] = useState(true);
     const [watchButtonClicked, setWatchButtonClicked] = useState(false);
     const [isAnimationPaused, setIsAnimationPaused] = useState(false);
@@ -63,7 +64,6 @@ function Header({
     }, [watchButtonClicked])
 
     const cycleSubtitles = () => {
-        setIsButtonDisabled(true);
         const nextIndex = (isDirectionForward ? currentIndex + 1 : currentIndex - 1);
         nextIndex < 0 ? setCurrentIndex(subTitles.length - 1) : setCurrentIndex(nextIndex % subTitles.length);
     }
@@ -79,41 +79,33 @@ function Header({
         document.location.href = mailTo;
     }
 
-    const imgAlt = t(`header.subtitles.${currentSubtitle.key}`);
-
     return (
         <header
             className={cn('header', { 'dark-mode': isDarkMode })}
         >
             <div className="header__cover">
-                <AnimatePresence initial={false}>
-                    <motion.img
-                        key={currentSubtitle.key}
-                        initial={isDirectionForward ? { x: '100%' } : { x: '-100%' }}
-                        animate={{ x: 0 }}
-                        exit={isDirectionForward ? { x: '-100%' } : { x: '100%' }}
-                        transition={{ duration: 1, type: 'spring' }}
-                        onAnimationComplete={() => setIsButtonDisabled(false)}
-                        src={currentSubtitle.img}
-                        alt={imgAlt}
-                    />
-                </AnimatePresence>
+                <Carousel
+                    className="header__cover__carousel"
+                    subTitles={subTitles}
+                    currentIndex={currentIndex}
+                    isDarkMode={isDarkMode}
+                    isDirectionForward={isDirectionForward}
+                    isAnimationPaused={isAnimationPaused}
+                    setIsAnimationPaused={setIsAnimationPaused}
+                    handleOnClick={handleOnClick}
+                />
+
                 <div className="header__cover__darkmode-toggle">
                     <DarkModeToggle onClick={toggleDarkMode} isDarkMode={isDarkMode} />
                 </div>
                 <div className="header__cover__language-toggle">
                     <LanguageToggle onClick={toggleLanguage} isDarkMode={isDarkMode} />
                 </div>
-                <div className="header__cover__btns">
-                    <Button className={cn(isButtonDisabled && !isDirectionForward && 'pressed')} appearance="only-icon" icon="arrow-left" isDarkMode={isDarkMode} disabled={isButtonDisabled} label={t('header.btn.prev')} onClick={() => handleOnClick(false)} />
-                    <Button appearance="only-icon" icon={isAnimationPaused ? 'play' : "pause"} isDarkMode={isDarkMode} label={t('header.btn.prev')} onClick={() => setIsAnimationPaused(!isAnimationPaused)} />
-                    <Button className={cn(isButtonDisabled && isDirectionForward && 'pressed')} appearance="only-icon" icon="arrow-right" isDarkMode={isDarkMode} disabled={isButtonDisabled} label={t('header.btn.next')} onClick={() => handleOnClick(true)} />
-                </div>
             </div>
 
             <div className="header__content">
                 <div className="header__content__profile">
-                    <Image src={profilePicture} alt={t('header.name')} aspectRatio="1x1" className="header__content__profile_picture" />
+                    <Image src={profilePicture} lazySrc={profilePictureLazy} alt={t('header.name')} aspectRatio="1x1" className="header__content__profile_picture" />
                     <div className="header__content__profile__icon">
                         <MorphIcon currentIndex={currentIndex} />
                     </div>

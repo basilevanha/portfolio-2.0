@@ -3,6 +3,12 @@ import cv from '../assets/pdf/resume.pdf';
 // Trek-in
 import trekinSpecification from '../assets/projects/trekin/trek-in-cahier-des-charges.pdf';
 
+// Scoutapp
+import scoutappSpecification from '../assets/projects/scoutapp/scoutapp-graduation-work.pdf';
+
+// Betacowork
+import betacoworkSpecification from '../assets/projects/betacowork/betacowork-rapport-de-stage.pdf';
+
 export const en = {
     translation: {
         en: "EN",
@@ -12,7 +18,7 @@ export const en = {
         macbook: 'Macbook layout',
         mailto: {
             subject: "✨ What is it about ? ✨",
-            body: "Is it an exciting proposal about a wonderful project we could collaborate on? 🤝 Tell me more and let's have a cofee together ☕️",
+            body: "Is it an exciting proposal about a wonderful project we could collaborate on? 🤝 \n \n Tell me more and let's have a cofee together ☕️",
         },
 
         icon: {
@@ -40,7 +46,9 @@ export const en = {
             'wordpress': 'Wordpress',
             'framer': 'Framer Motion',
             'illustrator': 'Adobe Illustrator',
-            'invision': 'Invision'
+            'invision': 'Invision',
+            'typescript': 'Typescript',
+            'xd': 'Adobe XD'
         },
 
         jobs: {
@@ -103,7 +111,7 @@ export const en = {
                     },
                     github: {
                         label: 'Github',
-                        href: cv,
+                        href: 'https://github.com/basilevanha/',
                     },
                 }
             }
@@ -112,10 +120,72 @@ export const en = {
         projectstitle: 'Projects',
 
         projects: {
+            portfolio: {
+                title: "Portfolio 2.0",
+                cover: 'Layout from my portfolio',
+                intro: `This is the second iteration of my portfolio. After 3years as an employee I decided to leave for one year in Martinique so I needed a new visit card. This portfolio was designed with Figma and coded using React, Typescript & framer-motion.`,
+                content: {
+                },
+            },
+            oldportfolio: {
+                title: "Portfolio 1.0",
+                cover: 'Layout from old portfolio',
+                intro: `This portfolio was made after an internship at Emakina where I learned React.  I decided to update my old student portfolio with a more modern and technical website to use my latest learned skills. `,
+                content: {
+                    video: {
+                        name: 'Old portfolio',
+                        description: 'Old portfolio being scrolled in loop.'
+                    }
+                },
+                ressources: {
+                    website: {
+                        label: "See website",
+                        href: '/portfolio-old'
+                    },
+                },
+            },
+            scoutapp: {
+                title: "Scoutapp",
+                cover: `Hand holding a smartphone displaying scoutapp`,
+                intro: `Scoutapp is an app prototype for Scout animators. This is my graduation work for my studies in multimedia writing. I managed this work with great distinction.`,
+                content: {
+                },
+                ressources: {
+                    graduation: {
+                        label: "Graduation work",
+                        href: scoutappSpecification
+                    },
+                    prototype: {
+                        label: 'See prototype',
+                        href: 'https://xd.adobe.com/view/8e0e7054-b8a3-4141-4d44-bf1112c95f1c-f83f/?fullscreen&fbclid=IwAR2LkQU7pmAZpLk5huaZ01qgXCoVoPzVvmOpOdTdW78TFfVNenxnf4Uf1yI'
+                    }
+                },
+            },
+            betacowork: {
+                title: "Betacowork",
+                cover: `Laptop displaying Betacowork website`,
+                intro: `Betacowork is a coworking space based in Etterbeek in the premises of ICAB, a startup incubator. For our internship of BAC 2 in multimedia writing at the ISFC, we had with Anthony Charlier to completely rework their old website.`,
+                content: {
+                    video: {
+                        name: 'Scrolling website',
+                        description: 'Betacowork website scrolling in loop.'
+                    }
+                },
+                ressources: {
+                    website: {
+                        label: "See website",
+                        href: "https://www.betacowork.com/"
+                    },
+                    specifications: {
+                        label: 'Internship report',
+                        href: betacoworkSpecification
+                    }
+                },
+            },
             trekin: {
                 title: "Trek-in",
                 cover: 'Trek-in',
-                intro: `Trek-in is a hiking-based app prototype made with Anthony Charlier as part of our multimedia writing studies in BAC 1 at <a href="https://www.isfsc.be/">ISFSC</a>.`,
+                intro: `Trek-in is a hiking-based app prototype made with Anthony Charlier as part of our multimedia writing studies in BAC 1 at <a href="https://www.isfsc.be/ " target="_blank">ISFSC</a>.`,
                 content: {
                     about: `This is an app that makes it possible to efficiently find a partner or group of people in order to realize together an interactive and multimedia hike in the Walloon region as well as to create links between the users.`,
                     showcase: 'Some trekin screens displayed in a graphical way.',

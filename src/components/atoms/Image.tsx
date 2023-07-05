@@ -1,31 +1,33 @@
 import classNames from "classnames";
+import { useState } from "react";
 
 function Image({
     src,
-    srcMd = src,
-    srcLg = src,
+    lazySrc,
     alt,
     fit,
     aspectRatio,
     className,
-    onLoad
 }: {
     className?: string,
     // Specify the image source
     src: string,
-    // Give a tablet version
-    srcMd?: string,
-    // Give a desktop version
-    srcLg?: string,
+    lazySrc: string,
     // Image description
     alt: string,
     // Provide an aspect ratio
     aspectRatio?: '1x1' | '4x3' | '16x9'
     fit?: 'cover' | 'contain' | 'fill',
-    onLoad?: () => void
 }) {
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    const onLoad = () => {
+        setIsLoaded(true);
+    }
+
     return (
         <div className={classNames('image', className, {
+            'loading': lazySrc && !isLoaded,
             'aspect-ratio': aspectRatio,
             'ar-1x1': aspectRatio === '1x1',
             'ar-4x4': aspectRatio === '4x3',
@@ -34,11 +36,12 @@ function Image({
             'fit-contain': fit === 'contain',
             'fit-fill': fit === 'fill',
         })}>
+            <img src={lazySrc} className="image-placeholder" alt={alt} />
+
             <picture>
-                <source srcSet={srcLg} media="min-width: 768px" />
-                <source srcSet={srcMd} media="min-width: 1440px" />
-                <img src={src} alt={alt} onLoad={onLoad} />
+                <img src={src} className="image-original" alt={alt} onLoad={onLoad} loading="lazy" />
             </picture>
+
         </div>
     );
 }

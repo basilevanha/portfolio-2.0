@@ -183,7 +183,8 @@ const ProjectCard = ({
 
                         <Image
                             className='project-card__img'
-                            src={project.coverImg}
+                            src={project.coverImg.src}
+                            lazySrc={project.coverImg.lazySrc}
                             alt={t(`projects.${project.key}.cover`)}
                             fit='cover'
                         />
@@ -239,7 +240,7 @@ const ProjectCard = ({
                                     )
                                 } else if (content.type == 'image') {
                                     return (
-                                        <Image key={i} className='project-content__img' src={content.src} alt={t(projectKey + `.content.${content.key}`)} />
+                                        <Image key={i} className='project-content__img' src={content.src} lazySrc={content.lazySrc} alt={t(projectKey + `.content.${content.key}`)} />
                                     )
                                 } else if (content.type == 'video') {
                                     return (

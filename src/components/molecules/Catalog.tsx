@@ -47,7 +47,7 @@ function Catalog({
                 )
                 return (
                     <button onClick={() => goToProject(projectsRefs.current[id])} className='projects__catalog__thumbnail' key={id}>
-                        <Image src={project.coverImg} alt={t(`projects.${project.key}.alt`)} fit='cover' />
+                        <Image src={project.coverImg.src} lazySrc={project.coverImg.lazySrc} alt={t(`projects.${project.key}.alt`)} fit='cover' />
                         <motion.span style={{ width }} className="overlay"></motion.span>
                         <span className='projects__catalog__thumbnail__title'><p>{t(`projects.${project.key}.title`)}</p></span>
                     </button>

@@ -1,8 +1,64 @@
 .image {
     position: relative;
+    overflow: hidden;
 
-    img {
+    .image-placeholder {
         width: 100%;
+        opacity: 0;
+        transition: opacity $timing-short ease-in-out;
+        transition-delay: $timing-short;
+    }
+    
+    .image-original {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity $timing-short ease-in-out;
+    }
+    
+    &.loading {
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(20px);
+            border-radius: inherit;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            border-radius: inherit;
+            animation: pulse 2.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                background-color: rgba($color-light-mode-primary, 0);
+            }
+            
+            50% {
+                background-color: rgba($color-light-mode-primary, .2);
+            }
+            
+            100% {
+                background-color: rgba($color-light-mode-primary, 0);
+            }
+        }
+
+        .image-original {
+            opacity: 0;
+        }
+        .image-placeholder {
+            opacity: 1;
+        }
     }
 
     &.fit-cover,
@@ -11,10 +67,9 @@
     &.aspect-ratio {
         width: 100%;
 
-        img {
+        .image-placeholder {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
         }
@@ -22,13 +77,17 @@
 
     &.fit-cover,
     &.aspect-ratio {
-        img {
+        .image-original,
+        .image-placeholder {
             object-fit: cover;
         }
     }
 
-    &.fit-contain img {
-        object-fit: contain;
+    &.fit-contain {
+        .image-original,
+        .image-placeholder {
+            object-fit: contain;
+        }
     }
 
     &.ar-1x1 {

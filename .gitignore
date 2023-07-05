@@ -10,6 +10,7 @@
 
 # production
 /build
+/public/portfolio-old
 
 # misc
 .DS_Store

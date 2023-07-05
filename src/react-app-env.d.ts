@@ -28,4 +28,15 @@ declare module "*.mp4" {
     export default path;
 }
 
+declare module "*.mov" {
+    const path: string;
+    export default path;
+}
+
+declare module "*.webm" {
+    const path: string;
+    export default path;
+}
+
+
 declare module "flubber";

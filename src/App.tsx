@@ -14,14 +14,12 @@ import Footer from './components/organisms/Footer';
 
 function App() {
 
-  // Dark Mode set up
   const [isDarkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(darkMode => !darkMode);
-  }
+  const { i18n } = useTranslation();
 
   useEffect(() => {
+    i18n.changeLanguage(navigator.language);
+
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setDarkMode(true);
     }
@@ -29,20 +27,14 @@ function App() {
 
   useEffect(() => {
     isDarkMode ? document.querySelector('body')?.classList.add('dark-mode') : document.querySelector('body')?.classList.remove('dark-mode');
-  }, [isDarkMode])
+  }, [isDarkMode]);
 
-
-  // Translations set up
-  const { t, i18n } = useTranslation();
-
-  useEffect(() => {
-    const lng = navigator.language;
-    i18n.changeLanguage(lng);
-  }, []);
-
-  const getLanguage = () => i18n.language || window.localStorage.i18nextLng;
+  const toggleDarkMode = () => {
+    setDarkMode(darkMode => !darkMode);
+  }
 
   const toggleLanguage = () => {
+    const getLanguage = () => i18n.language || window.localStorage.i18nextLng;
     const newLng = getLanguage().includes("fr") ? "en" : "fr";
     i18n.changeLanguage(newLng);
   };

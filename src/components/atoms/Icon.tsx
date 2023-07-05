@@ -30,7 +30,9 @@ export type IconName = 'adobe'
     | 'framer'
     | 'illustrator'
     | 'invision'
-    | 'pdf';
+    | 'pdf'
+    | 'typescript'
+    | 'xd';
 
 interface IconProps {
     name: IconName
