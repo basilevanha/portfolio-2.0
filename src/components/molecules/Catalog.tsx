@@ -29,7 +29,6 @@ function Catalog({
             }, 700);
 
         }, 200);
-
     }
 
     return (
@@ -37,6 +36,7 @@ function Catalog({
             {projects.map((project, id: number) => {
                 const projectScrollProgress = useScroll({
                     target: projectsRefs.current[id],
+                    layoutEffect: false,
                     offset: ['start start', 'end end']
                 }).scrollYProgress;
 
