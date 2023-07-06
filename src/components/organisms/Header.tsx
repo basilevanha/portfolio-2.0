@@ -36,6 +36,14 @@ function Header({
 
     const currentSubtitle = subTitles[currentIndex];
 
+    window.addEventListener('blur', () => {
+        setIsAnimationPaused(true);
+    });
+
+    window.addEventListener('focus', () => {
+        setIsAnimationPaused(false);
+    });
+
     useEffect(() => {
         if (isAnimationPaused) return;
         const timeout = setTimeout(cycleSubtitles, 4000);

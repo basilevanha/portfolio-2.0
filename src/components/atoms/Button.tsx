@@ -1,5 +1,9 @@
 import cn from "classnames";
 import Icon, { IconName } from "./Icon";
+import { MouseEvent } from "react";
+
+// Import Google Analytics
+import ReactGA from "react-ga4";
 
 export interface ButtonProps {
     className?: string,
@@ -35,6 +39,15 @@ function Button({
         'dark-mode': isDarkMode,
     });
 
+    const ga4OnClick = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+        ReactGA.event({
+            category: "btn",
+            action: 'click',
+            label: label,
+        });
+        if (onClick) onClick(e);
+    };
+
     const Content = () => (
         <>
             {icon ? (
@@ -58,7 +71,7 @@ function Button({
     return (
         <>
             {onClick && !href &&
-                <button disabled={disabled} className={classNames} aria-label={label} onClick={onClick}>
+                <button disabled={disabled} className={classNames} aria-label={label} onClick={(e) => ga4OnClick(e)}>
                     <Content />
                 </button>
             }

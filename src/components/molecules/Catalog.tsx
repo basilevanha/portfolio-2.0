@@ -1,5 +1,11 @@
+// Import utils
 import { useTranslation } from 'react-i18next';
+
+// Import components
 import Image from '../atoms/Image';
+
+// Import Google Analytics
+import ReactGA from "react-ga4";
 
 // Import content
 import projects from '../../content/projects';
@@ -19,7 +25,13 @@ function Catalog({
 
     const { t } = useTranslation();
 
-    const goToProject = (el: RefObject<HTMLElement>) => {
+    const goToProject = (el: RefObject<HTMLElement>, name: string) => {
+        ReactGA.event({
+            category: "btn",
+            action: 'click',
+            label: name,
+        });
+
         contentRef.current?.classList.add('fade-out');
 
         setTimeout(() => {
@@ -34,8 +46,11 @@ function Catalog({
     return (
         <div className={cn('projects__catalog', { 'dark-mode': isDarkMode })}>
             {projects.map((project, id: number) => {
+                const targetProject = projectsRefs.current[id];
+                const projectName = projects[id].key;
+
                 const projectScrollProgress = useScroll({
-                    target: projectsRefs.current[id],
+                    target: targetProject,
                     layoutEffect: false,
                     offset: ['start start', 'end end']
                 }).scrollYProgress;
@@ -46,7 +61,7 @@ function Catalog({
                     ['0%', '100%']
                 )
                 return (
-                    <button onClick={() => goToProject(projectsRefs.current[id])} className='projects__catalog__thumbnail' key={id}>
+                    <button onClick={() => goToProject(targetProject, projectName)} className='projects__catalog__thumbnail' key={id}>
                         <Image src={project.coverImg.src} lazySrc={project.coverImg.lazySrc} alt={t(`projects.${project.key}.alt`)} fit='cover' />
                         <motion.span style={{ width }} className="overlay"></motion.span>
                         <span className='projects__catalog__thumbnail__title'><p>{t(`projects.${project.key}.title`)}</p></span>
