@@ -5,8 +5,8 @@ import cn from "classnames";
 import Image from "./Image";
 
 // Import assets
-import macbookLayout from '../../assets/images/macbook.png';
-import macbookLayoutLazy from '../../assets/images/macbook@lazy.jpg';
+import macbookLayout from '../../assets/images/macbook.webp';
+import macbookLayoutLazy from '../../assets/images/macbook@lazy.webp';
 
 function Video({
     classNames,
@@ -31,7 +31,7 @@ function Video({
                 <source src={src} type="video/webm" />
                 <meta itemProp="name" content={name} />
                 <meta itemProp="description" content={description} />
-                {/* <meta itemProp="thumbnail" content="my-video-thumbnail-path.jpg" /> */}
+                {/* <meta itemProp="thumbnail" content="my-video-thumbnail-path.webp" /> */}
             </video>
         </div>
     );

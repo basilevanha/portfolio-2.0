@@ -17,8 +17,8 @@ import Carousel from "../molecules/Carousel";
 import { subTitles } from '../../content/subTitles';
 
 // Import images
-import profilePicture from '../../assets/images/hero/basile-vannhaverbeke.png';
-import profilePictureLazy from '../../assets/images/hero/basile-vannhaverbeke@lazy.jpg';
+import profilePicture from '../../assets/images/hero/basile-vannhaverbeke.webp';
+import profilePictureLazy from '../../assets/images/hero/basile-vannhaverbeke@lazy.webp';
 
 function Header({
     isDarkMode,

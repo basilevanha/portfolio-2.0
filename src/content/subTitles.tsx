@@ -1,12 +1,12 @@
 // Import images
-import cofeePicture from '../assets/images/hero/cofee.jpg';
-import cofeePictureLazy from '../assets/images/hero/cofee@lazy.jpg';
-import designerPicture from '../assets/images/hero/designer.jpg';
-import designerPictureLazy from '../assets/images/hero/designer@lazy.jpg';
-import dronePicture from '../assets/images/hero/drone.jpg';
-import dronePictureLazy from '../assets/images/hero/drone@lazy.jpg';
-import outdoorCodingPicture from '../assets/images/hero/perfectionnist.jpg';
-import outdoorCodingPictureLazy from '../assets/images/hero/perfectionnist@lazy.jpg';
+import cofeePicture from '../assets/images/hero/cofee.webp';
+import cofeePictureLazy from '../assets/images/hero/cofee@lazy.webp';
+import designerPicture from '../assets/images/hero/designer.webp';
+import designerPictureLazy from '../assets/images/hero/designer@lazy.webp';
+import dronePicture from '../assets/images/hero/drone.webp';
+import dronePictureLazy from '../assets/images/hero/drone@lazy.webp';
+import outdoorCodingPicture from '../assets/images/hero/perfectionnist.webp';
+import outdoorCodingPictureLazy from '../assets/images/hero/perfectionnist@lazy.webp';
 
 export type subTitlesType = {
     key: string;

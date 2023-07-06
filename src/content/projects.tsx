@@ -2,40 +2,40 @@ import { ButtonProps } from '../components/atoms/Button';
 import { IconName } from '../components/atoms/Icon';
 
 // Portfolio
-import portfolioCover from '../assets/projects/portfolio/portfolio-cover.png';
-import portfolioCoverLazy from '../assets/projects/portfolio/portfolio-cover@lazy.jpg';
-import portfolioShowcase from '../assets/projects/portfolio/portfolio-showcase.png';
-import portfolioShowcaseLazy from '../assets/projects/portfolio/portfolio-showcase@lazy.jpg';
+import portfolioCover from '../assets/projects/portfolio/portfolio-cover.webp';
+import portfolioCoverLazy from '../assets/projects/portfolio/portfolio-cover@lazy.webp';
+import portfolioShowcase from '../assets/projects/portfolio/portfolio-showcase.webp';
+import portfolioShowcaseLazy from '../assets/projects/portfolio/portfolio-showcase@lazy.webp';
 import portfolioVideo from '../assets/projects/portfolio/portfolio-video.mov';
 
 
 // Old portfolio
-import oldPortfolioCover from '../assets/projects/portfolio-old/portfolio-old-cover.png';
-import oldPortfolioCoverLazy from '../assets/projects/portfolio-old/portfolio-old-cover@lazy.jpg';
-import oldPortfolioShowcase from '../assets/projects/portfolio-old/portfolio-old-showcase.png';
-import oldPortfolioShowcaseLazy from '../assets/projects/portfolio-old/portfolio-old-showcase@lazy.jpg';
+import oldPortfolioCover from '../assets/projects/portfolio-old/portfolio-old-cover.webp';
+import oldPortfolioCoverLazy from '../assets/projects/portfolio-old/portfolio-old-cover@lazy.webp';
+import oldPortfolioShowcase from '../assets/projects/portfolio-old/portfolio-old-showcase.webp';
+import oldPortfolioShowcaseLazy from '../assets/projects/portfolio-old/portfolio-old-showcase@lazy.webp';
 import oldPortfolioVideo from '../assets/projects/portfolio-old/portfolio-old-video.mov';
 
 // Scoutapp
-import scoutappCover from '../assets/projects/scoutapp/scoutapp-cover.png';
-import scoutappCoverLazy from '../assets/projects/scoutapp/scoutapp-cover@lazy.jpg';
-import scoutappShowcase from '../assets/projects/scoutapp/scoutapp-showcase.png';
-import scoutappShowcaseLazy from '../assets/projects/scoutapp/scoutapp-showcase@lazy.jpg';
-import scoutappShowcase2 from '../assets/projects/scoutapp/scoutapp-showcase-2.jpg';
-import scoutappShowcase2Lazy from '../assets/projects/scoutapp/scoutapp-showcase-2@lazy.jpg';
+import scoutappCover from '../assets/projects/scoutapp/scoutapp-cover.webp';
+import scoutappCoverLazy from '../assets/projects/scoutapp/scoutapp-cover@lazy.webp';
+import scoutappShowcase from '../assets/projects/scoutapp/scoutapp-showcase.webp';
+import scoutappShowcaseLazy from '../assets/projects/scoutapp/scoutapp-showcase@lazy.webp';
+import scoutappShowcase2 from '../assets/projects/scoutapp/scoutapp-showcase-2.webp';
+import scoutappShowcase2Lazy from '../assets/projects/scoutapp/scoutapp-showcase-2@lazy.webp';
 
 // Betacowork
-import betacoworkCover from '../assets/projects/betacowork/betacowork-cover.jpg';
-import betacoworkCoverLazy from '../assets/projects/betacowork/betacowork-cover@lazy.jpg';
-import betacoworkShowcase from '../assets/projects/betacowork/betacowork-showcase.png';
-import betacoworkShowcaseLazy from '../assets/projects/betacowork/betacowork-showcase@lazy.jpg';
+import betacoworkCover from '../assets/projects/betacowork/betacowork-cover.webp';
+import betacoworkCoverLazy from '../assets/projects/betacowork/betacowork-cover@lazy.webp';
+import betacoworkShowcase from '../assets/projects/betacowork/betacowork-showcase.webp';
+import betacoworkShowcaseLazy from '../assets/projects/betacowork/betacowork-showcase@lazy.webp';
 import betacoworkVideo from '../assets/projects/betacowork/betacowork-home.webm';
 
 // Trek-in
-import trekinCover from '../assets/projects/trekin/trekin-cover.jpg';
-import trekinCoverLazy from '../assets/projects/trekin/trekin-cover@lazy.jpg';
-import trekinShowcase from '../assets/projects/trekin/showcase.jpg';
-import trekinShowcaseLazy from '../assets/projects/trekin/showcase@lazy.jpg';
+import trekinCover from '../assets/projects/trekin/trekin-cover.webp';
+import trekinCoverLazy from '../assets/projects/trekin/trekin-cover@lazy.webp';
+import trekinShowcase from '../assets/projects/trekin/showcase.webp';
+import trekinShowcaseLazy from '../assets/projects/trekin/showcase@lazy.webp';
 
 
 type contentType = {
