@@ -25,6 +25,11 @@ $image-overlap-desktop: 40px;
         display: flex;
         justify-content: space-between;
         padding: 30px;
+
+        &__darkmode-toggle,
+        &__language-toggle {
+            z-index: 2;
+        }
         
         &__carousel {
             position: absolute;
@@ -48,6 +53,7 @@ $image-overlap-desktop: 40px;
         }
 
         &__btns {
+            z-index: 3;
             position: absolute;
             bottom: 30px;
             right: 30px;
@@ -64,6 +70,7 @@ $image-overlap-desktop: 40px;
         margin: -$image-overlap-mobile 0 0;
         padding: 0 $site-gutter-mobile $site-gutter-mobile;
         transition: margin $timing-short ease-in-out;
+        z-index: 2;
 
         @include mq('m') {
             display: flex;

@@ -32,18 +32,9 @@ function Header({
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isDirectionForward, setIsDirectionForwards] = useState(true);
-    const [watchButtonClicked, setWatchButtonClicked] = useState(false);
     const [isAnimationPaused, setIsAnimationPaused] = useState(false);
 
     const currentSubtitle = subTitles[currentIndex];
-
-    window.addEventListener('blur', () => {
-        setIsAnimationPaused(true);
-    });
-
-    window.addEventListener('focus', () => {
-        setIsAnimationPaused(false);
-    });
 
     useEffect(() => {
         if (isAnimationPaused) return;
@@ -51,20 +42,10 @@ function Header({
         return () => clearTimeout(timeout);
     }, [currentIndex, isAnimationPaused]);
 
-    // First step when buttton is clicked : change the animation direction to avoid glitch
-    // Then switch the "button" state
-    const handleOnClick = (direction = true) => {
-        setIsDirectionForwards(direction);
-        setWatchButtonClicked(!watchButtonClicked);
-    }
 
-    // Watch "button" state to trigger animation
-    useEffect(() => {
-        cycleSubtitles();
-    }, [watchButtonClicked])
-
-    const cycleSubtitles = () => {
-        const nextIndex = (isDirectionForward ? currentIndex + 1 : currentIndex - 1);
+    const cycleSubtitles = (isDirectionRight = isDirectionForward) => {
+        if (isDirectionRight != isDirectionForward) setIsDirectionForwards(isDirectionRight);
+        const nextIndex = (isDirectionRight ? currentIndex + 1 : currentIndex - 1);
         nextIndex < 0 ? setCurrentIndex(subTitles.length - 1) : setCurrentIndex(nextIndex % subTitles.length);
     }
 
@@ -92,7 +73,7 @@ function Header({
                     isDirectionForward={isDirectionForward}
                     isAnimationPaused={isAnimationPaused}
                     setIsAnimationPaused={setIsAnimationPaused}
-                    handleOnClick={handleOnClick}
+                    cycleSubtitles={cycleSubtitles}
                 />
 
                 <div className="header__cover__darkmode-toggle">

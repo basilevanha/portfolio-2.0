@@ -17,7 +17,7 @@ function Carousel({
     isDirectionForward,
     isAnimationPaused,
     setIsAnimationPaused,
-    handleOnClick
+    cycleSubtitles
 }: {
     isDarkMode: boolean,
     className?: string,
@@ -26,9 +26,9 @@ function Carousel({
     isDirectionForward: boolean,
     isAnimationPaused: boolean,
     setIsAnimationPaused: (value: boolean) => void,
-    handleOnClick: (value: boolean) => void
+    cycleSubtitles: (value: boolean) => void
 }) {
-    const [areButtonDisabled, setAreButtonDisabled] = useState(true);
+    const [areButtonDisabled, setAreButtonDisabled] = useState(false);
 
     useEffect(() => {
         setAreButtonDisabled(true);
@@ -37,6 +37,11 @@ function Carousel({
     const onAnimationComplete = () => {
         setAreButtonDisabled(false);
     }
+
+    const handleOnClick = (value: boolean) => {
+        cycleSubtitles(value)
+    };
+
     const transition = {
         duration: 1,
         type: 'spring',
@@ -46,9 +51,9 @@ function Carousel({
     }
 
     const variants = {
-        prev: { x: "-100%", display: 'block', transition },
-        inView: { x: "0%", transition: { duration: 1, type: 'spring', onComplete: () => onAnimationComplete() } },
-        next: { x: "100%", display: 'block', transition },
+        prev: { zIndex: 1, x: "-100%", display: 'block', transition },
+        inView: { zIndex: 2, x: "0%", transition: { duration: 1, type: 'spring', onComplete: () => onAnimationComplete() } },
+        next: { zIndex: 1, x: "100%", display: 'block', transition },
         hidden: { display: 'none' }
     }
 
@@ -91,9 +96,31 @@ function Carousel({
             })}
 
             <div className="header__cover__btns">
-                <Button className={cn(areButtonDisabled && !isDirectionForward && 'pressed')} appearance="only-icon" icon="arrow-left" isDarkMode={isDarkMode} disabled={areButtonDisabled} label={t('header.btn.prev')} onClick={() => handleOnClick(false)} />
-                <Button appearance="only-icon" icon={isAnimationPaused ? 'play' : "pause"} isDarkMode={isDarkMode} label={t('header.btn.prev')} onClick={() => setIsAnimationPaused(!isAnimationPaused)} />
-                <Button className={cn(areButtonDisabled && isDirectionForward && 'pressed')} appearance="only-icon" icon="arrow-right" isDarkMode={isDarkMode} disabled={areButtonDisabled} label={t('header.btn.next')} onClick={() => handleOnClick(true)} />
+                <Button
+                    className={cn(areButtonDisabled && !isDirectionForward && 'pressed')}
+                    appearance="only-icon"
+                    icon="arrow-left"
+                    isDarkMode={isDarkMode}
+                    disabled={areButtonDisabled}
+                    label={t('header.btn.prev')}
+                    onClick={() => handleOnClick(false)}
+                />
+                <Button
+                    appearance="only-icon"
+                    icon={isAnimationPaused ? 'play' : "pause"}
+                    isDarkMode={isDarkMode}
+                    label={t('header.btn.prev')}
+                    onClick={() => setIsAnimationPaused(!isAnimationPaused)}
+                />
+                <Button
+                    className={cn(areButtonDisabled && isDirectionForward && 'pressed')}
+                    appearance="only-icon"
+                    icon="arrow-right"
+                    isDarkMode={isDarkMode}
+                    disabled={areButtonDisabled}
+                    label={t('header.btn.next')}
+                    onClick={() => handleOnClick(true)}
+                />
             </div>
         </div>
     );
