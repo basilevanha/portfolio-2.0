@@ -16,7 +16,7 @@ import Projects from './components/organisms/Projects';
 import Footer from './components/organisms/Footer';
 
 function App() {
-  ReactGA.initialize("394718861");
+  ReactGA.initialize("G-6EM3Y82GYP");
 
   const [isDarkMode, setDarkMode] = useState(false);
   const { i18n } = useTranslation();
