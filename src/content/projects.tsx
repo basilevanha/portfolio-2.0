@@ -4,9 +4,21 @@ import { IconName } from '../components/atoms/Icon';
 // Portfolio
 import portfolioCover from '../assets/projects/portfolio/portfolio-cover.webp';
 import portfolioCoverLazy from '../assets/projects/portfolio/portfolio-cover@lazy.webp';
-import portfolioShowcase from '../assets/projects/portfolio/portfolio-showcase.webp';
-import portfolioShowcaseLazy from '../assets/projects/portfolio/portfolio-showcase@lazy.webp';
-import portfolioVideo from '../assets/projects/portfolio/portfolio-video.mov';
+import portfolioVideo from '../assets/projects/portfolio/portfolio-video.webm';
+import portfolioLoading from '../assets/projects/portfolio/portfolio-loading.webp';
+import portfolioLoadingLazy from '../assets/projects/portfolio/portfolio-loading@lazy.webp';
+
+
+// Proximus
+import proximusCover from '../assets/projects/proximus/proximus-cover.webp';
+import proximusCoverLazy from '../assets/projects/proximus/proximus-cover@lazy.webp';
+import proximusShowcase from '../assets/projects/proximus/proximus-showcase.webp';
+import proximusShowcaseLazy from '../assets/projects/proximus/proximus-showcase@lazy.webp';
+import proximusArticles from '../assets/projects/proximus/article-showcase.webp';
+import proximusArticlesLazy from '../assets/projects/proximus/article-showcase@lazy.webp';
+import proximusFestivals from '../assets/projects/proximus/festivals-showcase.webp';
+import proximusFestivalsLazy from '../assets/projects/proximus/festivals-showcase@lazy.webp';
+
 
 
 // Old portfolio
@@ -14,7 +26,7 @@ import oldPortfolioCover from '../assets/projects/portfolio-old/portfolio-old-co
 import oldPortfolioCoverLazy from '../assets/projects/portfolio-old/portfolio-old-cover@lazy.webp';
 import oldPortfolioShowcase from '../assets/projects/portfolio-old/portfolio-old-showcase.webp';
 import oldPortfolioShowcaseLazy from '../assets/projects/portfolio-old/portfolio-old-showcase@lazy.webp';
-import oldPortfolioVideo from '../assets/projects/portfolio-old/portfolio-old-video.mov';
+import oldPortfolioVideo from '../assets/projects/portfolio-old/portfolio-old-video.webm';
 
 // Scoutapp
 import scoutappCover from '../assets/projects/scoutapp/scoutapp-cover.webp';
@@ -82,15 +94,60 @@ const projects: projectType[] = [
         tools: ['figma', 'react', 'typescript', 'framer'],
         content: [
             {
-                type: 'image',
-                key: 'showcase',
-                src: portfolioShowcase,
-                lazySrc: portfolioShowcaseLazy
-            },
-            {
                 type: 'video',
                 key: 'video',
                 src: portfolioVideo
+            },
+            {
+                type: 'text',
+                key: 'loading'
+            },
+            {
+                type: 'image',
+                key: 'loadingimg',
+                src: portfolioLoading,
+                lazySrc: portfolioLoadingLazy
+            },
+        ],
+    },
+    {
+        key: 'proximus',
+        coverImg: {
+            src: proximusCover,
+            lazySrc: proximusCoverLazy
+        },
+        jobs: ['developer'],
+        tools: ['twig', 'storybook', 'react', 'typescript', 'figma'],
+        content: [
+            {
+                type: 'image',
+                key: 'showcase',
+                src: proximusShowcase,
+                lazySrc: proximusShowcaseLazy,
+            },
+            {
+                type: 'text',
+                key: 'storybook'
+            },
+            {
+                type: 'text',
+                key: 'articles'
+            },
+            {
+                type: 'image',
+                key: 'articlesimg',
+                src: proximusArticles,
+                lazySrc: proximusArticlesLazy
+            },
+            {
+                type: 'text',
+                key: 'festivals'
+            },
+            {
+                type: 'image',
+                key: 'festivalsimg',
+                src: proximusFestivals,
+                lazySrc: proximusFestivalsLazy,
             },
         ],
     },

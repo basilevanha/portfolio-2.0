@@ -32,7 +32,8 @@ export type IconName = 'adobe'
     | 'invision'
     | 'pdf'
     | 'typescript'
-    | 'xd';
+    | 'xd'
+    | 'twig';
 
 interface IconProps {
     name: IconName

@@ -48,12 +48,13 @@ export const fr = {
             'illustrator': 'Adobe Illustrator',
             'invision': 'Invision',
             'typescript': 'Typescript',
-            'xd': 'Adobe XD'
+            'xd': 'Adobe XD',
+            'twig': 'Twig'
         },
 
         jobs: {
             uxui: 'UX/UI Designer',
-            developer: 'Développeur'
+            developer: 'Développeur FE'
         },
 
         header: {
@@ -123,8 +124,19 @@ export const fr = {
             portfolio: {
                 title: "Portfolio 2.0",
                 cover: 'Ecrans de mon portfolio',
-                intro: `C'est la deuxième version de mon portfolio. Après 3 ans en tant qu'employé, j'ai décidé de partir un an en Martinique pour vivre de nouvelles aventures. Il me fallait dès lors une nouvelle vitrine qui refleterait mon expérience acquise durant 3 années passées comme développeur frontend. J'ai entièrement designé le site d'abord sur Figma et je lui ai ensuite donné vie via React, typescript & framer-motion.`,
+                intro: `Ce site est la deuxième version de mon portfolio. Après 3 ans en tant qu'employé, j'ai décidé de partir un an en Martinique pour vivre de nouvelles aventures. Il me fallait dès lors une nouvelle vitrine qui refleterait mon expérience acquise durant 3 années passées comme développeur frontend. J'ai entièrement designé le site d'abord sur Figma et je lui ai ensuite donné vie via React, typescript & framer-motion.`,
                 content: {
+                    loading: `Pour des raisons de performances, j'ai implémenté un système de lazy loading personnalisé basé sur le scroll de la page. C'est à dire que le contenu ne se charge entièrement que lorsque l'utilisateur arrive sur la section correspondante. Pour éviter d'avoir des problèmes liés au CLS (Cumulative Layout Shift), j'affiche par défaut une version minifiée des images qui permet au navigateur de calculer à l'avance l'espace que va occuper l'image avant qu'elle ne charge réellement.`
+                },
+            },
+            proximus: {
+                title: "Proximus Pickx",
+                cover: '',
+                intro: `J'ai été engagé chez proximus en tant que développeur front-end au sein de l'équipe pickx, leur partie vidéo à la demande. Avec mes collègues, nous étions chargés de la maintenance du site sur plusieurs aspects ; la mise en avant de différents contenus en fonction de l'actualité, la création de nouvelles pages et le redesign d'autres, l'implémentation de nouvelles fonctionnalités et la résolution de bogues au quotidien.`,
+                content: {
+                    storybook: `Nous travaillions également sur la création d'un design system en utilisant "Storybook", c'est à dire sur la mise en place d'une librairie de plusieurs composants réutilisables au sein du projet afin d'en faciliter la maitenance. Il a fallut pour ce faire migrer en douceur d'une infrasturucture symfony vers une architecture en node.js, plus moderne et modulable.`,
+                    festivals: `Nous avons créé un site indépendant au site principal afin de couvrir les actualités de certains festivals dont Proximus Pickx était partenaire. L'utilisateur peut ainsi y regarder en livestream les concerts des festivals et regarder en différé les vods.`,
+                    articles: `Voici un exemple d'une page retravaillée par les designers que j'ai pu intégrer d'abord dans le site principal en twig et scss et ensuite dans le design system en react & typescript :`
                 },
             },
             oldportfolio: {

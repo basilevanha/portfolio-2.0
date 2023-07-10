@@ -48,12 +48,13 @@ export const en = {
             'illustrator': 'Adobe Illustrator',
             'invision': 'Invision',
             'typescript': 'Typescript',
-            'xd': 'Adobe XD'
+            'xd': 'Adobe XD',
+            'twig': 'Twig'
         },
 
         jobs: {
             uxui: 'UX/UI Designer',
-            developer: 'Developer'
+            developer: 'FE developer'
         },
 
         header: {
@@ -125,6 +126,17 @@ export const en = {
                 cover: 'Layout from my portfolio',
                 intro: `This is the second iteration of my portfolio. After 3years as an employee I decided to leave for one year in Martinique so I needed a new visit card. This portfolio was designed with Figma and coded using React, Typescript & framer-motion.`,
                 content: {
+                    loading: `I implemented a custom lazy loading feature based on the page scroll for all the content of my website. Meaning that when the user scroll to a section it will then trigger the loading of related content such as pictures and videos. It makes the site faster to load the first time and allows the user to only load the content he wants to see instead of everything at once. To avoid CLS problem (Cumulative Layout Shift) I display by default a minify version of the pictures. The browser reserves the right space to then load the picture without moving all the content while loading.`,
+                },
+            },
+            proximus: {
+                title: "Proximus Pickx",
+                cover: '',
+                intro: `I was hired at proximus as a frontend developer in the pickx tribe - their video on demand platform. With my team, we were on charge of the site maintenance through differents aspects such as ; promoting some content, creating new pages, revamping some others, adding features and day to day bugfixing.`,
+                content: {
+                    storybook: `I was also working on the creation of a brand new design system using Storybook - meaning a library of reusable components inside the project. To achieve this we had to change the infrastructure from a php based project to a node.js solution, more flexible and modern.`,
+                    festivals: `We created a brand new standalone website related to festivals. The user can see the live concert and watch related content, articles and vods.`,
+                    articles: `Here is an example of a page revamp I worked on, first in the symfony project and then in the design system :`
                 },
             },
             oldportfolio: {
