@@ -8,6 +8,7 @@ function Image({
     fit,
     aspectRatio,
     className,
+    onlyLoading = false,
 }: {
     className?: string,
     // Specify the image source
@@ -18,6 +19,7 @@ function Image({
     // Provide an aspect ratio
     aspectRatio?: '1x1' | '4x3' | '16x9'
     fit?: 'cover' | 'contain' | 'fill',
+    onlyLoading?: boolean
 }) {
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -36,11 +38,10 @@ function Image({
             'fit-contain': fit === 'contain',
             'fit-fill': fit === 'fill',
         })}>
+
             <img src={lazySrc} className="image-placeholder" alt={alt} />
 
-            <picture>
-                <img src={src} className="image-original" alt={alt} onLoad={onLoad} loading="lazy" />
-            </picture>
+            {!onlyLoading && <img src={src} className="image-original" alt={alt} onLoad={onLoad} loading="lazy" />}
 
         </div>
     );

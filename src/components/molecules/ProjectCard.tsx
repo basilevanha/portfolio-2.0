@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // Import utils
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { projectType } from '../../content/projects';
 
 // Import Components
@@ -41,6 +41,8 @@ const ProjectCard = ({
     useEffect(() => {
         stickyLoader.current && setStickyLoaderHeight(stickyLoader.current?.offsetHeight)
     }, [contentHeight]);
+
+    const isInView = useInView(projectCard, { once: true });
 
     useEffect(() => {
         setTimeout(() => {
@@ -88,12 +90,12 @@ const ProjectCard = ({
     )
 
     // 200vh + wrapper height + content = 1 ratio
-    const stickyLoaderStyleHeight = `calc(100vh + ${contentHeight}px + ${wrapperHeight}px`;
+    const stickyLoaderStyleHeight = `calc(${wrapperHeight}px + ${contentHeight}px + ${wrapperHeight}px)`;
 
 
-    const first = (1 - stickyContentRatio - stickyWrapperRatio) / 2;  // = 100vh
-    const second = 1 - stickyContentRatio - stickyWrapperRatio;       // = 200vh
-    const third = 1 - stickyContentRatio;                             // = 200vh + wrapper height
+    const first = (1 - stickyContentRatio - stickyWrapperRatio) / 2;  // = 50vh
+    const second = 1 - stickyContentRatio - stickyWrapperRatio;       // = 100vh
+    const third = 1 - stickyContentRatio;                             // = 100vh + wrapper height
 
 
     const stickyLoaderProgress = useScroll({
@@ -187,6 +189,7 @@ const ProjectCard = ({
                             lazySrc={project.coverImg.lazySrc}
                             alt={t(`projects.${project.key}.cover`)}
                             fit='cover'
+                            onlyLoading={!isInView}
                         />
                     </motion.div>
 
@@ -240,11 +243,25 @@ const ProjectCard = ({
                                     )
                                 } else if (content.type == 'image') {
                                     return (
-                                        <Image key={i} className='project-content__img' src={content.src} lazySrc={content.lazySrc} alt={t(projectKey + `.content.${content.key}`)} />
+                                        <Image
+                                            key={i}
+                                            className='project-content__img'
+                                            src={content.src}
+                                            lazySrc={content.lazySrc}
+                                            alt={t(projectKey + `.content.${content.key}`)}
+                                            onlyLoading={!isInView}
+                                        />
                                     )
                                 } else if (content.type == 'video') {
                                     return (
-                                        <Video key={i} classNames='project-content__video' tkey={content.key} src={content.src} project={project.key} />
+                                        <Video
+                                            key={i}
+                                            classNames='project-content__video'
+                                            tkey={content.key}
+                                            src={content.src}
+                                            project={project.key}
+                                            onlyLoading={!isInView}
+                                        />
                                     )
                                 }
                             })}

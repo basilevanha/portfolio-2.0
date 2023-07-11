@@ -1,12 +1,12 @@
 .video {
     display: flex;
     position: relative;
-    max-width: 100vh;
     margin: 0 auto;
 
-    .image {
+    &__macbook-overlay {
         width: 100%;
         z-index: 1;
+        pointer-events: none;
     }
 
     video {

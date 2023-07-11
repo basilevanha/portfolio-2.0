@@ -13,11 +13,13 @@ function Video({
     src,
     project,
     tkey,
+    onlyLoading = false
 }: {
     classNames?: string,
     src: string,
     project: string,
-    tkey: string
+    tkey: string,
+    onlyLoading?: boolean
 }) {
 
     const name = t('projects.' + project + '.content.' + tkey + '.name');
@@ -26,13 +28,16 @@ function Video({
 
     return (
         <div className={cn('video', classNames)}>
-            <Image src={macbookLayout} alt={macbookLayoutAlt} lazySrc={macbookLayoutLazy} />
-            <video muted autoPlay loop>
-                <source src={src} type="video/webm" />
-                <meta itemProp="name" content={name} />
-                <meta itemProp="description" content={description} />
-                {/* <meta itemProp="thumbnail" content="my-video-thumbnail-path.webp" /> */}
-            </video>
+            <Image src={macbookLayout} alt={macbookLayoutAlt} lazySrc={macbookLayoutLazy} className="video__macbook-overlay" onlyLoading={onlyLoading} />
+
+            {!onlyLoading &&
+                <video muted autoPlay loop>
+                    <source src={src} type="video/webm" />
+                    <meta itemProp="name" content={name} />
+                    <meta itemProp="description" content={description} />
+                    {/* <meta itemProp="thumbnail" content="my-video-thumbnail-path.webp" /> */}
+                </video>
+            }
         </div>
     );
 }
