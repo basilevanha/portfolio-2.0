@@ -1,97 +1,65 @@
 import { IconName } from "../components/atoms/Icon";
 import { ButtonProps } from "../components/atoms/Button";
 
-type InfosProps = {
-    key: string,
-    items: { key: string, icon: IconName }[]
-}[];
+export type BoxType = {
+    key: string
+} & ({
+    type: 'list'
+    items: IconName[]
+} | {
+    type: 'btns'
+    items: BtnsItemProps[]
+});
 
-type ExtLinksProps = {
-    key: string,
-    icon: IconName,
+export type BtnsItemProps = {
+    key: string
+    icon: IconName
     target?: ButtonProps['target']
-}[];
+}
+
+export type InfosProps = BoxType[];
 
 export const infos: InfosProps = [
     {
+        type: 'list',
         key: 'experience',
         items: [
-            {
-                key: 'proximus',
-                icon: 'proximus',
-            },
-            {
-                key: 'versett',
-                icon: 'versett',
-            },
-            {
-                key: 'laniche',
-                icon: 'laniche',
-            },
-            {
-                key: 'emakina',
-                icon: 'emakina',
-            },
+            'proximus', 'versett', 'emakina', 'laniche'
         ]
     },
     {
+        type: 'list',
         key: 'expertise',
         items: [
-            {
-                key: 'html',
-                icon: 'html',
-            },
-            {
-                key: 'css',
-                icon: 'css',
-            },
-            {
-                key: 'javascript',
-                icon: 'javascript',
-            },
-            {
-                key: 'react',
-                icon: 'react',
-            },
+            'twig', 'javascript', 'react', 'typescript',
         ]
     },
     {
+        type: 'list',
         key: 'tools',
         items: [
+            'figma', 'adobe', 'wordpress', 'storybook'
+        ]
+    },
+    {
+        type: 'btns',
+        key: 'links',
+        items: [
             {
-                key: 'figma',
-                icon: 'figma',
+                key: 'cv',
+                icon: 'pdf',
+                target: '_blank'
             },
             {
-                key: 'storybook',
-                icon: 'storybook',
+                key: 'linkedin',
+                icon: 'external-link',
+                target: '_blank'
             },
             {
-                key: 'wordpress',
-                icon: 'wordpress',
-            },
-            {
-                key: 'adobe',
-                icon: 'adobe',
+                key: 'github',
+                icon: 'external-link',
+                target: '_blank'
             },
         ]
     }
-];
-
-export const extLinks: ExtLinksProps = [
-    {
-        key: 'cv',
-        icon: 'pdf',
-        target: '_blank'
-    },
-    {
-        key: 'linkedin',
-        icon: 'external-link',
-        target: '_blank'
-    },
-    {
-        key: 'github',
-        icon: 'external-link',
-        target: '_blank'
-    },
 ];

@@ -221,7 +221,7 @@ const projects: projectType[] = [
             src: betacoworkCover,
             lazySrc: betacoworkCoverLazy
         },
-        jobs: ['uxui'],
+        jobs: ['uxui', 'developer'],
         tools: ['wordpress', 'illustrator'],
         content: [
             {
