@@ -3,6 +3,9 @@ import cv from '../assets/pdf/resume.pdf';
 // Trek-in
 import trekinSpecification from '../assets/projects/trekin/trek-in-cahier-des-charges.pdf';
 
+// Emakina
+import emakinaReport from '../assets/projects/emakina/emakina-rapport-de-production-web.pdf';
+
 // Scoutapp
 import scoutappSpecification from '../assets/projects/scoutapp/scoutapp-graduation-work.pdf';
 
@@ -156,6 +159,38 @@ export const en = {
                         href: '/portfolio-old'
                     },
                 },
+            },
+            emakina: {
+                title: 'Emakina',
+                cover: 'Some screenshots of games in development in a graphical disposition.',
+                intro: `
+                    <p>For my third year internship in multimedia writing at ISFSC I joined EMAKINA, a digital communication agency based in Belgium in Brussels. During the internship I was able to work autonomously on a big budget project by collaborating as equals with the other members of the team.
+                    <br /> <br /> I acquired during my Internship several technical skills:</p>
+                    <ul style = {{marginTop: 15, marginLeft: 20}}>
+                        <li> Getting started with NodeJs and Yarn </ li>
+                        <li> JavaScript </li>
+                        <li> React </li>
+                        <li> CSS in Js </ li>
+                    </ul>
+                `,
+                content: {
+                    games: `
+                        We developed three games that were part of a commercial campaign :
+                        <br><br>A timer to stop at a certain point, the goal is to get as close as possible from the given temperaure ;
+                    `,
+                    memory: 'A memory ;',
+                    elements: 'And an image were the user had to find some hidden products.',
+                },
+                ressources: {
+                    report: {
+                        label: 'Internship report',
+                        href: emakinaReport
+                    },
+                    website: {
+                        label: 'emakina.com',
+                        href: 'https://www.emakina.com/'
+                    }
+                }
             },
             scoutapp: {
                 title: "Scoutapp",

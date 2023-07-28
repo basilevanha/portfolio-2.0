@@ -6,6 +6,9 @@ import trekinSpecification from '../assets/projects/trekin/trek-in-cahier-des-ch
 // Scoutapp
 import scoutappSpecification from '../assets/projects/scoutapp/scoutapp-graduation-work.pdf';
 
+// Emakina
+import emakinaReport from '../assets/projects/emakina/emakina-rapport-de-production-web.pdf';
+
 // Betacowork
 import betacoworkSpecification from '../assets/projects/betacowork/betacowork-rapport-de-stage.pdf';
 
@@ -16,6 +19,7 @@ export const fr = {
         darkModeToggle: 'Activer le thème sombre',
         languageToggle: 'Basculer de français à anglais',
         macbook: "Chassis d'un macbook",
+
         mailto: {
             subject: "✨ De quoi sagit-il ? ✨",
             body: "D'une proposition excitante à propos d'un super projet sur lequel nous pourrions collaborer ? 🤝 \n \n Dites m'en plus et parlons-en autour d'un café ☕️",
@@ -155,6 +159,38 @@ export const fr = {
                         href: '/portfolio-old'
                     },
                 },
+            },
+            emakina: {
+                title: 'Emakina',
+                cover: `Quelques captures d'écrans de jeux en développement agencés de manières graphiques.`,
+                intro: `
+                    <p>Pour mon stage de troisième année en écriture multimédia à l’ISFSC j’ai rejoint la société EMAKINA, une agence de communication digitale basée en Belgique à Bruxelles. Durant le stage j’ai pu travailler de manière autonome sur un projet à gros budget tout en collaborant d’égal à égal avec les autres membres de l’équipe.
+                    <br /><br />J’ai ainsi acquis durant mon stage plusieurs compétences techniques :</p>
+                    <ul style={{marginTop: 15, marginLeft: 20}}>
+                        <li>Prise en main de NodeJs et de Yarn</li>
+                        <li>Javascript</li>
+                        <li>React</li>
+                        <li>CSS in Js</li>
+                    </ul>
+                `,
+                content: {
+                    games: `
+                        Nous avons développé trois jeux qui s'intégraient dans une campagne promotionnelle :
+                        <br><br>Un compteur qu'il fallait arrêter au bon moment ;
+                    `,
+                    memory: 'Un memory ;',
+                    elements: `Et une image où il fallait retrouver certains produits de la marque.`,
+                },
+                ressources: {
+                    report: {
+                        label: 'Rapport de stage',
+                        href: emakinaReport
+                    },
+                    website: {
+                        label: 'emakina.com',
+                        href: 'https://www.emakina.com/'
+                    }
+                }
             },
             scoutapp: {
                 title: "Scoutapp",

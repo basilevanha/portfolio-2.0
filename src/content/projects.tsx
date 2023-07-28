@@ -20,13 +20,24 @@ import proximusFestivals from '../assets/projects/proximus/festivals-showcase.we
 import proximusFestivalsLazy from '../assets/projects/proximus/festivals-showcase@lazy.webp';
 
 
-
 // Old portfolio
 import oldPortfolioCover from '../assets/projects/portfolio-old/portfolio-old-cover.webp';
 import oldPortfolioCoverLazy from '../assets/projects/portfolio-old/portfolio-old-cover@lazy.webp';
 import oldPortfolioShowcase from '../assets/projects/portfolio-old/portfolio-old-showcase.webp';
 import oldPortfolioShowcaseLazy from '../assets/projects/portfolio-old/portfolio-old-showcase@lazy.webp';
 import oldPortfolioVideo from '../assets/projects/portfolio-old/portfolio-old-video.webm';
+
+
+// Emakina
+import emakinaCover from '../assets/projects/emakina/emakina-cover.webp';
+import emakinaCoverLazy from '../assets/projects/emakina/emakina-cover@lazy.webp';
+import emakinaMemory from '../assets/projects/emakina/emakina-memory.webp';
+import emakinaMemoryLazy from '../assets/projects/emakina/emakina-memory@lazy.webp';
+import emakinaHiddenElements from '../assets/projects/emakina/emakina-hidden-elements.webp';
+import emakinaHiddenElementsLazy from '../assets/projects/emakina/emakina-hidden-elements@lazy.webp';
+import emakinaHitTheTimer from '../assets/projects/emakina/emakina-hit-the-timer.webp';
+import emakinaHitTheTimerLazy from '../assets/projects/emakina/emakina-hit-the-timer@lazy.webp';
+
 
 // Scoutapp
 import scoutappCover from '../assets/projects/scoutapp/scoutapp-cover.webp';
@@ -36,12 +47,14 @@ import scoutappShowcaseLazy from '../assets/projects/scoutapp/scoutapp-showcase@
 import scoutappShowcase2 from '../assets/projects/scoutapp/scoutapp-showcase-2.webp';
 import scoutappShowcase2Lazy from '../assets/projects/scoutapp/scoutapp-showcase-2@lazy.webp';
 
+
 // Betacowork
 import betacoworkCover from '../assets/projects/betacowork/betacowork-cover.webp';
 import betacoworkCoverLazy from '../assets/projects/betacowork/betacowork-cover@lazy.webp';
 import betacoworkShowcase from '../assets/projects/betacowork/betacowork-showcase.webp';
 import betacoworkShowcaseLazy from '../assets/projects/betacowork/betacowork-showcase@lazy.webp';
 import betacoworkVideo from '../assets/projects/betacowork/betacowork-home.webm';
+
 
 // Trek-in
 import trekinCover from '../assets/projects/trekin/trekin-cover.webp';
@@ -173,6 +186,59 @@ const projects: projectType[] = [
             },
         ],
         ressources: [
+            {
+                key: 'website',
+                icon: 'external-link',
+                target: '_blank'
+            }
+        ]
+    },
+    {
+        key: 'emakina',
+        coverImg: {
+            src: emakinaCover,
+            lazySrc: emakinaCoverLazy,
+        },
+        jobs: ['developer'],
+        tools: ['react', 'framer', 'adobe'],
+        content: [
+            {
+                type: 'text',
+                key: 'games'
+            },
+            {
+                type: 'image',
+                key: 'timer',
+                src: emakinaHitTheTimer,
+                lazySrc: emakinaHitTheTimerLazy
+            },
+            {
+                type: 'text',
+                key: 'memory'
+            },
+            {
+                type: 'image',
+                key: 'memory',
+                src: emakinaMemory,
+                lazySrc: emakinaMemoryLazy
+            },
+            {
+                type: 'text',
+                key: 'elements'
+            },
+            {
+                type: 'image',
+                key: 'hidden',
+                src: emakinaHiddenElements,
+                lazySrc: emakinaHiddenElementsLazy
+            },
+        ],
+        ressources: [
+            {
+                key: 'report',
+                icon: 'pdf',
+                target: '_blank'
+            },
             {
                 key: 'website',
                 icon: 'external-link',
