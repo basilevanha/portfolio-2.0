@@ -180,6 +180,7 @@ const ProjectCard = ({
                                 style={{ opacity }}
                             >
                                 {t(`projects.${project.key}.title`)}
+                                <span className='project-card__img-overlay__scroll-down'></span>
                             </motion.span>
                         </motion.span>
 
