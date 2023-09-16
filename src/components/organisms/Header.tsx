@@ -46,7 +46,7 @@ function Header({
 
     useEffect(() => {
         if (isAnimationPaused) return;
-        const timeout = setTimeout(cycleSubtitles, 4000);
+        const timeout = setTimeout(cycleSubtitles, 7000);
         return () => clearTimeout(timeout);
     }, [currentIndex, isAnimationPaused]);
 
@@ -92,34 +92,45 @@ function Header({
                 </div>
             </div>
 
-            <div className="header__content">
+            <motion.div
+                initial={{ scale: .7, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 1, type: 'spring' }}
+                className="header__content"
+            >
                 <div className="header__content__profile">
                     <Image src={profilePicture} lazySrc={profilePictureLazy} alt={t('header.name')} aspectRatio="1x1" className="header__content__profile_picture" />
                     <div className="header__content__profile__icon">
-                        <MorphIcon currentIndex={currentIndex} />
+                        <MorphIcon currentIndex={currentIndex} isDarkMode={isDarkMode} />
                     </div>
                 </div>
                 <div className="header__content__text">
-                    <h1>{t('header.name')}</h1>
-                    <p>
-                        <AnimatePresence>
-                            <motion.span
-                                key={currentSubtitle.key}
-                                initial={isDirectionForward ? { y: '100%' } : { y: '-100%' }}
-                                animate={{ y: 0 }}
-                                exit={isDirectionForward ? { y: '-100%' } : { y: '100%' }}
-                                transition={{ duration: 1, type: 'spring' }}
-                            >{t(`header.subtitles.${currentSubtitle.key}`)}</motion.span>
-                        </AnimatePresence>
+                    <p className="header__content__text__greeting">{t('header.greeting')}</p>
+                    <h1 className="header__content__text__name">{t('header.name')}</h1>
+                    <p className="header__content__text__subtitle">
+                        <span>{t('header.and')}</span>
+                        <span className="header__content__text__subtitle__animate">
+                            <AnimatePresence>
+                                <motion.span
+                                    key={currentSubtitle.key}
+                                    initial={isDirectionForward ? { y: '100%' } : { y: '-100%' }}
+                                    animate={{ y: 0 }}
+                                    exit={isDirectionForward ? { y: '-100%' } : { y: '100%' }}
+                                    transition={{ duration: 1, type: 'spring' }}
+                                >{t(`header.subtitles.${currentSubtitle.key}`)}</motion.span>
+                            </AnimatePresence>
+                        </span>
                     </p>
-                    <Button
-                        isDarkMode={isDarkMode}
-                        label={t('header.contact.label')}
-                        icon="send"
-                        onClick={(e) => sendMail(e)}
-                    />
+                    <div className="header__content__text__contact">
+                        <Button
+                            isDarkMode={isDarkMode}
+                            label={t('header.contact.label')}
+                            icon="send"
+                            onClick={(e) => sendMail(e)}
+                        />
+                    </div>
                 </div>
-            </div>
+            </motion.div>
         </header>
     );
 }

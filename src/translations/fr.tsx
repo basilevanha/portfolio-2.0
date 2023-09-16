@@ -62,16 +62,18 @@ export const fr = {
         },
 
         header: {
-            name: 'Basile Vanhaverbeke',
+            greeting: '👋 Bonjour,',
+            name: 'Je suis Basile Vanhaverbeke',
+            and: 'et ...',
+            subtitles: {
+                code: "je code avec un thème clair (🤫).",
+                available: 'je suis disponible pour une mission.',
+                designer: "je crée des expériences utilisateurs.",
+                coffee: "je bois trop de café.",
+                drone: "ça m'arrive de faire voler mon drone.",
+            },
             contact: {
                 label: 'Contactez-moi'
-            },
-            subtitles: {
-                available: 'Actuellement disponible 😉',
-                designer: "Designer",
-                outdoor: 'Développeur',
-                drone: "Pilote de drone",
-                cofee: "Amateur de café"
             },
         },
 
@@ -122,7 +124,7 @@ export const fr = {
             }
         },
 
-        projectstitle: 'Projets',
+        projectstitle: 'Scroll à travers mes projets',
 
         projects: {
             portfolio: {

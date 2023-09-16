@@ -22,7 +22,7 @@ export const en = {
 
         mailto: {
             subject: "✨ What is it about ? ✨",
-            body: "Is it an exciting proposal about a wonderful project we could collaborate on? 🤝 \n \n Tell me more and let's have a cofee together ☕️",
+            body: "Is it an exciting proposal about a wonderful project we could collaborate on? 🤝 \n \n Tell me more and let's have a coffee together ☕️",
         },
 
         icon: {
@@ -62,16 +62,19 @@ export const en = {
         },
 
         header: {
-            name: 'Basile Vanhaverbeke',
+            greeting: '👋 Hello there,',
+            name: "I'm Basile Vanhaverbeke",
+            and: 'and ...',
+            subtitles: {
+                available: "I'm available for a mission.",
+                code: "I code with a light mode (🤫).",
+                designer: "I like to design stuff.",
+                outdoor: 'I type a lot of lines.',
+                coffee: "I drink too much coffee.",
+                drone: "I like flying my drone.",
+            },
             contact: {
                 label: 'Contact me'
-            },
-            subtitles: {
-                available: 'Currently available 😉',
-                designer: "Designer",
-                outdoor: 'Developer',
-                drone: "Drone pilot",
-                cofee: "Cofee addict"
             },
         },
 
@@ -122,7 +125,7 @@ export const en = {
             }
         },
 
-        projectstitle: 'Projects',
+        projectstitle: 'Scroll through my projects',
 
         projects: {
             portfolio: {

@@ -5,10 +5,6 @@ import posed from "react-pose";
 //Import content
 import { subTitles } from '../../content/subTitles';
 
-interface MorpIconProps {
-    currentIndex: number;
-}
-
 export interface PathsObjectType {
     [key: string]: string,
 }
@@ -40,13 +36,19 @@ const Path = posed.path(
     }, {})
 );
 
-const MorphIcon = ({ currentIndex }: MorpIconProps) => {
+interface MorpIconProps {
+    currentIndex: number;
+    isDarkMode: boolean;
+}
+
+const MorphIcon = ({ currentIndex, isDarkMode }: MorpIconProps) => {
+    const color = isDarkMode ? subTitles[currentIndex].colorDark : subTitles[currentIndex].colorLight;
 
     return (
-        <svg viewBox="0 0 512 512" style={{ fill: subTitles[currentIndex].color && subTitles[currentIndex].color }}>
+        <svg viewBox="0 0 512 512" style={color ? { fill: color } : {}}>
             <Path pose={pathIds[currentIndex]} />
         </svg>
     )
 }
 
-export default MorphIcon
+export default MorphIcon;
