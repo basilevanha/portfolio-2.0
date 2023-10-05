@@ -66,9 +66,10 @@ export const fr = {
             name: 'Je suis Basile Vanhaverbeke',
             and: 'et ...',
             subtitles: {
-                code: "je code avec un thème clair (🤫).",
-                available: 'je suis disponible pour une mission.',
                 designer: "je crée des expériences utilisateurs.",
+                martinique: `je tente une année en Martinique 🇧🇪🇲🇶`,
+                available: 'je suis disponible pour une mission.',
+                code: "je code avec un thème clair (🤫).",
                 coffee: "je bois trop de café.",
                 drone: "ça m'arrive de faire voler mon drone.",
             },
