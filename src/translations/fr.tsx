@@ -67,11 +67,11 @@ export const fr = {
             and: 'et ...',
             subtitles: {
                 designer: "je crée des expériences utilisateurs.",
-                martinique: `je tente une année en Martinique 🇧🇪🇲🇶`,
+                martinique: `je suis actuellement en Martinique 🇲🇶`,
                 available: 'je suis disponible pour une mission.',
-                code: "je code avec un thème clair (🤫).",
+                code: "je code en React (avec un thème clair 🤫).",
                 coffee: "je bois trop de café.",
-                drone: "ça m'arrive de faire voler mon drone.",
+                drone: "je fais voler mon drone de temps en temps.",
             },
             contact: {
                 label: 'Contactez-moi'

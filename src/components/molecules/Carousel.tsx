@@ -61,7 +61,7 @@ function Carousel({
 
 
     return (
-        <div className={cn('carousel', className, { 'dark-mode': isDarkMode })}>
+        <div className={cn('carousel', className, { 'dark-mode': isDarkMode })} tabIndex={-1}>
 
             {subTitles.map((subTitle, index) => {
                 const isInView = index === currentIndex;

@@ -66,13 +66,13 @@ export const en = {
             name: "I'm Basile Vanhaverbeke",
             and: 'and ...',
             subtitles: {
-                designer: "I like to design stuff.",
-                martinique: `I fled Belgium ⛈️ to Martinique 🏝️`,
+                designer: "I like to create user experiences.",
+                martinique: `I am currently in Martinique 🏝️`,
                 available: "I'm available for a mission.",
-                code: "I code with a light mode (🤫).",
-                outdoor: 'I type a lot of lines.',
+                code: "I code stuff (with a light mode 🤫).",
                 coffee: "I drink too much coffee.",
-                drone: "I like flying my drone.",
+                drone: "I fly my drone from time to time.",
+                outdoor: 'I type a lot of lines.',
             },
             contact: {
                 label: 'Contact me'

@@ -19,6 +19,7 @@ function DarkModeToggle({
             onClick={onClick}
             aria-label={ariaLabel}
             aria-pressed={isDarkMode}
+            tabIndex={1}
         >
             <span className='dark-mode-toggle__icon'>
                 <Icon name="sun" />

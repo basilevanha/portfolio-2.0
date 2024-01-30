@@ -19,6 +19,7 @@ function LanguageToggle({
             onClick={onClick}
             aria-label={ariaLabel}
             aria-pressed={isActive}
+            tabIndex={2}
         >
             <span className='language-toggle__lng fr'>
                 {t('fr')}

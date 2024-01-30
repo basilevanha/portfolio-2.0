@@ -14,7 +14,7 @@
     &:focus-visible {
         outline: solid 3px;
         outline-color: $color-light-mode-focus;
-        outline-offset: 0;
+        outline-offset: 1px;
         text-decoration: none;
     }
 

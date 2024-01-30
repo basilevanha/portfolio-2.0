@@ -84,18 +84,18 @@ function Header({
                     cycleSubtitles={cycleSubtitles}
                 />
 
-                <div className="header__cover__darkmode-toggle">
+                <div className="header__cover__darkmode-toggle" tabIndex={-1}>
                     <DarkModeToggle onClick={toggleDarkMode} isDarkMode={isDarkMode} />
                 </div>
-                <div className="header__cover__language-toggle">
+                <div className="header__cover__language-toggle" tabIndex={-1}>
                     <LanguageToggle onClick={toggleLanguage} isDarkMode={isDarkMode} />
                 </div>
             </div>
 
             <motion.div
-                initial={{ scale: .7, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 1, type: 'spring' }}
+                // initial={{ scale: .7, opacity: 0 }}
+                // animate={{ scale: 1, opacity: 1 }}
+                // transition={{ delay: 1, type: 'spring' }}
                 className="header__content"
             >
                 <div className="header__content__profile">

@@ -1,6 +1,7 @@
 import cn from "classnames";
 import Icon, { IconName } from "./Icon";
-import { MouseEvent } from "react";
+import { FocusEvent, FocusEventHandler, MouseEvent } from "react";
+
 
 // Import Google Analytics
 import ReactGA from "react-ga4";
@@ -48,6 +49,17 @@ function Button({
         if (onClick) onClick(e);
     };
 
+    // const setScroll = (e: FocusEvent<HTMLButtonElement, Element> | FocusEvent<HTMLAnchorElement, Element>) => {
+    //     e.preventDefault;
+    //     const currentButton = e.currentTarget;
+    //     const parentProject = currentButton.closest('.project-card');
+
+    //     if(parentProject) {
+    //         const contentDiv = parentProject.closest('.projects_content');
+    //         parentProject.scrollIntoView();
+    //     }
+    // }
+
     const Content = () => (
         <>
             {icon ? (
@@ -71,13 +83,24 @@ function Button({
     return (
         <>
             {onClick && !href &&
-                <button disabled={disabled} className={classNames} aria-label={label} onClick={(e) => ga4OnClick(e)}>
+                <button
+                    disabled={disabled}
+                    className={classNames}
+                    aria-label={label}
+                    onClick={(e) => ga4OnClick(e)}
+                    // onFocus={(e) => setScroll(e)}
+                >
                     <Content />
                 </button>
             }
 
             {href && !onClick &&
-                <a href={href} className={classNames} target={target}>
+                <a
+                    href={href}
+                    className={classNames}
+                    target={target}
+                    // onFocus={(e) => setScroll(e)}
+                >
                     <Content />
                 </a>
             }
