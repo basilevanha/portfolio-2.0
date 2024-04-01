@@ -67,7 +67,7 @@ $catalog-height-mobile: 70px;
             transform: translateX(-50%);
             width: 30px;
             height: 60px;
-            border: 3px solid $color-light-mode-primary ;
+            border: 3px solid $color-light-mode-tertiary ;
             border-radius: 15px;
 
             
@@ -77,7 +77,7 @@ $catalog-height-mobile: 70px;
                 inset: 4px 0 34px 4px;
                 width: 16px;
                 border-radius: 8px;
-                background-color: $color-light-mode-primary;
+                background-color: $color-light-mode-tertiary;
                 animation: scroller 1500ms ease-out infinite;
             }
         }

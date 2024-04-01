@@ -38,11 +38,19 @@ function Catalog({
 
         contentRef.current?.classList.add('fade-out');
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        contentRef.current?.parentNode?.classList.add('loading');
+        
         setTimeout(() => {
             el.current?.scrollIntoView({ behavior: 'smooth' });
             setTimeout(() => {
                 contentRef.current?.classList.remove('fade-out');
-            }, 700);
+                
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                contentRef.current?.parentNode?.classList.remove('loading');
+            }, 1000);
 
         }, 200);
     }

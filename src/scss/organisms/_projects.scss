@@ -2,6 +2,39 @@
     width: 100%;
     margin: 2px auto 0;
 
+    &::after {
+        opacity: 0;
+        content: "";
+        position: fixed;
+        z-index: -1;
+        top: 50vh;
+        left: 50vw;
+        
+        transform: translate(-50%, -50%);
+            
+        height : 50px;
+        width : 50px;
+        border-radius : 50%;
+        border : 10px solid #ccc;
+        border-top-color : $color-light-mode-tertiary;
+        animation : spin 1s linear infinite;
+    }
+        
+    @keyframes spin{
+        0%{
+        transform : rotate(0deg);
+        }
+        100%{
+        transform : rotate(360deg);
+        }
+    }
+
+    &.loading {
+        &::after {
+            opacity: 1;
+        }
+    }
+
     @include mq('m') {
         padding: 0 $site-gutter-desktop;
     }
