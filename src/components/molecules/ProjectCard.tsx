@@ -35,8 +35,6 @@ const ProjectCard = ({
     const [contentHeight, setContentHeight] = useState(0);
     const [wrapperHeight, setWrapperHeight] = useState(0);
     const [stickyLoaderHeight, setStickyLoaderHeight] = useState(0);
-    const [stickyContentRatio, setstickyContentRatio] = useState(0);
-    const [stickyWrapperRatio, setstickyWrapperRatio] = useState(0);
 
     useEffect(() => {
         stickyLoader.current && setStickyLoaderHeight(stickyLoader.current?.offsetHeight)
@@ -51,12 +49,6 @@ const ProjectCard = ({
             }
             if (cardWrapper.current) {
                 setWrapperHeight(cardWrapper.current?.offsetHeight);
-            }
-            if (stickyLoader.current && cardContent.current) {
-                setstickyContentRatio(contentHeight / stickyLoaderHeight);
-            }
-            if (stickyLoader.current && cardWrapper.current) {
-                setstickyWrapperRatio(wrapperHeight / stickyLoaderHeight);
             }
         }, 0)
     });
@@ -92,61 +84,16 @@ const ProjectCard = ({
     // 200vh + wrapper height + content = 1 ratio
     const stickyLoaderStyleHeight = `calc(${wrapperHeight}px + ${contentHeight}px + ${wrapperHeight}px)`;
 
-
-    const first = (1 - stickyContentRatio - stickyWrapperRatio) / 2;  // = 50vh
-    const second = 1 - stickyContentRatio - stickyWrapperRatio;       // = 100vh
-    const third = 1 - stickyContentRatio;                             // = 100vh + wrapper height
-
-
     const stickyLoaderProgress = useScroll({
         target: stickyLoader,
         offset: ['start start', 'end end']
     }).scrollYProgress;
 
-    const imgHeight = useTransform(
-        stickyLoaderProgress,
-        [0, third],
-        ['100%', '0%']
-    );
-
-    const blurFilter = useTransform(
-        stickyLoaderProgress,
-        [0, first],
-        ['blur(10px)', 'blur(0px)']
-    );
-
-    const opacity = useTransform(
-        stickyLoaderProgress,
-        [0, first],
-        [1, 0]
-    );
-
-    const contentY = useTransform(
-        stickyLoaderProgress,
-        [first, second],
-        [50, 0]
-    );
-
-    const contentOpacity = useTransform(
-        stickyLoaderProgress,
-        [first, second],
-        [0, 1]
-    );
-
     const negativeMargin = useTransform(
         stickyLoaderProgress,
-        [third, 1],
-        [0, -contentHeight + wrapperHeight]
+        [0, 1],
+        [0, -contentHeight]
     );
-
-    // If I want to use scroll behaviour (cleaner maybe ^^)
-    // [0, contentHeight - wrapperHeight]
-
-    // useMotionValueEvent(negativeMargin, "change", (latest) => {
-    //     if (cardWrapper.current) {
-    //         cardWrapper.current.scrollTop = latest;
-    //     }
-    // })
 
     const projectKey = 'projects.' + project.key;
 
@@ -169,21 +116,8 @@ const ProjectCard = ({
                 >
                     <motion.div
                         className='project-card__img-wrapper'
-                        style={{ height: imgHeight, marginTop: negativeMargin }}
+                        style={{ marginTop: negativeMargin }}
                     >
-                        <motion.span
-                            className='project-card__img-overlay'
-                            style={{ backdropFilter: blurFilter }}
-                        >
-                            <motion.span
-                                className='project-card__img-overlay__title'
-                                style={{ opacity }}
-                            >
-                                {t(`projects.${project.key}.title`)}
-                                <span className='project-card__img-overlay__scroll-down'></span>
-                            </motion.span>
-                        </motion.span>
-
                         <Image
                             className='project-card__img'
                             src={project.coverImg.src}
@@ -195,7 +129,6 @@ const ProjectCard = ({
                     </motion.div>
 
                     <motion.div
-                        style={{ opacity: contentOpacity, y: contentY }}
                         className="project-card__content"
                         ref={cardContent}
                     >

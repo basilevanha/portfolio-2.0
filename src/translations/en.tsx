@@ -62,17 +62,13 @@ export const en = {
         },
 
         header: {
-            greeting: '👋 Hello there,',
-            name: "I'm Basile Vanhaverbeke",
-            and: 'and ...',
+            name: "Basile Vanhaverbeke",
             subtitles: {
-                designer: "I like to create user experiences.",
-                martinique: `I am currently in Martinique 🏝️`,
-                available: "I'm available for a mission.",
-                code: "I code stuff (with a light mode 🤫).",
-                coffee: "I drink too much coffee.",
-                drone: "I fly my drone from time to time.",
-                outdoor: 'I type a lot of lines.',
+                designer: "UX/UI Designer",
+                martinique: `Currently in Martinique`,
+                available: "Available for a mission",
+                code: "Frontend developer",
+                drone: "Drone pilote",
             },
             contact: {
                 label: 'Contact me'

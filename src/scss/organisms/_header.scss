@@ -11,9 +11,10 @@ $image-overlap-desktop: 40px;
     flex-direction: column;
     transition: background-color $timing-short ease-in-out, margin $timing-short ease-in-out, border-radius $timing-short ease-in-out;
     background-color: $color-light-mode-primary;
+    overflow: hidden;
     
     @include mq('m') {
-        background-color: transparent;
+        border-radius: 10px;
         margin: $site-gutter-desktop;
     }
     
@@ -26,9 +27,7 @@ $image-overlap-desktop: 40px;
         padding: $spacing-lg;
         
         @include mq('m') {
-            border-radius: 10px;
-            overflow: hidden;
-            height: 500px;
+            height: 350px;
         }
         
         &__darkmode-toggle,
@@ -66,14 +65,6 @@ $image-overlap-desktop: 40px;
             display: flex;
             transition: bottom .3s ease-in-out;
             
-            @include mq('m') {
-                bottom: calc($profile-picture-width-desktop / 1.2);
-            }
-
-            @include mq('xl') {
-                bottom: $spacing-lg;
-            }
-            
             button {
                 width: 40px;
                 margin-left: 3px;
@@ -82,38 +73,27 @@ $image-overlap-desktop: 40px;
     }
     
     &__content {
-        margin: -$image-overlap-mobile 0 0;
         padding: 0 $site-gutter-mobile $site-gutter-mobile;
-        transition: margin $timing-short ease-in-out;
+        transition:
+            background-color $timing-short ease-in-out,
+            $animation-translations-short,
+            margin $timing-short ease-in-out
+            ;
         z-index: 2;
         
         @include mq('m') {
-            display: flex;
-            margin: calc($profile-picture-width-tablet / -1.2) 0 0;
-            padding: 0;
-            width: calc(100% - $spacing-lg);
             position: relative;
-        }
-        
-        @include mq('l') {
-            margin: calc($profile-picture-width-desktop / -1.2) 0 0;
+            display: flex;
         }
         
         &__profile {
             position: relative;
+            margin-top: -$image-overlap-mobile;
             width: $profile-picture-width-smartphone;
             height: min-content;
             
             @include mq('m') {
-                position: absolute;
-                z-index: 2;
-                left: $spacing-lg;
-                top: 0;
                 width: $profile-picture-width-tablet;
-            }
-            
-            @include mq('l') {
-                width: $profile-picture-width-desktop;
             }
             
             .image {
@@ -142,84 +122,57 @@ $image-overlap-desktop: 40px;
         }
         
         &__text {
+            display: flex;
+            flex-direction: column;
+            padding: $site-gutter-mobile $site-gutter-mobile 0;
             position: relative;
             text-align: left;
             flex: 1;
-            padding: $spacing-sm 0;
             background-color: transparent;
-            transition:
-                background-color $timing-short ease-in-out,
-                $animation-translations-short
-            ;
             
             @include mq('m') {
-                margin: $spacing-lg 0 0 calc(($profile-picture-width-tablet / 2) + $spacing-lg);
-                padding: $spacing-lg 0 $spacing-lg calc( ($profile-picture-width-tablet / 2) + $spacing-lg );
-                min-height: $profile-picture-width-tablet;
-                background-color: $color-light-mode-primary;
-                border-radius: 10px;
-                overflow: hidden;
-            }
-            
-            @include mq('l') {
-                padding: $spacing-lg 0 $spacing-lg calc( ($profile-picture-width-desktop / 2) + $spacing-lg );
-                max-width: 800px
-            }
-
-            &__greeting {
-                @include font(medium);
-                font-size: 20px;
-
-                @include mq('m') {
-                    font-size: 23px;
-                }
-                
-                @include mq('l') {
-                    font-size: 26px;
-                }
+                padding: $spacing-lg $site-gutter-desktop 0;
             }
 
             &__name {
-                margin-top: 10px;
                 @include font(extrabold);
-                font-size: 30px;
-
+                font-size: 40px;
+                line-height: 1.1;
+                margin-top: $spacing-md;
+                
                 @include mq('m') {
-                    font-size: 35px;
-                }
-
-                @include mq('l') {
-                    font-size: 40px;
+                    order: -1;
+                    margin-top: 0;
                 }
             }
 
             &__subtitle {
-                @include font(medium);
-                margin-top: 20px;
-                font-size: 20px;
                 position: relative;
-                line-height: 1.2;
-                overflow: hidden;
+                margin-right: -$site-gutter-mobile;
+                margin-left: -$site-gutter-mobile;
+                padding: 0 $site-gutter-mobile;
                 display: flex;
                 align-items:flex-start;
+                @include font(medium);
+                font-size: 5vw;
+                text-transform: uppercase;
+                color: $color-light-mode-grey;
+                line-height: 1.2;
+                overflow: hidden;
+                white-space: nowrap;
                 
-                @include mq('m') {
-                    font-size: 23px;
+                @include mq('xs') {
+                    font-size: 20px;
                 }
-                
-                @include mq('l') {
-                    font-size: 26px;
+
+                @include mq('m') {
+                    margin-top: $spacing-md;
                 }
                 
                 &__animate {
                     position: relative;
-                    margin-left: 10px;
-                    height: 55px;
+                    height: 23px;
                     flex: 1;
-
-                    @include mq('l') {
-                        height: 35px;
-                    }
 
                     span {
                         position: absolute;
@@ -232,8 +185,8 @@ $image-overlap-desktop: 40px;
             }
 
             &__contact {
-                margin-top: 25px;
                 display: flex;
+                margin-top: $spacing-md;
                 
                 p {
                     @include font(regular);
@@ -252,17 +205,16 @@ $image-overlap-desktop: 40px;
         }
 
         .header__content {
+            @include mq('m') {
+                background-color: $color-dark-mode-primary;
+            }
+
             &__profile__icon {
                 background-color: $color-dark-mode-primary;
                 border-color: $color-dark-mode-primary;
                 
                 svg {
                     fill: $color-dark-mode-secondary;
-                }
-            }
-            &__text {
-                @include mq('m') {
-                    background-color: $color-dark-mode-primary;
                 }
             }
         }

@@ -62,16 +62,13 @@ export const fr = {
         },
 
         header: {
-            greeting: '👋 Bonjour,',
-            name: 'Je suis Basile Vanhaverbeke',
-            and: 'et ...',
+            name: 'Basile Vanhaverbeke',
             subtitles: {
-                designer: "je crée des expériences utilisateurs.",
-                martinique: `je suis actuellement en Martinique 🇲🇶`,
-                available: 'je suis disponible pour une mission.',
-                code: "je code en React (avec un thème clair 🤫).",
-                coffee: "je bois trop de café.",
-                drone: "je fais voler mon drone de temps en temps.",
+                designer: "Designer d'interfaces",
+                martinique: `Actuellement en Martinique`,
+                available: 'Disponible pour une mission',
+                code: "Développeur frontend",
+                drone: "Pilote de drone",
             },
             contact: {
                 label: 'Contactez-moi'

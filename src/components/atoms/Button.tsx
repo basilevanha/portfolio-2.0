@@ -1,6 +1,6 @@
 import cn from "classnames";
 import Icon, { IconName } from "./Icon";
-import { FocusEvent, FocusEventHandler, MouseEvent } from "react";
+import { MouseEvent } from "react";
 
 
 // Import Google Analytics
@@ -67,8 +67,8 @@ function Button({
                     <Icon name={icon} />
                 ) : (
                     <>
-                        <span>{label}</span>
                         <Icon name={icon} />
+                        <span className="text">{label}</span>
                     </>
                 )
             ) : (

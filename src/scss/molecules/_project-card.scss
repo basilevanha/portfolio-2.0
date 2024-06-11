@@ -13,6 +13,7 @@ $catalog-height-mobile: 70px;
     
     &__wrapper {
         position: sticky;
+        padding: 30px;
         top: $catalog-height-mobile;
         height: calc(100vh - $catalog-height-mobile - $site-gutter-mobile);
         width: 100%;
@@ -34,73 +35,12 @@ $catalog-height-mobile: 70px;
     &__img-wrapper {
         position: relative;
         width: 100%;
+        aspect-ratio: 16/7;
     }
 
     &__img {
         width: 100%;
         height: 100%;
-    }
-
-    &__img-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: none;
-
-        &__title {
-            @include font('extra-bold');
-            font-size: 40px;
-            color: $color-light-mode-primary;
-            text-shadow: 1px 1px 2px $color-light-mode-secondary;
-        }
-
-        &__scroll-down {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 60px;
-            border: 3px solid $color-light-mode-tertiary ;
-            border-radius: 15px;
-
-            
-            &::before {
-                content: '';
-                position: absolute;
-                inset: 4px 0 34px 4px;
-                width: 16px;
-                border-radius: 8px;
-                background-color: $color-light-mode-tertiary;
-                animation: scroller 1500ms ease-out infinite;
-            }
-        }
-
-        @keyframes scroller{
-            0%{
-              bottom: 34px;
-            }
-            5%{
-              top: 4px;
-            }
-            32%{    
-              bottom: 4px;
-            }
-            66%{
-              top: 34px;
-              bottom: 4px;
-            }
-            100%{
-              top: 4px;
-              bottom: 34px;
-            }
-          }
     }
 
     &__content {
@@ -183,6 +123,22 @@ $catalog-height-mobile: 70px;
         .project-content {
             margin-top: 30px;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &__text {
+                max-width: 650px;
+            }
+
+            &__video {
+                margin: 100px 0;
+            }
+
+            &__img,
+            &__video {
+                width: 100%;
+            }
 
             &__text,
             &__img {
@@ -190,11 +146,7 @@ $catalog-height-mobile: 70px;
                     margin: 50px 0;
                 }
             }
-
-            &__video {
-                margin: 100px 0;
-            }
-
+           
             a {
                 text-decoration: underline;
                 color: $color-light-mode-link;

@@ -105,10 +105,8 @@ function Header({
                     </div>
                 </div>
                 <div className="header__content__text">
-                    <p className="header__content__text__greeting">{t('header.greeting')}</p>
-                    <h1 className="header__content__text__name">{t('header.name')}</h1>
+                    
                     <p className="header__content__text__subtitle">
-                        <span>{t('header.and')}</span>
                         <span className="header__content__text__subtitle__animate">
                             <AnimatePresence>
                                 <motion.span
@@ -121,6 +119,7 @@ function Header({
                             </AnimatePresence>
                         </span>
                     </p>
+                    <h1 className="header__content__text__name">{t('header.name')}</h1>
                     <div className="header__content__text__contact">
                         <Button
                             isDarkMode={isDarkMode}

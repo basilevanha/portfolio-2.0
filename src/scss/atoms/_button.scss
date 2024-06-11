@@ -1,14 +1,17 @@
 .button {
     @include font('extra-bold');
     display: inline-flex;
-    height: $spacing-xl;
     align-items: center;
-    justify-content: space-between;
     font-size: 18px;
-    padding: $spacing-xxs $spacing-xs;
+    padding: $spacing-xxs;
+    padding-right: $spacing-sm;
     border-radius: $spacing-xs;
     border: 3px solid;
-    transition: $animation-colors-short, $animation-translations-short;
+    transition:  $animation-translations-short;
+
+    .text {
+        transition: transform .2s ease-in-out;
+    }
 
     &:focus,
     &:focus-visible {
@@ -18,21 +21,25 @@
         text-decoration: none;
     }
 
-    &:hover {
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        transform: scale(1.05);
+    &:hover,
+    &:active {
         outline: none;
-    }
 
-    &:active,
-    &.pressed {
-        transform: scale(.9);
+        .icon {
+            transform: scale(1.2);
+            // margin-right: $spacing-xs;
+        }
+
+        .text {
+            transform: translateX(5px);
+        }
     }
 
     .icon {
         width: $spacing-lg;
         height: auto;
-        margin-left: $spacing-xs;
+        margin-right: $spacing-xxs;
+        transition: all .2s ease-in-out
     }
 
 
@@ -50,13 +57,34 @@
         fill: $color-light-mode-primary;
         background-color: $color-light-mode-tertiary;
         border-color: $color-light-mode-tertiary;
+
+        &:hover {
+            background-color: $color-light-mode-btn-hover;
+            border-color: $color-light-mode-btn-hover;
+        }
+
+        &:active {
+            background-color: $color-light-mode-btn-pressed;
+            border-color: $color-light-mode-btn-pressed;
+        }
     }
     
     &.button--secondary {
         color: $color-light-mode-tertiary;
         fill: $color-light-mode-tertiary;
         background-color: $color-transparent;
-        border-color: $color-light-mode-tertiary;
+        border-color: transparent;
+        text-decoration: underline;
+
+        &:hover {
+            background-color: $color-light-mode-bg;
+            border-color: $color-light-mode-bg;
+        }
+
+        &:active {
+            background-color: #dddddd;
+            border-color: #dddddd;
+        }
     }
 
     &.button--only-icon {
@@ -85,8 +113,16 @@
         &.button--secondary {
             color: $color-dark-mode-secondary;
             fill: $color-dark-mode-secondary;
-            background-color: $color-transparent;
-            border-color: $color-dark-mode-secondary;
+
+            &:hover {
+                background-color: $color-dark-mode-bg;
+                border-color: $color-dark-mode-bg;
+            }
+    
+            &:active {
+                background-color: #121212;
+                border-color: #121212;
+            }
         }
     }
 }
