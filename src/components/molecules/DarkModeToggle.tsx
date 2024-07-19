@@ -20,6 +20,7 @@ function DarkModeToggle({
             aria-label={ariaLabel}
             aria-pressed={isDarkMode}
             tabIndex={1}
+            id="dark-mode-toggle"
         >
             <span className='dark-mode-toggle__icon'>
                 <Icon name="sun" />

@@ -41,6 +41,7 @@ function ListBox({
                                 target={item.target}
                                 icon={item.icon}
                                 appearance='secondary'
+                                id={`infos-box-links-item-${item.key}`}
                             />
                         </li>
                     )

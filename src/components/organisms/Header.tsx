@@ -126,6 +126,7 @@ function Header({
                             label={t('header.contact.label')}
                             icon="send"
                             onClick={(e) => sendMail(e)}
+                            id="header-contact-button"
                         />
                     </div>
                 </div>

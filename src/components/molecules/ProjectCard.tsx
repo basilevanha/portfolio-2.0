@@ -153,7 +153,15 @@ const ProjectCard = ({
 
                                     return (
                                         <li key={i}>
-                                            <Button href={href} isDarkMode={isDarkMode} label={t(projectKey + '.ressources.' + ressource.key + '.label')} target={ressource.target} appearance='secondary' icon={ressource.icon} />
+                                            <Button
+                                                href={href}
+                                                isDarkMode={isDarkMode}
+                                                label={t(projectKey + '.ressources.' + ressource.key + '.label')}
+                                                target={ressource.target}
+                                                appearance='secondary'
+                                                icon={ressource.icon}
+                                                id={`${projectKey}-${ressource.key}`}
+                                            />
                                         </li>
                                     )
                                 })}

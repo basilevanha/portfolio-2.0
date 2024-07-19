@@ -14,6 +14,7 @@ export interface ButtonProps {
     disabled?: boolean,
     onlyIcon?: boolean,
     target?: '_blank' | '_self'
+    id: string
 }
 
 function Button({
@@ -25,7 +26,8 @@ function Button({
     label,
     appearance = 'primary',
     disabled = false,
-    target = '_self'
+    target = '_self',
+    id
 
 }: ButtonProps) {
 
@@ -36,10 +38,6 @@ function Button({
         'button--only-icon': appearance == 'only-icon',
         'dark-mode': isDarkMode,
     });
-
-    const ga4OnClick = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
-        if (onClick) onClick(e);
-    };
 
     // const setScroll = (e: FocusEvent<HTMLButtonElement, Element> | FocusEvent<HTMLAnchorElement, Element>) => {
     //     e.preventDefault;
@@ -79,7 +77,8 @@ function Button({
                     disabled={disabled}
                     className={classNames}
                     aria-label={label}
-                    onClick={(e) => ga4OnClick(e)}
+                    onClick={(e) => onClick(e)}
+                    id={id}
                     // onFocus={(e) => setScroll(e)}
                 >
                     <Content />
@@ -91,6 +90,7 @@ function Button({
                     href={href}
                     className={classNames}
                     target={target}
+                    id={id}
                     // onFocus={(e) => setScroll(e)}
                 >
                     <Content />

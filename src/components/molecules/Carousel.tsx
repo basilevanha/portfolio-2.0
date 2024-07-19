@@ -104,6 +104,7 @@ function Carousel({
                     disabled={areButtonDisabled}
                     label={t('header.btn.prev')}
                     onClick={() => handleOnClick(false)}
+                    id={"header-cover-btn-left"}
                 />
                 <Button
                     appearance="only-icon"
@@ -111,6 +112,7 @@ function Carousel({
                     isDarkMode={isDarkMode}
                     label={t('header.btn.prev')}
                     onClick={() => setIsAnimationPaused(!isAnimationPaused)}
+                    id={"header-cover-btn-play-pause"}
                 />
                 <Button
                     className={cn(areButtonDisabled && isDirectionForward && 'pressed')}
@@ -120,6 +122,7 @@ function Carousel({
                     disabled={areButtonDisabled}
                     label={t('header.btn.next')}
                     onClick={() => handleOnClick(true)}
+                    id={"header-cover-btn-right"}
                 />
             </div>
         </div>

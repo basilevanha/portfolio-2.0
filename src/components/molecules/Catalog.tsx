@@ -65,7 +65,7 @@ function Catalog({
                     ['0%', '100%']
                 )
                 return (
-                    <button onClick={() => goToProject(targetProject, projectName)} className='projects__catalog__thumbnail' key={id}>
+                    <button onClick={() => goToProject(targetProject, projectName)} className='projects__catalog__thumbnail' key={id} id={`projects-catalog-nav-item-${project.key}`}>
                         <Image
                             src={project.coverImg.src}
                             lazySrc={project.coverImg.lazySrc}
