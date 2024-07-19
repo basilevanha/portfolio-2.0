@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 // Import Google Analytics
-import ReactGA from "react-ga4";
+import TagManager from 'react-gtm-module';
 
 // Import styles
 import './App.scss';
@@ -16,7 +16,11 @@ import Projects from './components/organisms/Projects';
 import Footer from './components/organisms/Footer';
 
 function App() {
-  ReactGA.initialize("G-6EM3Y82GYP");
+  const tagManagerArgs = {
+    gtmId: 'GTM-TT92HNHM'
+  }
+
+  TagManager.initialize(tagManagerArgs)
 
   const [isDarkMode, setDarkMode] = useState(false);
   const { i18n } = useTranslation();
@@ -34,20 +38,10 @@ function App() {
   }, [isDarkMode]);
 
   const toggleDarkMode = () => {
-    ReactGA.event({
-      category: "btn",
-      action: 'click',
-      label: 'dark-mode-btn',
-    });
     setDarkMode(darkMode => !darkMode);
   }
 
   const toggleLanguage = () => {
-    ReactGA.event({
-      category: "btn",
-      action: 'click',
-      label: 'language-btn',
-    });
     const getLanguage = () => i18n.language || window.localStorage.i18nextLng;
     const newLng = getLanguage().includes("fr") ? "en" : "fr";
     i18n.changeLanguage(newLng);

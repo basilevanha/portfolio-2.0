@@ -7,9 +7,6 @@ import cn from 'classnames';
 // Import components
 import Image from '../atoms/Image';
 
-// Import Google Analytics
-import ReactGA from "react-ga4";
-
 // Import content
 import projects from '../../content/projects';
 
@@ -30,11 +27,6 @@ function Catalog({
     const { t } = useTranslation();
 
     const goToProject = (el: RefObject<HTMLElement>, name: string) => {
-        ReactGA.event({
-            category: "btn",
-            action: 'click',
-            label: name,
-        });
 
         contentRef.current?.classList.add('fade-out');
 

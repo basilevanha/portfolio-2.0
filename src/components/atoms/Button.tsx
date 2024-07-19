@@ -3,9 +3,6 @@ import Icon, { IconName } from "./Icon";
 import { MouseEvent } from "react";
 
 
-// Import Google Analytics
-import ReactGA from "react-ga4";
-
 export interface ButtonProps {
     className?: string,
     isDarkMode: boolean,
@@ -41,11 +38,6 @@ function Button({
     });
 
     const ga4OnClick = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
-        ReactGA.event({
-            category: "btn",
-            action: 'click',
-            label: label,
-        });
         if (onClick) onClick(e);
     };
 
