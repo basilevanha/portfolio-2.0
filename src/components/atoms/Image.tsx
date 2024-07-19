@@ -1,5 +1,6 @@
 import classNames from "classnames";
-import { useState } from "react";
+import React, { useState } from "react";
+
 
 function Image({
     src,
@@ -23,8 +24,14 @@ function Image({
 }) {
     const [isLoaded, setIsLoaded] = useState(false);
 
-    const onLoad = () => {
+    const imageTag = React.useRef<HTMLImageElement>(null);
+
+    if(imageTag.current && imageTag.current.complete && !isLoaded) {
         setIsLoaded(true);
+    }
+
+    const onLoad = () => {
+        !isLoaded && setIsLoaded(true);
     }
 
     return (
@@ -41,7 +48,7 @@ function Image({
 
             <img src={lazySrc} className="image-placeholder" alt={alt} />
 
-            {!onlyLoading && <img src={src} className="image-original" alt={alt} onLoad={onLoad} loading="lazy" />}
+            {!onlyLoading && <img src={src} ref={imageTag} className="image-original" alt={alt} onLoad={onLoad} loading="lazy" />}
 
         </div>
     );
