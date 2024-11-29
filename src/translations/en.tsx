@@ -125,6 +125,22 @@ export const en = {
         projectstitle: 'Scroll through my projects',
 
         projects: {
+            boutsdeficelle: {
+                title: "Bouts de ficelle",
+                cover: `Some screenshots about the new bouts de ficelle's website`,
+                intro: `I redesigned and developed the former website of the non-profit organization Bouts de Ficelle to bring it up to date. We worked on this project together for over a year to create a product that truly reflected their identity and met their expectations.`,
+                content: {
+                    old: `I started by analyzing their old website and comparing it with similar organizations in the same field. We then organized and restructured the content, creating a new content hierarchy.`,
+                    figma: `We worked on a graphic charter, developing a mood board, logo, color palette, and typography selection. I then presented a mockup, which we refined together to arrive at a final design, translated into a functional Figma prototype.`,
+                    wordpress: `The website was built using WordPress with ACF (Advanced Custom Fields) to offer a tailored administration experience. I also provided a tutorial, available in both video and PDF formats, for managing the site.`
+                },
+                ressources: {
+                    website: {
+                        label: "See the Website",
+                        href: `https://boutsdeficelle.be`
+                    },
+                }
+            },
             portfolio: {
                 title: "Portfolio 2.0",
                 cover: 'Layout from my portfolio',

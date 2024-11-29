@@ -125,6 +125,22 @@ export const fr = {
         projectstitle: 'Scroll à travers mes projets',
 
         projects: {
+            boutsdeficelle: {
+                title: "Bouts de ficelle",
+                cover: 'Quelques captures d\'écrans du nouveau site de l\'asbl Bouts de ficelle',
+                intro: `J'ai redesigné et codé l'ancien site de l'ASBL Bouts de ficelle pour le mettre aux gouts du jour. Nous avons entrepris ce projet ensemble durant plus d'un an afin de sortir un produit qui leur ressemblait et répondait à leurs attentes.`,
+                content: {
+                    old: `J'ai d'abord commencé par réaliser une analyse de leur ancien site et j'ai fait une comparaison avec les différentes entités dans le même secteur. Nous avons ensuite fait le tri et avons créé une nouvelle hiérarchie du contenu.`,
+                    figma: `Nous avons ensuite réfléchis à une charte graphique et avons créé un moodboard, un logo, une palette de couleur et  une sélection typographique. J'ai par la suite proposé une maquette que nous avons challengé pour arriver à un design final que j'ai traduit en un prototype figma fonctionnel.`,
+                    wordpress: `Le site a été codé avec wordpress en utilisant ACF pour proposer une administration sur mesure. J'ai ensuite fournis un tutoriel en version vidéo & PDF pour la gestion du site.`
+                },
+                ressources: {
+                    website: {
+                        label: "Voir le site",
+                        href: `https://boutsdeficelle.be`
+                    },
+                }
+            },
             portfolio: {
                 title: "Portfolio 2.0",
                 cover: 'Ecrans de mon portfolio',

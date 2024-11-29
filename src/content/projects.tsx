@@ -1,6 +1,14 @@
 import { ButtonProps } from '../components/atoms/Button';
 import { IconName } from '../components/atoms/Icon';
 
+// Bouts de ficelle
+import boutsdeficelleCover from '../assets/projects/bouts-de-ficelle/cover.webp';
+import boutsdeficelleNewScrollingVideo from '../assets/projects/bouts-de-ficelle/new-site-scrolling.webm';
+import beforeAfterVideo from '../assets/projects/bouts-de-ficelle/before-after.webm';
+import boutsdeficelleWireframes from '../assets/projects/bouts-de-ficelle/wireframes.jpg';
+import boutsdeficelleFigma from '../assets/projects/bouts-de-ficelle/figma.webp';
+import boutsdeficelleWireframesLazy from '../assets/projects/bouts-de-ficelle/wireframes.jpg';
+
 // Portfolio
 import portfolioCover from '../assets/projects/portfolio/portfolio-cover.webp';
 import portfolioCoverLazy from '../assets/projects/portfolio/portfolio-cover@lazy.webp';
@@ -97,6 +105,59 @@ export type projectType = {
 }
 
 const projects: projectType[] = [
+    {
+        key: 'boutsdeficelle',
+        coverImg: {
+            src: boutsdeficelleCover,
+            lazySrc: boutsdeficelleCover
+        },
+        jobs: ['uxui', 'developer'],
+        tools: ['figma', 'wordpress', 'twig' ],
+        content: [
+            {
+                type: 'video',
+                key: 'video',
+                src: beforeAfterVideo
+            },
+            {
+                type: 'text',
+                key: 'old'
+            },
+            {
+                type: 'image',
+                key: 'wireframes',
+                src: boutsdeficelleWireframes,
+                lazySrc: boutsdeficelleWireframesLazy
+            },
+            {
+                type: 'text',
+                key: 'figma'
+            },
+
+            {
+                type: 'image',
+                key: 'wireframes',
+                src: boutsdeficelleFigma,
+                lazySrc: boutsdeficelleFigma
+            },
+            {
+                type: 'text',
+                key: 'wordpress'
+            },
+            {
+                type: 'video',
+                key: 'video',
+                src: boutsdeficelleNewScrollingVideo
+            },
+        ],
+        ressources: [
+            {
+                key: 'website',
+                icon: 'external-link',
+                target: '_blank'
+            },
+        ]
+    },
     {
         key: 'portfolio',
         coverImg: {
