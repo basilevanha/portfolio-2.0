@@ -27,7 +27,7 @@ function Catalog({
 
     const { t } = useTranslation();
 
-    const goToProject = (el: RefObject<HTMLElement>, name: string) => {
+    const goToProject = (el: RefObject<HTMLElement>) => {
 
         contentRef.current?.classList.add('fade-out');
 
@@ -52,7 +52,6 @@ function Catalog({
         <div ref={catalog} className={cn('projects__catalog', { 'dark-mode': theme === 'dark' })}>
             {projects.map((project, id: number) => {
                 const targetProject = projectsRefs.current[id];
-                const projectName = projects[id].key;
 
                 const projectScrollProgress = useScroll({
                     target: targetProject,
@@ -66,7 +65,7 @@ function Catalog({
                     ['0%', '100%']
                 )
                 return (
-                    <button onClick={() => goToProject(targetProject, projectName)} className='projects__catalog__thumbnail' key={id} id={`projects-catalog-nav-item-${project.key}`}>
+                    <button onClick={() => goToProject(targetProject)} className='projects__catalog__thumbnail' key={id} id={`projects-catalog-nav-item-${project.key}`}>
                         <Image
                             src={project.coverImg.src}
                             lazySrc={project.coverImg.lazySrc}

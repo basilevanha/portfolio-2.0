@@ -1,6 +1,5 @@
 import cn from "classnames";
 import Icon, { IconName } from "./Icon";
-import { MouseEvent } from "react";
 import { useTheme } from "../../context/ThemeProvider";
 
 
