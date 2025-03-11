@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 // Import utils
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { projectType } from '../../content/projects';
+import { useTheme } from '../../context/ThemeProvider';
 
 // Import Components
 import Image from '../atoms/Image';
@@ -16,16 +17,16 @@ import Button from '../atoms/Button';
 export interface ProjectCardProps {
     index: number;
     classNames?: string;
-    isDarkMode: boolean;
     project: projectType
 }
 
 const ProjectCard = ({
     classNames,
-    isDarkMode,
     index,
     project,
 }: ProjectCardProps) => {
+
+    const {theme} = useTheme();
 
     const projectCard = React.useRef<HTMLInputElement>(null);
     const stickyLoader = React.useRef<HTMLInputElement>(null);
@@ -105,7 +106,7 @@ const ProjectCard = ({
             style={{ scale: scaleIn, width: '100%' }}
         >
             <motion.div
-                className={cn('project-card', classNames, { 'dark-mode': isDarkMode })}
+                className={cn('project-card', classNames, { 'dark-mode': theme === 'dark' })}
                 ref={projectCard}
                 style={{ scale: scaleOut }}
             >
@@ -155,7 +156,6 @@ const ProjectCard = ({
                                         <li key={i}>
                                             <Button
                                                 href={href}
-                                                isDarkMode={isDarkMode}
                                                 label={t(projectKey + '.ressources.' + ressource.key + '.label')}
                                                 target={ressource.target}
                                                 appearance='secondary'

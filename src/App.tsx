@@ -1,10 +1,13 @@
 // Import utils
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 // Import Google Analytics
 import TagManager from 'react-gtm-module';
+
+// Import contexts
+import { useTheme } from './context/ThemeProvider';
 
 // Import styles
 import './App.scss';
@@ -18,28 +21,27 @@ import Footer from './components/organisms/Footer';
 function App() {
   const tagManagerArgs = {
     gtmId: 'GTM-TT92HNHM'
-  }
+  };
 
-  TagManager.initialize(tagManagerArgs)
+  TagManager.initialize(tagManagerArgs);
 
-  const [isDarkMode, setDarkMode] = useState(false);
   const { i18n } = useTranslation();
+  const { theme, updateTheme } = useTheme();
 
   useEffect(() => {
     i18n.changeLanguage(navigator.language);
 
+    // Vérifie le mode sombre du système et applique le thème
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setDarkMode(true);
+      updateTheme('dark');
     }
   }, []);
 
   useEffect(() => {
-    isDarkMode ? document.querySelector('body')?.classList.add('dark-mode') : document.querySelector('body')?.classList.remove('dark-mode');
-  }, [isDarkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode(darkMode => !darkMode);
-  }
+    theme === "dark"
+      ? document.querySelector('body')?.classList.add('dark-mode')
+      : document.querySelector('body')?.classList.remove('dark-mode');
+  }, [theme]);
 
   const toggleLanguage = () => {
     const getLanguage = () => i18n.language || window.localStorage.i18nextLng;
@@ -48,18 +50,19 @@ function App() {
   };
 
   return (
-    <div className={cn('app', { 'dark-mode': isDarkMode })}>
-      <div className="wrapper">
-        <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} toggleLanguage={toggleLanguage} />
+      <div className={cn('app', { 'dark-mode': theme === "dark" })}>
+        <div className="wrapper">
+          <Header toggleLanguage={toggleLanguage} />
 
-        <Infos isDarkMode={isDarkMode} />
+          <p>Thème actuel : {theme}</p>
 
-        <Projects isDarkMode={isDarkMode} />
+          <Infos />
 
-        <Footer isDarkMode={isDarkMode} />
+          <Projects />
 
+          <Footer />
+        </div>
       </div>
-    </div>
   );
 }
 

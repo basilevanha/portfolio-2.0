@@ -11,10 +11,7 @@ import Catalog from '../molecules/Catalog';
 
 // Import content
 import projects from '../../content/projects';
-
-export interface ProjectsProps {
-    isDarkMode: boolean;
-}
+import { useTheme } from '../../context/ThemeProvider';
 
 export interface projectProps {
     title: string;
@@ -23,10 +20,8 @@ export interface projectProps {
     src: string;
 }
 
-const Header = ({
-    isDarkMode,
-}: ProjectsProps) => {
-
+const Header = () => {
+    const {theme} = useTheme();
     const projectsContent = React.useRef<HTMLInputElement>(null);
 
     // const myRefs = useRef<Array<RefObject<HTMLElement>>>([]);
@@ -34,12 +29,11 @@ const Header = ({
     myRefs.current = projects.map((element, id) => myRefs.current[id] ?? createRef());
 
     return (
-        <div className={cn('projects', { 'dark-mode': isDarkMode })}>
+        <div className={cn('projects', { 'dark-mode': theme === 'dark' })}>
             <div className="projects__title">
                 <h2>{t('projectstitle')}</h2>
             </div>
             <Catalog
-                isDarkMode={isDarkMode}
                 contentRef={projectsContent}
                 projectsRefs={myRefs}
             />
@@ -57,7 +51,6 @@ const Header = ({
                         <ProjectCard
                             index={id}
                             project={project}
-                            isDarkMode={isDarkMode}
                         />
                     </motion.div>
                 ))}

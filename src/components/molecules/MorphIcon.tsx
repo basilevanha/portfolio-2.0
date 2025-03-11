@@ -1,6 +1,7 @@
 import { interpolate } from "flubber";
 import { tween, Action, ColdSubscription } from 'popmotion';
 import posed from "react-pose";
+import { useTheme } from "../../context/ThemeProvider";
 
 //Import content
 import { subTitles } from '../../content/subTitles';
@@ -38,11 +39,12 @@ const Path = posed.path(
 
 interface MorpIconProps {
     currentIndex: number;
-    isDarkMode: boolean;
 }
 
-const MorphIcon = ({ currentIndex, isDarkMode }: MorpIconProps) => {
-    const color = isDarkMode ? subTitles[currentIndex].colorDark : subTitles[currentIndex].colorLight;
+const MorphIcon = ({ currentIndex }: MorpIconProps) => {
+    const {theme} =useTheme();
+
+    const color = theme === 'dark' ? subTitles[currentIndex].colorDark : subTitles[currentIndex].colorLight;
 
     return (
         <svg viewBox="0 0 512 512" style={color ? { fill: color } : {}}>

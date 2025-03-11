@@ -8,9 +8,9 @@ import { t } from 'i18next'
 import { subTitlesType } from '../../content/subTitles';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useTheme } from '../../context/ThemeProvider';
 
 function Carousel({
-    isDarkMode,
     className,
     subTitles,
     currentIndex,
@@ -19,7 +19,6 @@ function Carousel({
     setIsAnimationPaused,
     cycleSubtitles
 }: {
-    isDarkMode: boolean,
     className?: string,
     subTitles: subTitlesType[],
     currentIndex: number,
@@ -28,6 +27,8 @@ function Carousel({
     setIsAnimationPaused: (value: boolean) => void,
     cycleSubtitles: (value: boolean) => void
 }) {
+    
+    const {theme} = useTheme();
     const [areButtonDisabled, setAreButtonDisabled] = useState(false);
 
     useEffect(() => {
@@ -61,7 +62,7 @@ function Carousel({
 
 
     return (
-        <div className={cn('carousel', className, { 'dark-mode': isDarkMode })} tabIndex={-1}>
+        <div className={cn('carousel', className, { 'dark-mode': theme === 'dark' })} tabIndex={-1}>
 
             {subTitles.map((subTitle, index) => {
                 const isInView = index === currentIndex;
@@ -100,7 +101,6 @@ function Carousel({
                     className={cn(areButtonDisabled && !isDirectionForward && 'pressed')}
                     appearance="only-icon"
                     icon="arrow-left"
-                    isDarkMode={isDarkMode}
                     disabled={areButtonDisabled}
                     label={t('header.btn.prev')}
                     onClick={() => handleOnClick(false)}
@@ -109,7 +109,6 @@ function Carousel({
                 <Button
                     appearance="only-icon"
                     icon={isAnimationPaused ? 'play' : "pause"}
-                    isDarkMode={isDarkMode}
                     label={t('header.btn.prev')}
                     onClick={() => setIsAnimationPaused(!isAnimationPaused)}
                     id={"header-cover-btn-play-pause"}
@@ -118,7 +117,6 @@ function Carousel({
                     className={cn(areButtonDisabled && isDirectionForward && 'pressed')}
                     appearance="only-icon"
                     icon="arrow-right"
-                    isDarkMode={isDarkMode}
                     disabled={areButtonDisabled}
                     label={t('header.btn.next')}
                     onClick={() => handleOnClick(true)}

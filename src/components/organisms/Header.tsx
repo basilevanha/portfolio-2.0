@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+// import contexts
+import { useTheme } from "../../context/ThemeProvider";
+
 // Import utils
 import { AnimatePresence, motion } from "framer-motion";
 import { t } from "i18next";
@@ -21,15 +24,11 @@ import profilePicture from '../../assets/images/hero/basile-vannhaverbeke.webp';
 import profilePictureLazy from '../../assets/images/hero/basile-vannhaverbeke@lazy.webp';
 
 function Header({
-    isDarkMode,
-    toggleDarkMode,
     toggleLanguage
 }: {
-    isDarkMode: boolean,
-    toggleDarkMode: () => void
     toggleLanguage: () => void,
 }) {
-
+    const { theme } = useTheme();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isDirectionForward, setIsDirectionForwards] = useState(true);
     const [isAnimationPaused, setIsAnimationPaused] = useState(false);
@@ -70,14 +69,13 @@ function Header({
 
     return (
         <header
-            className={cn('header', { 'dark-mode': isDarkMode })}
+            className={cn('header', { 'dark-mode': theme === 'dark' })}
         >
             <div className="header__cover">
                 <Carousel
                     className="header__cover__carousel"
                     subTitles={subTitles}
                     currentIndex={currentIndex}
-                    isDarkMode={isDarkMode}
                     isDirectionForward={isDirectionForward}
                     isAnimationPaused={isAnimationPaused}
                     setIsAnimationPaused={setIsAnimationPaused}
@@ -85,10 +83,10 @@ function Header({
                 />
 
                 <div className="header__cover__darkmode-toggle" tabIndex={-1}>
-                    <DarkModeToggle onClick={toggleDarkMode} isDarkMode={isDarkMode} />
+                    <DarkModeToggle />
                 </div>
                 <div className="header__cover__language-toggle" tabIndex={-1}>
-                    <LanguageToggle onClick={toggleLanguage} isDarkMode={isDarkMode} />
+                    <LanguageToggle onClick={toggleLanguage} />
                 </div>
             </div>
 
@@ -101,7 +99,7 @@ function Header({
                 <div className="header__content__profile">
                     <Image src={profilePicture} lazySrc={profilePictureLazy} alt={t('header.name')} aspectRatio="1x1" className="header__content__profile_picture" />
                     <div className="header__content__profile__icon">
-                        <MorphIcon currentIndex={currentIndex} isDarkMode={isDarkMode} />
+                        <MorphIcon currentIndex={currentIndex} />
                     </div>
                 </div>
                 <div className="header__content__text">
@@ -122,7 +120,6 @@ function Header({
                     <h1 className="header__content__text__name">{t('header.name')}</h1>
                     <div className="header__content__text__contact">
                         <Button
-                            isDarkMode={isDarkMode}
                             label={t('header.contact.label')}
                             icon="send"
                             onClick={(e) => sendMail(e)}

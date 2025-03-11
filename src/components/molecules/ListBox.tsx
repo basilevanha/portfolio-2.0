@@ -4,20 +4,21 @@ import { BoxType } from '../../content/infos';
 import { t } from 'i18next';
 
 import Button from '../atoms/Button';
+import { useTheme } from '../../context/ThemeProvider';
 
 function ListBox({
     classNames,
-    isDarkMode,
     content
 }: {
     classNames?: string,
-    isDarkMode: boolean,
     content: BoxType
 }) {
 
+    const {theme} = useTheme();
+
     return (
         <div className={cn('list-box', classNames, {
-            "dark-mode": isDarkMode
+            "dark-mode": theme === 'dark'
         })}>
             <h2 className='list-box__title'>{content.type === 'btns' ? t(`infos.links.title`) : t(`infos.${content.key}.title`)}</h2>
             <ul className='list-box__list'>
@@ -35,7 +36,6 @@ function ListBox({
                     return (
                         <li key={index} className='list-box__item'>
                             <Button
-                                isDarkMode={isDarkMode}
                                 href={btnhref}
                                 label={t(`infos.links.items.${item.key}.label`)}
                                 target={item.target}
