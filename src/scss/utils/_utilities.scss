@@ -11,7 +11,7 @@ $font-weights: (
 );
 
 @mixin font($weight: inherit) {
-    font-family: "rounded1c";
+    font-family: "rounded1c", helvetica;
     font-weight: map-get($font-weights, $weight);
 }
 
