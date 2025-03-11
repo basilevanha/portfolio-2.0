@@ -65,7 +65,7 @@ export const en = {
             name: "Basile Vanhaverbeke",
             subtitles: {
                 designer: "UX/UI Designer",
-                martinique: `Currently in Martinique`,
+                martinique: `Coding from anywhere`,
                 available: "Available for a mission",
                 code: "Frontend developer",
                 drone: "Drone pilote",

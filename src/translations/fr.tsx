@@ -65,7 +65,7 @@ export const fr = {
             name: 'Basile Vanhaverbeke',
             subtitles: {
                 designer: "Designer d'interfaces",
-                martinique: `Actuellement en Martinique`,
+                martinique: `Code depuis n'importe où`,
                 available: 'Disponible pour une mission',
                 code: "Développeur frontend",
                 drone: "Pilote de drone",

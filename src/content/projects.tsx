@@ -3,11 +3,13 @@ import { IconName } from '../components/atoms/Icon';
 
 // Bouts de ficelle
 import boutsdeficelleCover from '../assets/projects/bouts-de-ficelle/cover.webp';
+import boutsdeficelleCoverLazy from '../assets/projects/bouts-de-ficelle/cover@lazy.webp';
 import boutsdeficelleNewScrollingVideo from '../assets/projects/bouts-de-ficelle/new-site-scrolling.webm';
-import beforeAfterVideo from '../assets/projects/bouts-de-ficelle/before-after.webm';
-import boutsdeficelleWireframes from '../assets/projects/bouts-de-ficelle/wireframes.jpg';
+import boutsdeficelleBeforeAfterVideo from '../assets/projects/bouts-de-ficelle/before-after.webm';
+import boutsdeficelleWireframes from '../assets/projects/bouts-de-ficelle/wireframes.webp';
+import boutsdeficelleWireframesLazy from '../assets/projects/bouts-de-ficelle/wireframes@lazy.webp';
 import boutsdeficelleFigma from '../assets/projects/bouts-de-ficelle/figma.webp';
-import boutsdeficelleWireframesLazy from '../assets/projects/bouts-de-ficelle/wireframes.jpg';
+import boutsdeficelleFigmaLazy from '../assets/projects/bouts-de-ficelle/figma@lazy.webp';
 
 // Portfolio
 import portfolioCover from '../assets/projects/portfolio/portfolio-cover.webp';
@@ -109,7 +111,7 @@ const projects: projectType[] = [
         key: 'boutsdeficelle',
         coverImg: {
             src: boutsdeficelleCover,
-            lazySrc: boutsdeficelleCover
+            lazySrc: boutsdeficelleCoverLazy
         },
         jobs: ['uxui', 'developer'],
         tools: ['figma', 'wordpress', 'twig' ],
@@ -117,7 +119,7 @@ const projects: projectType[] = [
             {
                 type: 'video',
                 key: 'video',
-                src: beforeAfterVideo
+                src: boutsdeficelleBeforeAfterVideo
             },
             {
                 type: 'text',
@@ -133,12 +135,11 @@ const projects: projectType[] = [
                 type: 'text',
                 key: 'figma'
             },
-
             {
                 type: 'image',
                 key: 'wireframes',
                 src: boutsdeficelleFigma,
-                lazySrc: boutsdeficelleFigma
+                lazySrc: boutsdeficelleFigmaLazy
             },
             {
                 type: 'text',
