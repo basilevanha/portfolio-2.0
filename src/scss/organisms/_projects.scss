@@ -171,13 +171,13 @@
     &__card-wrapper {
         width: 100%;
     }
+}
 
-    &.dark-mode {
-        .projects__title {
-            background-color: $color-dark-mode-primary;
-        }
-        .projects__catalog {
-            background-color: $color-dark-mode-primary;
-        }
+.dark-mode .projects {
+    .projects__title {
+        background-color: $color-dark-mode-primary;
+    }
+    .projects__catalog {
+        background-color: $color-dark-mode-primary;
     }
 }

@@ -196,26 +196,26 @@ $image-overlap-desktop: 40px;
             }
         }
     }
+}
 
-    &.dark-mode {
-        background-color: $color-dark-mode-primary;
-        
+.dark-mode .header {
+    background-color: $color-dark-mode-primary;
+    
+    @include mq('m') {
+        background-color: transparent;
+    }
+
+    .header__content {
         @include mq('m') {
-            background-color: transparent;
+            background-color: $color-dark-mode-primary;
         }
 
-        .header__content {
-            @include mq('m') {
-                background-color: $color-dark-mode-primary;
-            }
-
-            &__profile__icon {
-                background-color: $color-dark-mode-primary;
-                border-color: $color-dark-mode-primary;
-                
-                svg {
-                    fill: $color-dark-mode-secondary;
-                }
+        &__profile__icon {
+            background-color: $color-dark-mode-primary;
+            border-color: $color-dark-mode-primary;
+            
+            svg {
+                fill: $color-dark-mode-secondary;
             }
         }
     }

@@ -11,7 +11,6 @@ import Catalog from '../molecules/Catalog';
 
 // Import content
 import projects from '../../content/projects';
-import { useTheme } from '../../context/ThemeProvider';
 
 export interface projectProps {
     title: string;
@@ -21,7 +20,6 @@ export interface projectProps {
 }
 
 const Header = () => {
-    const {theme} = useTheme();
     const projectsContent = React.useRef<HTMLInputElement>(null);
 
     // const myRefs = useRef<Array<RefObject<HTMLElement>>>([]);
@@ -29,7 +27,7 @@ const Header = () => {
     myRefs.current = projects.map((element, id) => myRefs.current[id] ?? createRef());
 
     return (
-        <div className={cn('projects', { 'dark-mode': theme === 'dark' })}>
+        <div className={cn('projects')}>
             <div className="projects__title">
                 <h2>{t('projectstitle')}</h2>
             </div>

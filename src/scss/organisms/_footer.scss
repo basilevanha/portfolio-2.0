@@ -23,10 +23,10 @@
             height: 32px;
         }
     }
+}
 
-    &.dark-mode {
-        .icon {
-            fill: $color-dark-mode-secondary;
-        }
+.dark-mode .footer {
+    .icon {
+        fill: $color-dark-mode-secondary;
     }
 }

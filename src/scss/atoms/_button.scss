@@ -108,21 +108,21 @@
             margin: 0;
         }
     }
+}
 
-    &.dark-mode {
-        &.button--secondary {
-            color: $color-dark-mode-secondary;
-            fill: $color-dark-mode-secondary;
+.dark-mode .button { 
+    &.button--secondary {
+        color: $color-dark-mode-secondary;
+        fill: $color-dark-mode-secondary;
 
-            &:hover {
-                background-color: $color-dark-mode-bg;
-                border-color: $color-dark-mode-bg;
-            }
-    
-            &:active {
-                background-color: #121212;
-                border-color: #121212;
-            }
+        &:hover {
+            background-color: $color-dark-mode-bg;
+            border-color: $color-dark-mode-bg;
+        }
+
+        &:active {
+            background-color: #121212;
+            border-color: #121212;
         }
     }
 }

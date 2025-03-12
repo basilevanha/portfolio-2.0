@@ -1,6 +1,5 @@
 import cn from "classnames";
 import Icon, { IconName } from "./Icon";
-import { useTheme } from "../../context/ThemeProvider";
 
 
 export interface ButtonProps {
@@ -29,14 +28,11 @@ function Button({
 
 }: ButtonProps) {
 
-    const {theme} =useTheme();
-
     const classNames = cn(
         'button', className, {
         'button--primary': appearance == 'primary',
         'button--secondary': appearance == 'secondary',
         'button--only-icon': appearance == 'only-icon',
-        'dark-mode': theme === 'dark',
     });
 
     // const setScroll = (e: FocusEvent<HTMLButtonElement, Element> | FocusEvent<HTMLAnchorElement, Element>) => {

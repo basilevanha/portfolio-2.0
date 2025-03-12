@@ -57,20 +57,20 @@
         border-radius: 10px 0 0 10px;
         transition: $animation-translations-short;
     }
-    
-    &.dark-mode {
-        .icon-sun {
-            fill: $color-dark-mode-primary;
-        }
+}
 
-        .icon-moon {
-            fill: $color-dark-mode-tertiary;
-        }
+.dark-mode .dark-mode-toggle {
+    .icon-sun {
+        fill: $color-dark-mode-primary;
+    }
 
-        &::before {
-            margin-right: 0;
-            margin-left: 50%;
-            border-radius: 0 10px 10px 0;
-        }
+    .icon-moon {
+        fill: $color-dark-mode-tertiary;
+    }
+
+    &::before {
+        margin-right: 0;
+        margin-left: 50%;
+        border-radius: 0 10px 10px 0;
     }
 }

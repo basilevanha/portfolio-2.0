@@ -6,17 +6,15 @@ import { useTheme } from '../../context/ThemeProvider';
 function DarkModeToggle() {
     
     const {theme, toggleTheme} = useTheme();
-
-    const isDarkMode = theme === 'dark';
     const { t } = useTranslation();
     const ariaLabel = t('darkModeToggle');
 
     return (
         <button
-            className={cn('dark-mode-toggle', { "dark-mode": isDarkMode })}
+            className={cn('dark-mode-toggle')}
             onClick={toggleTheme}
             aria-label={ariaLabel}
-            aria-pressed={isDarkMode}
+            aria-pressed={theme === 'dark'}
             tabIndex={1}
             id="dark-mode-toggle"
         >

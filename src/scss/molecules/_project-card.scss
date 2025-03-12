@@ -189,14 +189,14 @@ $catalog-height-mobile: 70px;
             }
         }
     }
+}
 
-    &.dark-mode {
-        .project-card__wrapper {
-            background-color: $color-dark-mode-primary;
-        }
+.dark-mode .project-card {
+    .project-card__wrapper {
+        background-color: $color-dark-mode-primary;
+    }
 
-        .project-card__content .project-infos__tools .icon {
-            fill: $color-dark-mode-secondary;
-        }
+    .project-card__content .project-infos__tools .icon {
+        fill: $color-dark-mode-secondary;
     }
 }

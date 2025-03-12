@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 // Import utils
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { projectType } from '../../content/projects';
-import { useTheme } from '../../context/ThemeProvider';
 
 // Import Components
 import Image from '../atoms/Image';
@@ -25,8 +24,6 @@ const ProjectCard = ({
     index,
     project,
 }: ProjectCardProps) => {
-
-    const {theme} = useTheme();
 
     const projectCard = React.useRef<HTMLInputElement>(null);
     const stickyLoader = React.useRef<HTMLInputElement>(null);
@@ -106,7 +103,7 @@ const ProjectCard = ({
             style={{ scale: scaleIn, width: '100%' }}
         >
             <motion.div
-                className={cn('project-card', classNames, { 'dark-mode': theme === 'dark' })}
+                className={cn('project-card', classNames)}
                 ref={projectCard}
                 style={{ scale: scaleOut }}
             >

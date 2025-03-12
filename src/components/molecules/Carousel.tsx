@@ -8,7 +8,6 @@ import { t } from 'i18next'
 import { subTitlesType } from '../../content/subTitles';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { useTheme } from '../../context/ThemeProvider';
 
 function Carousel({
     className,
@@ -27,8 +26,7 @@ function Carousel({
     setIsAnimationPaused: (value: boolean) => void,
     cycleSubtitles: (value: boolean) => void
 }) {
-    
-    const {theme} = useTheme();
+
     const [areButtonDisabled, setAreButtonDisabled] = useState(false);
 
     useEffect(() => {
@@ -62,7 +60,7 @@ function Carousel({
 
 
     return (
-        <div className={cn('carousel', className, { 'dark-mode': theme === 'dark' })} tabIndex={-1}>
+        <div className={cn('carousel', className)} tabIndex={-1}>
 
             {subTitles.map((subTitle, index) => {
                 const isInView = index === currentIndex;

@@ -6,11 +6,6 @@ body {
   background-color: $color-light-mode-bg;
   color: $color-light-mode-secondary;
   transition: $animation-colors-short;
-
-  &.dark-mode {
-    background-color: $color-dark-mode-bg;
-    color: $color-dark-mode-secondary;
-  }
 }
 
 button {
@@ -34,4 +29,9 @@ cursor: pointer;
  @include mq(l) {
     max-width: 1440px;
   }
+}
+
+body.dark-mode {
+  background-color: $color-dark-mode-bg;
+  color: $color-dark-mode-secondary;
 }

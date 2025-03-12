@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 
-// import contexts
-import { useTheme } from "../../context/ThemeProvider";
-
 // Import utils
 import { AnimatePresence, motion } from "framer-motion";
 import { t } from "i18next";
@@ -28,7 +25,6 @@ function Header({
 }: {
     toggleLanguage: () => void,
 }) {
-    const { theme } = useTheme();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isDirectionForward, setIsDirectionForwards] = useState(true);
     const [isAnimationPaused, setIsAnimationPaused] = useState(false);
@@ -68,9 +64,7 @@ function Header({
     }
 
     return (
-        <header
-            className={cn('header', { 'dark-mode': theme === 'dark' })}
-        >
+        <header className={cn('header')}>
             <div className="header__cover">
                 <Carousel
                     className="header__cover__carousel"

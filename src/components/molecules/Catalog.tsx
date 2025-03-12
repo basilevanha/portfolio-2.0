@@ -9,7 +9,6 @@ import Image from '../atoms/Image';
 
 // Import content
 import projects from '../../content/projects';
-import { useTheme } from '../../context/ThemeProvider';
 
 function Catalog({
     contentRef,
@@ -18,8 +17,6 @@ function Catalog({
     contentRef: RefObject<HTMLElement>;
     projectsRefs: React.MutableRefObject<RefObject<HTMLElement>[]>
 }) {
-
-    const {theme} = useTheme();
 
     const catalog = React.useRef<HTMLInputElement>(null);
 
@@ -49,7 +46,7 @@ function Catalog({
     }
 
     return (
-        <div ref={catalog} className={cn('projects__catalog', { 'dark-mode': theme === 'dark' })}>
+        <div ref={catalog} className={cn('projects__catalog')}>
             {projects.map((project, id: number) => {
                 const targetProject = projectsRefs.current[id];
 

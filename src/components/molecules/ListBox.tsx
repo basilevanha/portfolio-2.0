@@ -4,7 +4,6 @@ import { BoxType } from '../../content/infos';
 import { t } from 'i18next';
 
 import Button from '../atoms/Button';
-import { useTheme } from '../../context/ThemeProvider';
 
 function ListBox({
     classNames,
@@ -14,12 +13,8 @@ function ListBox({
     content: BoxType
 }) {
 
-    const {theme} = useTheme();
-
     return (
-        <div className={cn('list-box', classNames, {
-            "dark-mode": theme === 'dark'
-        })}>
+        <div className={cn('list-box', classNames)}>
             <h2 className='list-box__title'>{content.type === 'btns' ? t(`infos.links.title`) : t(`infos.${content.key}.title`)}</h2>
             <ul className='list-box__list'>
                 {content.type == 'list' && content.items.map((item, index) => (
