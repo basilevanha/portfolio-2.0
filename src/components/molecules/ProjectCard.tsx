@@ -26,40 +26,20 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
 
     const projectCard = React.useRef<HTMLInputElement>(null);
-    const stickyLoader = React.useRef<HTMLInputElement>(null);
     const cardWrapper = React.useRef<HTMLInputElement>(null);
     const cardContent = React.useRef<HTMLInputElement>(null);
 
-    const [contentHeight, setContentHeight] = useState(0);
-    const [wrapperHeight, setWrapperHeight] = useState(0);
-    const [stickyLoaderHeight, setStickyLoaderHeight] = useState(0);
-
-    useEffect(() => {
-        stickyLoader.current && setStickyLoaderHeight(stickyLoader.current?.offsetHeight)
-    }, [contentHeight]);
-
     const isInView = useInView(projectCard, { once: true });
 
-    useEffect(() => {
-        setTimeout(() => {
-            if (cardContent.current) {
-                setContentHeight(cardContent.current?.offsetHeight);
-            }
-            if (cardWrapper.current) {
-                setWrapperHeight(cardWrapper.current?.offsetHeight);
-            }
-        }, 0)
-    });
-
     const scaleInProgress = useScroll({
-        target: stickyLoader,
+        target: cardWrapper,
         offset: ['start end', 'start start']
     }).scrollYProgress;
 
     const scaleIn = index > 0 ? useTransform(
         scaleInProgress,
-        [0, 1],
-        [.7, 1]
+        [0, .87, 1],
+        [.7, 1, 1]
     ) : 1;
 
     const borderRadius = index > 0 ? useTransform(
@@ -67,31 +47,6 @@ const ProjectCard = ({
         [.7, 1],
         ['10px 10px 10px 10px', '0px 0px 10px 10px']
     ) : '0px 0px 10px 10px';
-
-    const scaleOutProgress = useScroll({
-        target: stickyLoader,
-        offset: ['end end', 'end start']
-    }).scrollYProgress;
-
-    const scaleOut = useTransform(
-        scaleOutProgress,
-        [0, 1],
-        [1, .8]
-    )
-
-    // 200vh + wrapper height + content = 1 ratio
-    const stickyLoaderStyleHeight = `calc(${wrapperHeight}px + ${contentHeight}px + ${wrapperHeight}px)`;
-
-    const stickyLoaderProgress = useScroll({
-        target: stickyLoader,
-        offset: ['start start', 'end end']
-    }).scrollYProgress;
-
-    const negativeMargin = useTransform(
-        stickyLoaderProgress,
-        [0, 1],
-        [0, -contentHeight]
-    );
 
     const projectKey = 'projects.' + project.key;
 
@@ -105,7 +60,6 @@ const ProjectCard = ({
             <motion.div
                 className={cn('project-card', classNames)}
                 ref={projectCard}
-                style={{ scale: scaleOut }}
             >
                 <motion.div
                     className="project-card__wrapper"
@@ -114,7 +68,6 @@ const ProjectCard = ({
                 >
                     <motion.div
                         className='project-card__img-wrapper'
-                        style={{ marginTop: negativeMargin }}
                     >
                         <Image
                             className='project-card__img'
@@ -209,8 +162,6 @@ const ProjectCard = ({
                     </motion.div>
 
                 </motion.div>
-
-                <motion.span className='sticky-loader' ref={stickyLoader} style={{ height: stickyLoaderStyleHeight }}></motion.span>
             </motion.div>
         </motion.div>
     )

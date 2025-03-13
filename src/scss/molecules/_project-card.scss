@@ -4,32 +4,13 @@ $catalog-height-mobile: 70px;
 .project-card {
     width: 100%;
     display: flex;
-
-    // .sticky-loader {
-    //     width: 20px;
-    //     background: rgb(2,0,36);
-    //     background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-    // }
     
     &__wrapper {
-        position: sticky;
         padding: 30px;
-        top: $catalog-height-mobile;
-        height: calc(100vh - $catalog-height-mobile - $site-gutter-mobile);
         width: 100%;
-        overflow: hidden;
         border-radius: 10px;
         background-color: $color-light-mode-primary;
         transition: border-radius $timing-short ease-in-out;
-
-        @include mq('m') {
-            top: $catalog-height-desktop;
-            height: calc(100vh - $catalog-height-desktop - $site-gutter-desktop);
-        }
-
-        &.is-sticky {
-            border-radius: 0 0 10px 10px;
-        }
     }
 
     &__img-wrapper {
@@ -45,7 +26,6 @@ $catalog-height-mobile: 70px;
 
     &__content {
         padding: $site-gutter-mobile;
-        min-height: 100%;
 
         
         @include mq('m') {
@@ -58,7 +38,7 @@ $catalog-height-mobile: 70px;
             @include mq('m') {
                 position: sticky;
                 height: 100%;
-                top: 0;
+                top: $catalog-height-desktop;
                 flex-shrink: 0;
                 margin-right: 40px;
             }
