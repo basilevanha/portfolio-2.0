@@ -54,8 +54,6 @@ function App() {
         <div className="wrapper">
           <Header toggleLanguage={toggleLanguage} />
 
-          <p>Thème actuel : {theme}</p>
-
           <Infos />
 
           <Projects />
