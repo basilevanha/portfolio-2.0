@@ -22,7 +22,7 @@ export const en = {
 
         mailto: {
             subject: "✨ What is it about ? ✨",
-            body: "Is it an exciting proposal about a wonderful project we could collaborate on? 🤝 \n \n Tell me more and let's have a coffee together ☕️",
+            body: "Tell me everything, I will contact you soon 😉",
         },
 
         icon: {
