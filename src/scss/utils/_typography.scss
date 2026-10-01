@@ -1,3 +1,5 @@
+@use './mixins' as *;
+
 h1 {
     @include font(extra-bold);
     font-size: 26px;

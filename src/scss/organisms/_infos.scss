@@ -1,3 +1,6 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
 .infos {
     margin-top: 2px;
     gap: 2px;

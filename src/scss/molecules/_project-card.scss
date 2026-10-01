@@ -1,5 +1,6 @@
-$catalog-height-desktop: 150px;
-$catalog-height-mobile: 70px;
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
 
 .project-card {
     width: 100%;

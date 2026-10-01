@@ -1,0 +1,36 @@
+@use "sass:map";
+
+// Map fonts
+// -----------------------------------------------------------------------------
+$font-weights: (
+  thin : 200,
+  light : 300,
+  regular : 400,
+  medium : 600,
+  bold : 700,
+  extra-bold : 800,
+  black : 900,
+);
+
+@mixin font($weight: inherit) {
+    font-family: "rounded1c", helvetica;
+    font-weight: map.get($font-weights, $weight);
+}
+
+
+
+// Breakpointss
+// -----------------------------------------------------------------------------
+$mq-breakpoints: (
+  xxs : 320px,
+  xs : 450px,
+  s : 600px,
+  m : 768px,
+  l : 980px,
+  xl : 1200px,
+  xxl : 1440px,
+);
+
+@mixin mq($breakpoint: inherit) {
+    @media (min-width: map.get($mq-breakpoints, $breakpoint)) { @content; }
+}

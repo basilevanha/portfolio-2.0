@@ -63,5 +63,10 @@
     "flubber": "^0.4.2",
     "svg-sprite-generator": "^0.0.7"
   },
-  "packageManager": "pnpm@10.13.1"
+  "packageManager": "pnpm@10.13.1",
+  "pnpm": {
+    "overrides": {
+      "sass-loader": "^16.0.5"
+    }
+  }
 }

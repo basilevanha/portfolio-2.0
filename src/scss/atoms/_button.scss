@@ -1,3 +1,6 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
 .button {
     @include font('extra-bold');
     display: inline-flex;

@@ -1,3 +1,6 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
 .list-box {
     flex: 1;
     padding: $site-gutter-mobile;

@@ -1,3 +1,6 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
 .language-toggle {
     // width: 80px;
     display: flex;

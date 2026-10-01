@@ -1,3 +1,6 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
 $profile-picture-width-smartphone: 170px;
 $profile-picture-width-tablet: 200px;
 $profile-picture-width-desktop: 230px;

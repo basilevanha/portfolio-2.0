@@ -1,3 +1,5 @@
+@use '../utils/variables' as *;
+
 .icon {
     transition: fill $timing-short ease-in-out;
 }

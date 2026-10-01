@@ -1,33 +1,32 @@
 // Utils
 // -----------------------------------------------------------------------------
-@import 'utils/font-face';
-@import 'utils/variables';
-@import 'utils/utilities';
-@import 'utils/reset';
-@import 'utils/typography';
-@import 'utils/base';
+@use 'utils/font-face';
+@use 'utils/utilities';
+@use 'utils/reset';
+@use 'utils/typography';
+@use 'utils/base';
 
 // Atoms
 // -----------------------------------------------------------------------------
-@import './atoms/button';
-@import './atoms/image';
-@import './atoms/icon';
-@import './atoms/video';
+@use 'atoms/button';
+@use 'atoms/image';
+@use 'atoms/icon';
+@use 'atoms/video';
 
 
 
 // Molecules
 // -----------------------------------------------------------------------------
-@import './molecules/dark-mode-toggle';
-@import './molecules/language-toggle';
-@import './molecules/project-card';
-@import './molecules/list-box';
+@use 'molecules/dark-mode-toggle';
+@use 'molecules/language-toggle';
+@use 'molecules/project-card';
+@use 'molecules/list-box';
 
 
 
 // Organisms
 // -----------------------------------------------------------------------------
-@import './organisms/header';
-@import './organisms/projects';
-@import './organisms/infos';
-@import './organisms/footer';
+@use 'organisms/header';
+@use 'organisms/projects';
+@use 'organisms/infos';
+@use 'organisms/footer';
