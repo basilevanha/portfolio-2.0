@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 // Import utils
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';

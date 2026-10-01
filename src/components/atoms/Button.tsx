@@ -4,7 +4,7 @@ import Icon, { IconName } from "./Icon";
 
 export interface ButtonProps {
     className?: string,
-    onClick?: (e: any) => void,
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void,
     href?: string,
     icon?: IconName,
     label: string,

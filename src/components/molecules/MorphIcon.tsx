@@ -13,11 +13,11 @@ export interface PathsObjectType {
 interface configType {
     [key: string]: {
         d: string,
-        transition: ({ from, to }: { from: any; to: any; }) => Action<ColdSubscription>;
+        transition: ({ from, to }: { from: string; to: string; }) => Action<ColdSubscription>;
     };
 }
 
-const morphTransition = ({ from, to }: { from: any, to: any }) =>
+const morphTransition = ({ from, to }: { from: string, to: string }) =>
     tween({
         from: 0,
         to: 1,
