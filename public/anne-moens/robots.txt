@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anne-moens.com/sitemap-index.xml
