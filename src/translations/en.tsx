@@ -1,16 +1,16 @@
 import cv from '../assets/pdf/resume.pdf';
 
 // Trek-in
-import trekinSpecification from '../assets/projects/trekin/trek-in-cahier-des-charges.pdf';
+const trekinSpecification = 'https://drive.google.com/file/d/1161_ZJ7K2n87pXG3--EBc-vWsjlzP-12/view';
 
 // Emakina
-import emakinaReport from '../assets/projects/emakina/emakina-rapport-de-production-web.pdf';
+const emakinaReport = 'https://drive.google.com/file/d/1I-8DCKtxdF1xnOReFfOxcIWvH3_lXBSx/view';
 
 // Scoutapp
-import scoutappSpecification from '../assets/projects/scoutapp/scoutapp-graduation-work.pdf';
+const scoutappSpecification = 'https://drive.google.com/file/d/1CsD8fRasNmvw93AkX_q-d7OsNLRVrYFM/view';
 
 // Betacowork
-import betacoworkSpecification from '../assets/projects/betacowork/betacowork-rapport-de-stage.pdf';
+const betacoworkSpecification = 'https://drive.google.com/file/d/1qQI29KrlnAa9Of9CIGsvzFCPLUCJmk8S/view';
 
 export const en = {
     translation: {
@@ -168,12 +168,6 @@ export const en = {
                         name: 'Old portfolio',
                         description: 'Old portfolio being scrolled in loop.'
                     }
-                },
-                ressources: {
-                    website: {
-                        label: "See website",
-                        href: '/portfolio-old'
-                    },
                 },
             },
             emakina: {

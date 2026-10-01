@@ -5,19 +5,21 @@ $profile-picture-width-desktop: 230px;
 $image-overlap-mobile: 60px;
 $image-overlap-desktop: 40px;
 
-
 .header {
     display: flex;
     flex-direction: column;
-    transition: background-color $timing-short ease-in-out, margin $timing-short ease-in-out, border-radius $timing-short ease-in-out;
+    transition:
+        background-color $timing-short ease-in-out,
+        margin $timing-short ease-in-out,
+        border-radius $timing-short ease-in-out;
     background-color: $color-light-mode-primary;
     overflow: hidden;
-    
-    @include mq('m') {
+
+    @include mq("m") {
         border-radius: 10px;
         margin: $site-gutter-desktop;
     }
-    
+
     &__cover {
         position: relative;
         width: 100%;
@@ -25,30 +27,30 @@ $image-overlap-desktop: 40px;
         display: flex;
         justify-content: space-between;
         padding: $spacing-lg;
-        
-        @include mq('m') {
+
+        @include mq("m") {
             height: 350px;
         }
-        
+
         &__darkmode-toggle,
         &__language-toggle {
             z-index: 2;
         }
-        
+
         &__carousel {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             overflow: hidden;
-            
+
             &__motion {
                 position: absolute;
                 inset: 0;
                 width: 100%;
                 height: 100%;
             }
-            
+
             .image {
                 position: absolute;
                 inset: 0;
@@ -56,53 +58,52 @@ $image-overlap-desktop: 40px;
                 height: 100%;
             }
         }
-        
+
         &__btns {
             z-index: 3;
             position: absolute;
             bottom: $spacing-lg;
             right: $spacing-lg;
             display: flex;
-            transition: bottom .3s ease-in-out;
-            
+            transition: bottom 0.3s ease-in-out;
+
             button {
                 width: 40px;
                 margin-left: 3px;
             }
         }
     }
-    
+
     &__content {
         padding: 0 $site-gutter-mobile $site-gutter-mobile;
         transition:
             background-color $timing-short ease-in-out,
             $animation-translations-short,
-            margin $timing-short ease-in-out
-            ;
+            margin $timing-short ease-in-out;
         z-index: 2;
-        
-        @include mq('m') {
+
+        @include mq("m") {
             position: relative;
             display: flex;
         }
-        
+
         &__profile {
             position: relative;
             margin-top: -$image-overlap-mobile;
             width: $profile-picture-width-smartphone;
             height: min-content;
-            
-            @include mq('m') {
+
+            @include mq("m") {
                 width: $profile-picture-width-tablet;
             }
-            
+
             .image {
                 width: 100%;
                 border-radius: 50%;
                 overflow: hidden;
                 transition: $animation-size-short;
             }
-            
+
             &__icon {
                 position: absolute;
                 right: 0;
@@ -112,7 +113,7 @@ $image-overlap-desktop: 40px;
                 border: solid 4px $color-light-mode-primary;
                 border-radius: 50%;
                 transition: $animation-colors-short;
-                
+
                 svg {
                     width: 50px;
                     height: 50px;
@@ -120,7 +121,7 @@ $image-overlap-desktop: 40px;
                 }
             }
         }
-        
+
         &__text {
             display: flex;
             flex-direction: column;
@@ -129,18 +130,18 @@ $image-overlap-desktop: 40px;
             text-align: left;
             flex: 1;
             background-color: transparent;
-            
-            @include mq('m') {
+
+            @include mq("m") {
                 padding: $spacing-lg $site-gutter-desktop 0;
             }
 
             &__name {
-                @include font(extrabold);
+                @include font(extra-bold);
                 font-size: 40px;
                 line-height: 1.1;
                 margin-top: $spacing-md;
-                
-                @include mq('m') {
+
+                @include mq("m") {
                     order: -1;
                     margin-top: 0;
                 }
@@ -152,7 +153,7 @@ $image-overlap-desktop: 40px;
                 margin-left: -$site-gutter-mobile;
                 padding: 0 $site-gutter-mobile;
                 display: flex;
-                align-items:flex-start;
+                align-items: flex-start;
                 @include font(medium);
                 font-size: 5vw;
                 text-transform: uppercase;
@@ -160,15 +161,15 @@ $image-overlap-desktop: 40px;
                 line-height: 1.2;
                 overflow: hidden;
                 white-space: nowrap;
-                
-                @include mq('xs') {
+
+                @include mq("xs") {
                     font-size: 20px;
                 }
 
-                @include mq('m') {
+                @include mq("m") {
                     margin-top: $spacing-md;
                 }
-                
+
                 &__animate {
                     position: relative;
                     height: 23px;
@@ -187,7 +188,7 @@ $image-overlap-desktop: 40px;
             &__contact {
                 display: flex;
                 margin-top: $spacing-md;
-                
+
                 p {
                     @include font(regular);
                     font-size: 30px;
@@ -200,20 +201,20 @@ $image-overlap-desktop: 40px;
 
 .dark-mode .header {
     background-color: $color-dark-mode-primary;
-    
-    @include mq('m') {
+
+    @include mq("m") {
         background-color: transparent;
     }
 
     .header__content {
-        @include mq('m') {
+        @include mq("m") {
             background-color: $color-dark-mode-primary;
         }
 
         &__profile__icon {
             background-color: $color-dark-mode-primary;
             border-color: $color-dark-mode-primary;
-            
+
             svg {
                 fill: $color-dark-mode-secondary;
             }

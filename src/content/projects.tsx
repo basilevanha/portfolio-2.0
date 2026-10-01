@@ -247,13 +247,6 @@ const projects: projectType[] = [
                 src: oldPortfolioVideo
             },
         ],
-        ressources: [
-            {
-                key: 'website',
-                icon: 'external-link',
-                target: '_blank'
-            }
-        ]
     },
     {
         key: 'emakina',
